@@ -6,6 +6,6 @@
 - Paper in Current Topics in Economics (in German):
  	- Orig. Title: Verteilungswirkungen der CO2-Bepreisung
 	- Engl. Title: Distributional Effects of C02-Pricing  
-- Paper in Data Analysis in R (in German): Distributional effects of CO2 pricing
+- Paper in Data Analysis in R (in German):
   	- Orig. Title: ''High Risk, High Reward? Der Einfluss Individueller Risikoneigung auf den Erfolg von Personal Initiative Trainings in Entwicklungsländern - Eine empirische Analyse am Beispiel Togos''
 	- Engl. Title: ''High Risk, High Reward? The Influence of Individual Risk Propensity on the Success of Personal Initiative Training in Developing Countries - an Empirical Analysis on the Basis of Togo''
