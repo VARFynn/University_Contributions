@@ -1,0 +1,262 @@
+---
+title: "Advanced Macroeconometrics - Assignment 3"
+author: "Group 7"
+date: "2023-05-17"
+output:
+  word_document: default
+  pdf_document: default
+latex_engine: LuaLaTeX
+---
+
+```{r, Setup, include = F}
+## Libraries
+library(ggplot2)
+library(ggExtra)
+library(rstan)
+library(brms)
+library(bayesforecast)
+library(rstanarm)
+library(RColorBrewer)
+cols <- brewer.pal(5, "Dark2")
+```
+# Exercise 1
+## Question 1.1
+*Reproduce the main result, given in Table 1, Column 5 (they use HC1 standard errors), of Nunn and Puga (2012) by fitting a model with the following (interacted) variables:*
+
+$$log rgdppc2000 ≈ (rugged + dist-coast) × africa$$
+
+```{r, include = F}
+rm(list = ls())
+setwd("~/Documents/R/ECON Master WU/Advanced Macroeconometrics/Assignment 3")
+data <- read.csv("rugged_data.csv")
+rugged_data <- data[,c('country','rgdppc_2000','rugged','soil','cont_africa','tropical','dist_coast','gemstones','pop_1400')]
+
+mod1 <- brm(log(rgdppc_2000)~rugged*cont_africa + dist_coast*cont_africa,data = rugged_data,
+                prior = c(prior(normal(0, 1), class = b),  prior(inv_gamma(2, 1), class = sigma)),
+                save_pars = save_pars(all = TRUE),
+                sample_prior="yes")
+```
+
+```{r, echo=FALSE, warning=FALSE}
+sum_mod1 <- summary(mod1)$fixed[,1:4]
+sum_mod1
+```
+
+## Question 1.2
+*Plot posterior samples of the ruggedness effect in Africa against the effect in the rest of the world in a scatter plot. What can you say about the effect?*
+```{r, echo=FALSE, warning=FALSE}
+set.seed(1234)
+sample <- posterior_samples(mod1, pars="rugged")
+sample <- data.frame(EffectROW = sample$b_rugged, 
+                     EffectAfrica = sample$b_rugged+sample$`b_rugged:cont_africa`)
+
+p <- ggplot(sample, aes(y=EffectROW, x=EffectAfrica)) +
+  geom_point(color="lightblue")+
+  xlim(-0.4,0.4)+
+  ylim(-0.4,0.4)
+p2 <- ggMarginal(p, type="density")
+p2
+```
+
+From the plot above we can see that the effect in Africa overall tends to be positive, whereas the effect in the rest of the world is largely negative. 
+
+## Question 1.3
+*Estimate three additional models — one without the distance to coast, one that uses population in 1400 (use log 1 + pop) instead, and one with both controls.*
+
+```{r, include=FALSE}
+mod2 <- brm(log(rgdppc_2000)~rugged*cont_africa,data = rugged_data,
+                prior = c(prior(normal(0, 1), class = b),
+                      prior(inv_gamma(2, 1), class = sigma)),
+                save_pars = save_pars(all = TRUE),
+                sample_prior="yes")
+mod3 <- brm(log(rgdppc_2000)~(rugged+log(1+pop_1400))*cont_africa,data = rugged_data,
+                prior = c(prior(normal(0, 1), class = b),
+                      prior(inv_gamma(2, 1), class = sigma)),
+                save_pars = save_pars(all = TRUE),
+                sample_prior="yes")
+mod4 <- brm(log(rgdppc_2000)~(rugged+log(1+pop_1400)+dist_coast)*cont_africa,data = rugged_data,
+                prior = c(prior(normal(0, 1), class = b),
+                      prior(inv_gamma(2, 1), class = sigma)),
+                save_pars = save_pars(all = TRUE),
+                sample_prior="yes")
+```
+
+```{r, echo=FALSE}
+sum_mod2 <- summary(mod2)$fixed[,1:4]
+sum_mod2
+sum_mod3 <- summary(mod3)$fixed[,1:4]
+sum_mod3
+sum_mod4 <- summary(mod4)$fixed[,1:4]
+sum_mod4
+```
+
+## Question 1.4
+*Discuss (conceptually different) approaches to selecting one of these models for inference. Hint: Consider the difference between causal inference and other inference tasks.*
+
+```{r, include=FALSE}
+## marginal likelihoods
+ml_mod2 <- bridge_sampler(mod2)
+ml_mod3 <- bridge_sampler(mod3)
+ml_mod4 <- bridge_sampler(mod4)
+
+## WAIC 
+waic_mod2 <- waic(mod2)
+waic_mod3 <- waic(mod3)
+waic_mod4 <- waic(mod4)
+
+## Loo 
+loo_mod2 <- loo(mod2)
+loo_mod3 <- loo(mod3)
+loo_mod4 <- loo(mod4)
+```
+
+```{r, echo=FALSE, warning=FALSE}
+model_comparison <- data.frame(Model = c("Model 2","Model 3", "Model 4"),
+                               Marginal_Likelihood = c(ml_mod2$logml,ml_mod3$logml, ml_mod4$logml), 
+                               WAIC = c(waic_mod2$waic,waic_mod3$waic, waic_mod4$waic), 
+                               LOO = c(loo_mod2$looic, loo_mod3$looic, loo_mod4$looic))
+model_comparison
+```
+To select one of the models for inference, you can compare the marginal likelihoods of each model (higher values indicate better model fit). Moreover the Widely Applicable Information Criterion (WAIC) and  the leave-one-out cross validation can be used. LOO is a measure of the model's predictive accuracy. The loo function approximates the leave-one-out predictive density by using the samples from the posterior distribution obtained through Markov chain Monte Carlo (MCMC) methods. It computes the log point wise
+predictive density for each observation in the data set. The log pointwise predictive density represents the expected log-likelihood of the observation given the rest of the data. For loo and waic - lower values indicate better out-of-sample predictive performance. 
+
+According to the marginal likelihood, we would choose model 4. According to WAIC and LOO, we would also choose model 4, which is the model containing all covariates.   
+
+## Question 1.5
+*Investigate the sensitivity of the estimates of your model of choice to different prior parameters.*
+
+In accordance to the question before, we will proceed with model 4 as our chosen model. To check the sensitivity of our estimates to different prior parameters, we will start by changing the priors for the beta-coefficients. 
+```{r, include=FALSE}
+chosenModel_Prior1 <- brm(log(rgdppc_2000)~(rugged+log(1+pop_1400)+dist_coast)*cont_africa,data = rugged_data,
+                prior = c(prior(normal(0, 1), class = b),
+                      prior(inv_gamma(2, 1), class = sigma)),
+                save_pars = save_pars(all = TRUE),
+                sample_prior="yes")
+chosenModel_Prior2 <- brm(log(rgdppc_2000)~(rugged+log(1+pop_1400)+dist_coast)*cont_africa,data = rugged_data,
+                prior = c(prior(normal(0, 10), class = b),
+                      prior(inv_gamma(2, 1), class = sigma)),
+                save_pars = save_pars(all = TRUE),
+                sample_prior="yes")
+chosenModel_Prior3 <- brm(log(rgdppc_2000)~(rugged+log(1+pop_1400)+dist_coast)*cont_africa,data = rugged_data,
+                prior = c(prior(normal(20, 10), class = b),
+                      prior(inv_gamma(2, 1), class = sigma)),
+                save_pars = save_pars(all = TRUE),
+                sample_prior="yes")
+chosenModel_Prior4 <- brm(log(rgdppc_2000)~(rugged+log(1+pop_1400)+dist_coast)*cont_africa,data = rugged_data,
+                prior = c(prior(normal(-10, 4), class = b),
+                      prior(inv_gamma(2, 1), class = sigma)),
+                save_pars = save_pars(all = TRUE),
+                sample_prior="yes")
+```
+
+```{r, echo=FALSE}
+outputtable <- data.frame(PriorAndCoefficient = c("Prior for Coefficients", rownames(summary(chosenModel_Prior1)$fixed)),
+                          Model4.1 = c("Normal (0, 1)", round(summary(chosenModel_Prior1)$fixed[,"Estimate"],3)),
+                          Model4.2 = c("Normal (0,10)", round(summary(chosenModel_Prior2)$fixed[,"Estimate"],3)),
+                          Model4.3 = c("Normal (20, 10)", round(summary(chosenModel_Prior3)$fixed[,"Estimate"],3)),
+                          Model4.4 = c("Normal (-10,4)", round(summary(chosenModel_Prior4)$fixed[,"Estimate"],3)))
+outputtable
+```
+
+EXPLANATION!
+
+Now we perform a similar comparison by changing the prior parameters of the inverse gamma distribution.
+
+```{r, include=FALSE}
+chosenModel_Prior1 <- brm(log(rgdppc_2000)~(rugged+log(1+pop_1400)+dist_coast)*cont_africa,data = rugged_data,
+                prior = c(prior(normal(0, 1), class = b),
+                      prior(inv_gamma(2, 1), class = sigma)),
+                save_pars = save_pars(all = TRUE),
+                sample_prior="yes")
+chosenModel_Prior2 <- brm(log(rgdppc_2000)~(rugged+log(1+pop_1400)+dist_coast)*cont_africa,data = rugged_data,
+                prior = c(prior(normal(0, 1), class = b),
+                      prior(inv_gamma(1, 1), class = sigma)),
+                save_pars = save_pars(all = TRUE),
+                sample_prior="yes")
+chosenModel_Prior3 <- brm(log(rgdppc_2000)~(rugged+log(1+pop_1400)+dist_coast)*cont_africa,data = rugged_data,
+                prior = c(prior(normal(0, 1), class = b),
+                      prior(inv_gamma(0.5, 0.5), class = sigma)),
+                save_pars = save_pars(all = TRUE),
+                sample_prior="yes")
+chosenModel_Prior4 <- brm(log(rgdppc_2000)~(rugged+log(1+pop_1400)+dist_coast)*cont_africa,data = rugged_data,
+                prior = c(prior(normal(0, 1), class = b),
+                      prior(inv_gamma(20, 10), class = sigma)),
+                save_pars = save_pars(all = TRUE),
+                sample_prior="yes")
+```
+
+```{r, echo=FALSE}
+outputtable <- data.frame(PriorAndCoefficient = c("Prior for Coefficients", rownames(summary(chosenModel_Prior1)$fixed)),
+                          Model4.5 = c("IG (2, 1)", round(summary(chosenModel_Prior1)$fixed[,"Estimate"],3)),
+                          Model4.6 = c("IG (1,1)", round(summary(chosenModel_Prior2)$fixed[,"Estimate"],3)),
+                          Model4.7 = c("IG (0.5, 0.5)", round(summary(chosenModel_Prior3)$fixed[,"Estimate"],3)),
+                          Model4.8 = c("IG (20,10)", round(summary(chosenModel_Prior4)$fixed[,"Estimate"],3)))
+outputtable
+```
+
+EXPLANATION
+
+## Question 1.6
+*Compare the ML using different prior parameters, including prior variances: $\Sigma_0 = v_p I$ with $v_p \in {0.0001, 0.01, 1, 100}$.*
+```{r, include=FALSE}
+mod4_sigma1 <- brm(log(rgdppc_2000)~(rugged+log(1+pop_1400)+dist_coast)*cont_africa,data = rugged_data,
+                prior = c(prior(normal(0, sqrt(0.0001)), class = b),
+                          prior(inv_gamma(2, 1), class = sigma)),
+                save_pars = save_pars(all = TRUE),
+                sample_prior="yes")
+mod4_sigma2 <- brm(log(rgdppc_2000)~(rugged+log(1+pop_1400)+dist_coast)*cont_africa,data = rugged_data,
+                prior = c(prior(normal(0, sqrt(0.01)), class = b),
+                          prior(inv_gamma(2, 1), class = sigma)),
+                save_pars = save_pars(all = TRUE),
+                sample_prior="yes")
+mod4_sigma3 <- brm(log(rgdppc_2000)~(rugged+log(1+pop_1400)+dist_coast)*cont_africa,data = rugged_data,
+                prior = c(prior(normal(0, sqrt(1)), class = b),
+                          prior(inv_gamma(2, 1), class = sigma)),
+                save_pars = save_pars(all = TRUE),
+                sample_prior="yes")
+mod4_sigma4 <- brm(log(rgdppc_2000)~(rugged+log(1+pop_1400)+dist_coast)*cont_africa,data = rugged_data,
+                prior = c(prior(normal(0, sqrt(100)), class = b),
+                          prior(inv_gamma(2, 1), class = sigma)),
+                save_pars = save_pars(all = TRUE),
+                sample_prior="yes")
+```
+
+```{r, include=FALSE}
+ml_s1 <- bridge_sampler(mod4_sigma1)
+ml_s2 <- bridge_sampler(mod4_sigma2)
+ml_s3 <- bridge_sampler(mod4_sigma3)
+ml_s4 <- bridge_sampler(mod4_sigma4)
+```
+
+```{r, echo=FALSE}
+table <- data.frame(Model = c("Model - sigma=0.0001","Model - sigma=0.01", "Model - sigma=1", "Model - sigma=100"),marginalLikelihood = c(ml_s1$logml,ml_s2$logml, ml_s3$logml,ml_s4$logml))
+table
+```
+
+## Question 1.7
+*Compare the three models using Bayes factors, and explain how they depend on the model prior.*
+```{r, include=FALSE}
+BF2_3 <- bayes_factor(mod2,mod3)
+BF3_4 <- bayes_factor(mod3,mod4)
+BF2_4 <- bayes_factor(mod2,mod4)
+```
+
+```{r, echo=FALSE}
+table <- data.frame(Model = c("Model 2/Model 3","Model 3/Model 4", "Model 2/Model 4"),BayesFactor = c(BF2_3$bf,BF3_4$bf,BF2_4$bf))
+table
+```
+From the table above and in accordance to [Andraszewicz et al. (2015)](https://www.ejwagenmakers.com/2015/AndraszewiczEtAl2015.pdf) we can see that the Bayes Factor for model 2 vs. model 3 is `BF2_3$bf`, which means that there is weak but little evidence that supports model 3. The Bayes factor comparing model 3 and model 4 is `BF3_4$bf` and thus provides substantial evidence towards model 4. The comparison between model 2 and model 4 supports the previous results as it results in a bayes factor `BF2_4$bf`. INFLUENCE OF PRIORS? <!--INFLUENCE OF PRIORS-->  
+
+## Question 1.8
+*The posterior predictive density allows us to quantify uncertainty around predictions. To implement this, obtain posterior draws from the model of your choice and use them to simulate predictions. Visualize the predictive uncertainty around a subset of the model.*
+
+Like before, we use model 4 our choice. 
+
+```{r, echo=FALSE, warning=FALSE}
+pp_check(mod4)
+```
+
+EXPLANATION
+
+
+

@@ -1,0 +1,141 @@
+---
+title: "Advanced Macroeconometrics - Assignment 3"
+author: "Group 7"
+date: "2023-05-17"
+output:
+  word_document: default
+  pdf_document: default
+latex_engine: LuaLaTeX
+---
+
+```{r libs, echo=FALSE, results='hide', warning=FALSE,error=FALSE}
+library(bayesforecast)
+library(rstanarm)
+library(RColorBrewer)
+library(brms)
+cols <- brewer.pal(5, "Dark2")
+```
+
+# Exercise 2 
+
+*Download the time series on US unemployment rates (mnemonic: UNRATE) from the FRED data base. This is a monthly (seasonally adjusted) time series of unemployment rates running from 1948M1 until today.*
+
+```{r Data, echo=FALSE}
+## Data
+UNRATE <- read.csv("UNRATE.csv")
+head(UNRATE)
+```
+
+## 2.1 *Demean the time series prior to analysis.*
+The original time series as well as the demeaned time series can be found here:
+
+```{r 2.1, echo = FALSE}
+## Create time series 
+unrate_ts       <-  ts(UNRATE$UNRATE, 
+                  start = c(1948, 01), 
+                  frequency = 12)
+
+plot(unrate_ts, 
+                  xlim = c(1948, 2023), 
+                  main = "US Unemployment Rate (1959 - 2023)", 
+                  xlab = "Year", 
+                  ylab = "Unemployment Rate")
+                  axis(side = 1, at = c(1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020), font.axis = 2)
+
+## Demean the time series 
+unrate_demean_ts <-   unrate_ts - mean(unrate_ts)
+
+plot(unrate_demean_ts, 
+                  xlim = c(1948, 2023), 
+                  main = "US Unemployment Rate (1948 - 2023; demeaned)", 
+                  xlab = "Year", 
+                  ylab = "Unemployment Rate (demeaned)")
+                  axis(side = 1, at = c(1950,1960, 1970, 1980, 1990, 2000, 2010, 2020), font.axis = 2)
+```
+
+## 2.2 *Fit an AR(1) process to this time series using the following priors on the autoregressive coefficient:*
+Using the stan_sarima() function from the bayesforecast package, we estimate the models.
+
+```{r model computation, echo=TRUE, warning=FALSE, results='hide'}
+AR1_N01 <- stan_sarima(ts = unrate_demean_ts, order = c(1,0,0), prior_ar = bayesforecast::normal(0,1))
+AR1_N11 <- stan_sarima(ts = unrate_demean_ts, order = c(1,0,0), prior_ar = bayesforecast::normal(1,1))
+AR1_B0101 <- stan_sarima(ts = unrate_demean_ts, order = c(1,0,0), prior_ar = bayesforecast::beta(0.1,0.1))
+AR1_B11 <- stan_sarima(ts = unrate_demean_ts, order = c(1,0,0), prior_ar = bayesforecast::beta(1,1))
+AR1_B1010 <- stan_sarima(ts = unrate_demean_ts, order = c(1,0,0), prior_ar = bayesforecast::beta(10,10))
+```
+
+The estimates of the models are given in the appendix.
+
+## 2.3 *Plot the prior distributions and give an intuition for the implied prior assumption for phi.*
+
+```{r, 2.3 Normal Priors, echo = FALSE}
+plot(NULL, xlim=c(-5,5), ylim=c(0,0.6), ylab="PDF", xlab="")
+curve(dnorm(x,0,1), from=-10,to=10, lwd=2,col=cols[1],add = T)
+curve(dnorm(x,1,1), from=-10,to=10, lwd=2,col=cols[2],add = T)
+
+legend(x="topright",
+       lwd=2,
+       lty=1,
+       col=cols,
+       legend = c("N(0,1)","N(1,1)"),
+       title = c("Prior Parameters"))
+```
+The intuition for the implied prior assumption would be that the phi's come from a standard normal distribution (mean 0, variance 1) or from a normal distribution with mean 1 and variance 1. 
+
+```{r, 2.3 Beta Priors, echo = FALSE}
+plot(NULL, xlim=c(0,1), ylim=c(0,5), ylab="PDF", xlab="")
+curve(dbeta(x,0.1,0.1), from=0,to=1, lwd=2,col=cols[1],add = T,n=1000)
+curve(dbeta(x,1,1), from=0,to=1, lwd=2,col=cols[2],add = T)
+curve(dbeta(x,10,10), from=0,to=1, lwd=2,col=cols[3],add = T)
+
+legend(x="topright",
+       lwd=2,
+       lty=1,
+       col=cols,
+       legend = c("Beta(0.1,0.1)","Beta(1,1)","Beta(10,10)"),
+       title = c("Prior Parameters"))
+```
+
+The intuition for the implied prior assumption for the B(0.1,0.1) distribution would be that the phi's  follow a symmetric distribution where the most weight lies on the tails and decreasing weight moving to the middle. 
+
+The intuition for the implied prior assumption for the B(1,1) distribution would be that the phi's are basically uniformly distributed from 0 to 1. 
+
+The intuition for the implied prior assumption for the B(10,10) distribution would be that the phi's are distributed like a normal distribution with mean 0.5 and a variance of 0.1. 
+
+## 2.4 *Plot and interpret the posterior distributions of phi - are they sensitive to the prior?*
+
+```{r, 2.4 Normal Posteriors, echo = FALSE}
+## Normal Posteriors
+# N(0,1)
+bayesforecast::mcmc_plot(AR1_N01, pars = "ar")
+
+# N(1,1)
+bayesforecast::mcmc_plot(AR1_N11, pars = "ar")
+```
+The posterior distributions for the normal priors look nearly the same. Hence, the difference between those two normal priors is not large and, thus, they are not considered sensitive to the prior. 
+
+
+```{r, 2.4 Beta Posteriors, echo = FALSE}
+## Beta Posteriors
+# B(0.1, 0.1)
+bayesforecast::mcmc_plot(AR1_B0101, pars = "ar")
+
+# B(1,1)
+bayesforecast::mcmc_plot(AR1_B11, pars = "ar")
+
+# B(10,10)
+bayesforecast::mcmc_plot(AR1_B1010, pars = "ar")
+```
+The posterior distribution of the three beta priors look differently compared to those of the normal priors. The weight close to zero moves away as the parameters of the beta distribution increase. Hence, there is almost no weight around zero for the Beta(10,10) distribution. Nevertheless, the differences do not look substantial and, hence, we also conclude that the posterior distributions of phi are not sensitive to the priors. 
+
+
+# Appendix
+## Esimates of AR(1) models
+```{r}
+AR1_N01
+AR1_N11
+AR1_B0101
+AR1_B11
+AR1_B1010 
+```
+
