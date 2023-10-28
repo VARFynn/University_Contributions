@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.24)  7 OCT 2023 17:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.24)  28 OCT 2023 13:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -516,14 +516,20 @@ Package hyperref Info: Link coloring ON on input line 95.
 \@outlinefile=\write3
 \openout3 = `20231215_Environmental_Econ_Submission.out'.
 
-<BSS.png, id=34, 357.0138pt x 69.861pt>
+<BSS.png, id=38, 357.0138pt x 69.861pt>
 File: BSS.png Graphic file (type png)
 <use BSS.png>
 Package pdftex.def Info: BSS.png  used on input line 103.
 (pdftex.def)             Requested size: 321.30943pt x 62.8743pt.
+<GitHub.png, id=42, 3854.4pt x 2168.1pt>
+File: GitHub.png Graphic file (type png)
+<use GitHub.png>
+Package pdftex.def Info: GitHub.png  used on input line 118.
+(pdftex.def)             Requested size: 57.8135pt x 32.5201pt.
  [1
 
-{C:/Users/Fynn/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./BSS.png>]
+{C:/Users/Fynn/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./BSS.png> <.
+/GitHub.png>]
 \c@savepage=\count301
  [1]
 (20231215_Environmental_Econ_Submission.toc)
@@ -537,7 +543,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.144 \clearpage
+l.147 \clearpage
                  [1] [2
 
 ] [3
@@ -550,20 +556,25 @@ l.144 \clearpage
 
 ]
 No file 20231215_Environmental_Econ_Submission.bbl.
+<Location.jpg, id=99, 546.843pt x 492.6405pt>
+File: Location.jpg Graphic file (type jpg)
+<use Location.jpg>
+Package pdftex.def Info: Location.jpg  used on input line 180.
+(pdftex.def)             Requested size: 410.13124pt x 369.47946pt.
 [3
 
 
-] (20231215_Environmental_Econ_Submission.aux)
+ <./Location.jpg>] (20231215_Environmental_Econ_Submission.aux)
 Package rerunfilecheck Info: File `20231215_Environmental_Econ_Submission.out' 
 has not changed.
-(rerunfilecheck)             Checksum: 7255C579DAABD0A2E4C1C3132E38D60B;1173.
+(rerunfilecheck)             Checksum: 83EDF8E8F868546E184EA131CB873148;1295.
  ) 
 Here is how much of TeX's memory you used:
- 13802 strings out of 476331
- 224174 string characters out of 5788237
- 1853660 words of memory out of 5000000
- 34052 multiletter control sequences out of 15000+600000
- 518214 words of font info for 52 fonts, out of 8000000 for 9000
+ 13825 strings out of 476331
+ 225116 string characters out of 5788237
+ 1855660 words of memory out of 5000000
+ 34069 multiletter control sequences out of 15000+600000
+ 518383 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,11n,76p,282b,530s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Fynn/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
@@ -572,11 +583,12 @@ nts/cm/cmbx12.pfb><C:/Users/Fynn/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmr12.pfb><C:/Users/Fynn/AppData/Local/Programs/MiKTeX/fonts/typ
 e1/public/amsfonts/cm/cmr17.pfb><C:/Users/Fynn/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Users/Fynn/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on 20231215_Environmental_Econ_Submission.pdf (10 pages, 131320 
+iKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Fynn/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on 20231215_Environmental_Econ_Submission.pdf (10 pages, 237114 
 bytes).
 PDF statistics:
- 124 PDF objects out of 1000 (max. 8388607)
- 17 named destinations out of 1000 (max. 500000)
- 70 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 143 PDF objects out of 1000 (max. 8388607)
+ 19 named destinations out of 1000 (max. 500000)
+ 88 words of extra memory for PDF output out of 10000 (max. 10000000)
 

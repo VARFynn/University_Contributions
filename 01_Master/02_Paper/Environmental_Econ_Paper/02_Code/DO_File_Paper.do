@@ -1,0 +1,255 @@
+*******************************
+*** Env. Econ				***
+*** Name: Fynn Lohre		***
+*** Matr. Nr.: 202300181	***
+********************************
+
+/*
+
+Title: Bad Air Day: The Influence of Air Pollution on Quarterbacks' Performance 
+- Evidence from the NFL
+
+Submission Date: 15/12/2023
+
+Examiner: Prof. Timo Hener
+
+*/
+
+* 1 Pre *
+
+version 17.0
+clear all
+set more off
+set rmsg on
+
+**** Only this line has to be adjusted ****
+global folder "C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper"
+
+
+cd "$folder\02_Code"
+global data "$folder\01_Data" 
+global figures "$folder\05_Figures"
+global tables "$folder\04_Tables"
+import excel "$data\Football_Data_FULL.xlsx", ///
+sheet("Raw_Data_Scraped_and_Formulars") firstrow
+
+set linesize 255
+capture log close
+log using LOG_File_Paper.log, replace
+
+* 2 Preparation of NFL Data *
+
+* 2.1 Exclusion if Pathway Games
+*QBs of Home-Team
+drop if (Date == mdy(10, 31, 2010) & inlist(Team, "San Francisco")) ///
+       | (Date == mdy(09, 07, 2010) & inlist(Team, "Chicago")) ///
+       | (Date == mdy(10, 23, 2011) & inlist(Team, "Chicago")) ///
+       | (Date == mdy(10, 30, 2011) & inlist(Team, "Buffalo")) ///
+       | (Date == mdy(10, 28, 2012) & inlist(Team, "New England")) ///
+       | (Date == mdy(12, 16, 2012) & inlist(Team, "Seattle")) ///
+       | (Date == mdy(09, 29, 2013) & inlist(Team, "Minnesota")) ///
+       | (Date == mdy(10, 27, 2013) & inlist(Team, "San Francisco")) ///
+       | (Date == mdy(12, 01, 2013) & inlist(Team, "Atlanta")) ///
+       | (Date == mdy(09, 28, 2014) & inlist(Team, "Miami")) ///
+       | (Date == mdy(10, 26, 2014) & inlist(Team, "Detroit")) ///
+       | (Date == mdy(11, 09, 2014) & inlist(Team, "Dallas")) ///
+       | (Date == mdy(10, 04, 2015) & inlist(Team, "New York")) ///
+       | (Date == mdy(10, 25, 2015) & inlist(Team, "Jacksonville")) ///
+       | (Date == mdy(11, 01, 2015) & inlist(Team, "Kansas")) ///
+       | (Date == mdy(10, 02, 2016) & inlist(Team, "Jacksonville")) ///
+       | (Date == mdy(10, 23, 2016) & inlist(Team, "New York")) ///
+       | (Date == mdy(10, 30, 2016) & inlist(Team, "Washington")) ///
+       | (Date == mdy(11, 21, 2016) & inlist(Team, "Oakland")) ///
+       | (Date == mdy(09, 24, 2017) & inlist(Team, "Jacksonville")) ///
+       | (Date == mdy(10, 01, 2017) & inlist(Team, "New Orleans")) ///
+       | (Date == mdy(10, 22, 2017) & inlist(Team, "Los Angeles")) ///
+       | (Date == mdy(10, 29, 2017) & inlist(Team, "Minnesota")) ///
+       | (Date == mdy(11, 19, 2017) & inlist(Team, "New England")) ///
+       | (Date == mdy(10, 14, 2018) & inlist(Team, "Seattle")) ///
+       | (Date == mdy(10, 21, 2018) & inlist(Team, "Los Angeles")) ///
+       | (Date == mdy(10, 28, 2018) & inlist(Team, "Philadelphia")) ///
+       | (Date == mdy(11, 19, 2018) & inlist(Team, "Los Angeles")) ///
+       | (Date == mdy(08, 13, 2019) & inlist(Team, "Oakland")) ///
+       | (Date == mdy(10, 06, 2019) & inlist(Team, "Oakland")) ///
+       | (Date == mdy(10, 13, 2019) & inlist(Team, "Carolina")) ///
+       | (Date == mdy(10, 27, 2019) & inlist(Team, "Cincinnati")) ///
+       | (Date == mdy(11, 03, 2019) & inlist(Team, "Houston")) ///
+       | (Date == mdy(11, 18, 2019) & inlist(Team, "Kansas")) ///
+       | (Date == mdy(10, 10, 2021) & inlist(Team, "Atlanta")) ///
+       | (Date == mdy(10, 17, 2021) & inlist(Team, "Jacksonville")) ///
+       | (Date == mdy(10, 02, 2022) & inlist(Team, "Minnesota")) ///
+       | (Date == mdy(10, 09, 2022) & inlist(Team, "New York")) ///
+       | (Date == mdy(10, 30, 2022) & inlist(Team, "Denver")) ///
+       | (Date == mdy(11, 13, 2022) & inlist(Team, "Tampa Bay")) ///
+       | (Date == mdy(11, 21, 2022) & inlist(Team, "San Francisco")) ///
+       | (Date == mdy(10, 01, 2023) & inlist(Team, "Jacksonville")) ///
+       | (Date == mdy(10, 08, 2023) & inlist(Team, "Jacksonville")) ///
+       | (Date == mdy(10, 15, 2023) & inlist(Team, "Baltimore"))
+
+
+*QBs of Away-Team
+drop if (Date == mdy(10, 31, 2010) & inlist(Team, "Denver")) ///
+       | (Date == mdy(09, 07, 2010) & inlist(Team, "Buffalo")) ///
+       | (Date == mdy(10, 23, 2011) & inlist(Team, "Tampa Bay")) ///
+       | (Date == mdy(10, 30, 2011) & inlist(Team, "Washington")) ///
+       | (Date == mdy(10, 28, 2012) & inlist(Team, "St. Louis")) ///
+       | (Date == mdy(12, 16, 2012) & inlist(Team, "Buffalo")) ///
+       | (Date == mdy(09, 29, 2013) & inlist(Team, "Pittsburgh")) ///
+       | (Date == mdy(10, 27, 2013) & inlist(Team, "Jacksonville")) ///
+       | (Date == mdy(12, 01, 2013) & inlist(Team, "Buffalo")) ///
+       | (Date == mdy(09, 28, 2014) & inlist(Team, "Oakland")) ///
+       | (Date == mdy(10, 26, 2014) & inlist(Team, "Atlanta")) ///
+       | (Date == mdy(11, 09, 2014) & inlist(Team, "Jacksonville")) ///
+       | (Date == mdy(10, 04, 2015) & inlist(Team, "Miami")) ///
+       | (Date == mdy(10, 25, 2015) & inlist(Team, "Buffalo")) ///
+       | (Date == mdy(11, 01, 2015) & inlist(Team, "Detroit")) ///
+       | (Date == mdy(10, 02, 2016) & inlist(Team, "Indianapolis")) ///
+       | (Date == mdy(10, 23, 2016) & inlist(Team, "Los Angeles")) ///
+       | (Date == mdy(10, 30, 2016) & inlist(Team, "Cincinnati")) ///
+       | (Date == mdy(11, 21, 2016) & inlist(Team, "Houston")) ///
+       | (Date == mdy(09, 24, 2017) & inlist(Team, "Baltimore")) ///
+       | (Date == mdy(10, 01, 2017) & inlist(Team, "Miami")) ///
+       | (Date == mdy(10, 22, 2017) & inlist(Team, "Arizona")) ///
+       | (Date == mdy(10, 29, 2017) & inlist(Team, "Cleveland")) ///
+       | (Date == mdy(11, 19, 2017) & inlist(Team, "Oakland")) ///
+       | (Date == mdy(10, 14, 2018) & inlist(Team, "Oakland")) ///
+       | (Date == mdy(10, 21, 2018) & inlist(Team, "Tennessee")) ///
+       | (Date == mdy(10, 28, 2018) & inlist(Team, "Jacksonville")) ///
+       | (Date == mdy(11, 19, 2018) & inlist(Team, "Kansas")) ///
+       | (Date == mdy(08, 13, 2019) & inlist(Team, "Green Bay")) ///
+       | (Date == mdy(10, 06, 2019) & inlist(Team, "Chicago")) ///
+       | (Date == mdy(10, 13, 2019) & inlist(Team, "Tampa Bay")) ///
+       | (Date == mdy(10, 27, 2019) & inlist(Team, "Los Angeles")) ///
+       | (Date == mdy(11, 03, 2019) & inlist(Team, "Jacksonville")) ///
+       | (Date == mdy(11, 18, 2019) & inlist(Team, "Los Angeles (Chargers)")) ///
+       | (Date == mdy(10, 10, 2021) & inlist(Team, "New York (Jets)")) ///
+       | (Date == mdy(10, 17, 2021) & inlist(Team, "Miami")) ///
+       | (Date == mdy(10, 02, 2022) & inlist(Team, "New Orleans")) ///
+       | (Date == mdy(10, 09, 2022) & inlist(Team, "Green Bay")) ///
+       | (Date == mdy(10, 30, 2022) & inlist(Team, "Jacksonville")) ///
+       | (Date == mdy(11, 13, 2022) & inlist(Team, "Seattle")) ///
+       | (Date == mdy(11, 21, 2022) & inlist(Team, "Arizona")) ///
+       | (Date == mdy(10, 01, 2023) & inlist(Team, "Atlanta")) ///
+       | (Date == mdy(10, 08, 2023) & inlist(Team, "Buffalo")) ///
+       | (Date == mdy(10, 15, 2023) & inlist(Team, "Tennessee"))
+
+*2.2 Stadion
+* Attach Stadion to Place - which is right now only in Team Location
+gen Stadion = ""
+replace Stadion = "State Farm Stadium" if inlist(Place, "Arizona")
+replace Stadion = "Mercedes-Benz Stadium" if inlist(Place, "Atlanta")
+replace Stadion = "M&T Bank Stadium" if inlist(Place, "Baltimore")
+replace Stadion = "Highmark Stadium" if inlist(Place, "Buffalo")
+replace Stadion = "Bank of America Stadium" if inlist(Place, "Carolina")
+replace Stadion = "Soldier Field" if inlist(Place, "Chicago")
+replace Stadion = "Paul Brown Stadium" if inlist(Place, "Cincinatti")
+replace Stadion = "FirstEnergy Stadium" if inlist(Place, "Cleveland")
+replace Stadion = "AT&T Stadium" if inlist(Place, "Dallas")
+replace Stadion = "Empower Field at Mile High" if inlist(Place, "Denver")
+replace Stadion = "Ford Field" if inlist(Place, "Detroit")
+replace Stadion = "Lambeau Field" if inlist(Place, "Green Bay")
+replace Stadion = "NRG Stadium" if inlist(Place, "Houston")
+replace Stadion = "Lucas Oil Stadium" if inlist(Place, "Indianapolis")
+replace Stadion = "TIAA Bank Field" if inlist(Place, "Jacksonville")
+replace Stadion = "Arrowhead Stadium" if inlist(Place, "Kansas")
+replace Stadion = "Allegiant Stadium" if inlist(Place, "Las Vegas")
+replace Stadion = "SoFi Stadium" if inlist(Place, "Los Angeles (Chargers)") ///
+| inlist(Place, "Los Angeles (Rams)")
+replace Stadion = "Hard Rock Stadium" if inlist(Place, "Miami")
+replace Stadion = "U.S. Bank Stadium" if inlist(Place, "Minnesota")
+replace Stadion = "Gillette Stadium" if inlist(Place, "New England")
+replace Stadion = "Caesars Superdome" if inlist(Place, "New Orleans")
+replace Stadion = "MetLife Stadium" if inlist(Place, "New York (Giants)") ///
+| inlist(Place, "New York (Jets)")
+replace Stadion = "Lincoln Financial Field" if inlist(Place, "Philadelphia")
+replace Stadion = "Heinz Field" if inlist(Place, "Pittsburgh")
+replace Stadion = "Levi's Stadium" if inlist(Place, "San Francisco")
+replace Stadion = "Lumen Field" if inlist(Place, "Seattle")
+replace Stadion = "Raymond James Stadium" if inlist(Place, "Tampa Bay")
+replace Stadion = "Nissan Stadium" if inlist(Place, "Tennesse")
+replace Stadion = "FedExField" if inlist(Place, "Washington")
+replace Stadion = "Edward Jones Dome" if inlist(Place, "St. Louis")
+replace Stadion = "Qualcomm Stadium" if inlist(Place, "San Diego")
+replace Stadion = "O.co Coliseum" if inlist(Place, "Oakland")
+
+* Switch to the actual place of the Stadion
+gen Place_2 = ""
+replace Place_2 = "Glendale, Arizona" if Stadion == "State Farm Stadium"
+replace Place_2 = "Atlanta, Georgia" if Stadion == "Mercedes-Benz Stadium"
+replace Place_2 = "Baltimore, Maryland" if Stadion == "M&T Bank Stadium"
+replace Place_2 = "Orchard Park, New York" if Stadion == "Highmark Stadium"
+replace Place_2 = "Charlotte, North Carolina" ///
+if Stadion == "Bank of America Stadium"
+replace Place_2 = "Chicago, Illinois" if Stadion == "Soldier Field"
+replace Place_2 = "Cincinnati, Ohio" if Stadion == "Paul Brown Stadium"
+replace Place_2 = "Cleveland, Ohio" if Stadion == "FirstEnergy Stadium"
+replace Place_2 = "Arlington, Texas" if Stadion == "AT&T Stadium"
+replace Place_2 = "Denver, Colorado" if Stadion == "Empower Field at Mile High"
+replace Place_2 = "Detroit, Michigan" if Stadion == "Ford Field"
+replace Place_2 = "Green Bay, Wisconsin" if Stadion == "Lambeau Field"
+replace Place_2 = "Houston, Texas" if Stadion == "NRG Stadium"
+replace Place_2 = "Indianapolis, Indiana" if Stadion == "Lucas Oil Stadium"
+replace Place_2 = "Jacksonville, Florida" if Stadion == "TIAA Bank Field"
+replace Place_2 = "Kansas City, Missouri" if Stadion == "Arrowhead Stadium"
+replace Place_2 = "Paradise, Nevada" if Stadion == "Allegiant Stadium"
+replace Place_2 = "Inglewood, California" if Stadion == "SoFi Stadium"
+replace Place_2 = "Miami Gardens, Florida" if Stadion == "Hard Rock Stadium"
+replace Place_2 = "Minneapolis, Minnesota" if Stadion == "U.S. Bank Stadium"
+replace Place_2 = "Foxborough, Massachusetts" if Stadion == "Gillette Stadium"
+replace Place_2 = "New Orleans, Louisiana" if Stadion == "Caesars Superdome"
+replace Place_2 = "East Rutherford, New Jersey" if Stadion == "MetLife Stadium"
+replace Place_2 = "Philadelphia, Pennsylvania" if Stadion == "Lincoln Financial Field"
+replace Place_2 = "Pittsburgh, Pennsylvania" if Stadion == "Heinz Field"
+replace Place_2 = "Santa Clara, California" if Stadion == "Levi's Stadium"
+replace Place_2 = "Seattle, Washington" if Stadion == "Lumen Field"
+replace Place_2 = "Tampa, Florida" if Stadion == "Raymond James Stadium"
+replace Place_2 = "Nashville, Tennessee" if Stadion == "Nissan Stadium"
+replace Place_2 = "Landover, Maryland" if Stadion == "FedExField"
+replace Place_2 = "St. Louis, Missouri" if Stadion == "Edward Jones Dome"
+replace Place_2 = "San Diego, California" if Stadion == "Qualcomm Stadium"
+replace Place_2 = "Oakland, California" if Stadion == "O.co Coliseum"
+drop Place
+rename Place_2 Place
+
+** Insert Info on Rooftype
+gen Stadiontype = ""
+
+replace Stadiontype = "Retractable" if Stadion == "AT&T Stadium" ///
+									| Stadion == "Hard Rock Stadium" ///
+									| Stadion == "Lucas Oil Stadium" ///
+									| Stadion == "Lumen Field" ///
+									| Stadion == "Mercedes-Benz Stadium" ///
+									| Stadion == "SoFi Stadium" ///
+									| Stadion == "State Farm Stadium" ///	
+									| Stadion == "NRG Stadium" 
+
+replace Stadiontype = "Fixed" if Stadion == "Allegiant Stadium" ///
+							| Stadion == "Bank of America Stadium" ///
+							| Stadion == "Caesars Superdome" ///
+							| Stadion == "Edward Jones Dome" ///
+							| Stadion == "Ford Field" ///
+							| Stadion == "MetLife Stadium" ///
+							| Stadion == "Raymond James Stadium" 
+
+replace Stadiontype = "Open" if Stadion == "Arrowhead Stadium" ///
+							| Stadion == "Empower Field at Mile High"  ///
+							| Stadion == "FedExField" ///
+							| Stadion == "FirstEnergy Stadium" ///
+							| Stadion == "Gillette Stadium" ///
+							| Stadion == "Heinz Field" ///
+							| Stadion == "Highmark Stadium" ///
+							| Stadion == "Lambeau Field" ///
+							| Stadion == "Levi's Stadium" ///
+							| Stadion == "Lincoln Financial Field" ///
+							| Stadion == "M&T Bank Stadium" ///
+							| Stadion == "Nissan Stadium" ///
+							| Stadion == "Paul Brown Stadium" ///
+							| Stadion == "Soldier Field" ///
+							| Stadion == "TIAA Bank Field" ///
+							| Stadion == "U.S. Bank Stadium" ///
+							| Stadion == "Qualcomm Stadium" ///
+							| Stadion == "O.co Coliseum"
+
+
+
+

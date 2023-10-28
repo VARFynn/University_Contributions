@@ -6,4 +6,5 @@
 \contentsline {section}{\numberline {5}Results and Discussion}{5}{section.5}%
 \contentsline {section}{\numberline {6}Summary and Concluding Remarks}{6}{section.6}%
 \contentsline {section}{References}{iii}{section.6}%
-\contentsline {section}{\numberline {A}Further Tables}{iii}{appendix.A}%
+\contentsline {section}{\numberline {A}Further Figures}{iii}{appendix.A}%
+\contentsline {section}{\numberline {B}Further Tables}{iii}{appendix.B}%
