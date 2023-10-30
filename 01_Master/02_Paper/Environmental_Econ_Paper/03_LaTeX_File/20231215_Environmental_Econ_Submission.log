@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.24)  28 OCT 2023 13:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.24)  30 OCT 2023 18:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -425,7 +425,11 @@ ex.def
 File: l3backend-pdftex.def 2023-03-30 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count294
 \l__pdf_internal_box=\box55
-) (20231215_Environmental_Econ_Submission.aux)
+) (20231215_Environmental_Econ_Submission.aux
+
+LaTeX Warning: Label `AppF:1' multiply defined.
+
+)
 \openout1 = `20231215_Environmental_Econ_Submission.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 95.
@@ -516,12 +520,12 @@ Package hyperref Info: Link coloring ON on input line 95.
 \@outlinefile=\write3
 \openout3 = `20231215_Environmental_Econ_Submission.out'.
 
-<BSS.png, id=38, 357.0138pt x 69.861pt>
+<BSS.png, id=45, 357.0138pt x 69.861pt>
 File: BSS.png Graphic file (type png)
 <use BSS.png>
 Package pdftex.def Info: BSS.png  used on input line 103.
 (pdftex.def)             Requested size: 321.30943pt x 62.8743pt.
-<GitHub.png, id=42, 3854.4pt x 2168.1pt>
+<GitHub.png, id=49, 3854.4pt x 2168.1pt>
 File: GitHub.png Graphic file (type png)
 <use GitHub.png>
 Package pdftex.def Info: GitHub.png  used on input line 118.
@@ -539,16 +543,39 @@ Package pdftex.def Info: GitHub.png  used on input line 118.
  [2
 
 ]
+(20231215_Environmental_Econ_Submission.lot)
+\tf@lot=\write5
+\openout5 = `20231215_Environmental_Econ_Submission.lot'.
+
+
+(20231215_Environmental_Econ_Submission.lof)
+\tf@lof=\write6
+\openout6 = `20231215_Environmental_Econ_Submission.lof'.
+
+ [3
+
+]
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.147 \clearpage
+l.151 \clearpage
                  [1] [2
 
-] [3
+]
 
-] [4
+pdfTeX warning: pdflatex (file ../05_Figures/PM10_Concentration_per_Place.pdf):
+ PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
+<../05_Figures/PM10_Concentration_per_Place.pdf, id=100, 258.36525pt x 187.902p
+t>
+File: ../05_Figures/PM10_Concentration_per_Place.pdf Graphic file (type pdf)
+<use ../05_Figures/PM10_Concentration_per_Place.pdf>
+Package pdftex.def Info: ../05_Figures/PM10_Concentration_per_Place.pdf  used o
+n input line 157.
+(pdftex.def)             Requested size: 439.21904pt x 319.43202pt.
+[3
+
+ <../05_Figures/PM10_Concentration_per_Place.pdf>] [4
 
 ] [5
 
@@ -556,39 +583,48 @@ l.147 \clearpage
 
 ]
 No file 20231215_Environmental_Econ_Submission.bbl.
-<Location.jpg, id=99, 546.843pt x 492.6405pt>
-File: Location.jpg Graphic file (type jpg)
-<use Location.jpg>
-Package pdftex.def Info: Location.jpg  used on input line 180.
-(pdftex.def)             Requested size: 410.13124pt x 369.47946pt.
-[3
+<../05_Figures/Teams_Location.pdf, id=128, 853.1875pt x 654.445pt>
+File: ../05_Figures/Teams_Location.pdf Graphic file (type pdf)
+<use ../05_Figures/Teams_Location.pdf>
+Package pdftex.def Info: ../05_Figures/Teams_Location.pdf  used on input line 1
+92.
+(pdftex.def)             Requested size: 494.8491pt x 379.57837pt.
+[4
 
 
- <./Location.jpg>] (20231215_Environmental_Econ_Submission.aux)
+ <../05_Figures/Teams_Location.pdf>] [5
+
+]
+(20231215_Environmental_Econ_Submission.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `20231215_Environmental_Econ_Submission.out' 
 has not changed.
-(rerunfilecheck)             Checksum: 83EDF8E8F868546E184EA131CB873148;1295.
+(rerunfilecheck)             Checksum: 0EC7D6686FC4E84B4CC149FF084E34CC;1540.
  ) 
 Here is how much of TeX's memory you used:
- 13825 strings out of 476331
- 225116 string characters out of 5788237
+ 13855 strings out of 476331
+ 226385 string characters out of 5788237
  1855660 words of memory out of 5000000
- 34069 multiletter control sequences out of 15000+600000
- 518383 words of font info for 53 fonts, out of 8000000 for 9000
+ 34088 multiletter control sequences out of 15000+600000
+ 519038 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,76p,282b,530s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,11n,76p,303b,558s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Fynn/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
 mbx10.pfb><C:/Users/Fynn/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmbx12.pfb><C:/Users/Fynn/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmr12.pfb><C:/Users/Fynn/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmr17.pfb><C:/Users/Fynn/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Users/Fynn/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Fynn/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on 20231215_Environmental_Econ_Submission.pdf (10 pages, 237114 
+ic/amsfonts/cm/cmbx8.pfb><C:/Users/Fynn/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmr12.pfb><C:/Users/Fynn/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Fynn/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Fynn/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Users/Fynn/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Fynn/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on 20231215_Environmental_Econ_Submission.pdf (12 pages, 375377 
 bytes).
 PDF statistics:
- 143 PDF objects out of 1000 (max. 8388607)
- 19 named destinations out of 1000 (max. 500000)
- 88 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 188 PDF objects out of 1000 (max. 8388607)
+ 22 named destinations out of 1000 (max. 500000)
+ 109 words of extra memory for PDF output out of 10000 (max. 10000000)
 

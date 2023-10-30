@@ -61,23 +61,23 @@ p <- p +
   annotate("text", x = -118.3531, y = 33.9617, label = "Rams/Chargers", size = 2.5, fontface = "bold", hjust = -0.05, vjust = -1) +
   annotate("text", x = -81.6557, y = 30.3322, label = "Jaguars", size = 2.5, fontface = "bold", hjust = -0.3, vjust = -0.2) +
   annotate("text", x = -94.5786, y = 39.0997, label = "Chiefs", size = 2.5, fontface = "bold", hjust = 0.5, vjust = -1) +
-  annotate("text", x = -76.8640, y = 38.9076, label = "Football Team (''Redskins'')", size = 2.5, fontface = "bold", hjust = -0.25, vjust = -0.2) +
-  annotate("text", x = -73.8640, y = 39.7076, label = "Eagles", size = 2.5, fontface = "bold", hjust = -0.25, vjust = -0.2) +
+  annotate("text", x = -81.2640, y = 38.9076, label = "Commanders", size = 2.5, fontface = "bold", hjust = -0.25, vjust = -0.2) +
+  annotate("text", x = -74.2640, y = 39.7076, label = "Eagles", size = 2.5, fontface = "bold", hjust = -0.25, vjust = -0.2) +
   annotate("text", x = -80.2422, y = 25.9434, label = "Dolphins", size = 2.5, fontface = "bold", hjust = -0.25, vjust = -0.2) +
   annotate("text", x = -93.2650, y = 44.9778, label = "Vikings", size = 2.5, fontface = "bold", hjust = 0.5, vjust = -1) +
   annotate("text", x = -86.7816, y = 36.1627, label = "Titans", size = 2.5, fontface = "bold", hjust = 0.5, vjust = -1) +
   annotate("text", x = -122.2711, y = 37.8044, label = "Raiders (Oakland)", size = 2.5, fontface = "bold", hjust = -0.05, vjust = -0.2) +
   annotate("text", x = -78.7875, y = 43.2, label = "Bills", size = 2.5, fontface = "bold", hjust = 0.5, vjust = -1) +
   annotate("text", x = -115.1611, y = 36.6270, label = "Raiders (Vegas)", size = 2.5, fontface = "bold", hjust = 0.2, vjust = -0.2) +
-  annotate("text", x = -80.9552, y = 27.9506, label = "Buccaneers", size = 2.5, fontface = "bold", hjust = 1.4, vjust = -0.2) +
+  annotate("text", x = -81.9552, y = 27.9506, label = "Buccaneers", size = 2.5, fontface = "bold", hjust = 1.4, vjust = -0.2) +
   annotate("text", x = -90.1994, y = 38.5, label = "Rams (St. Louis)", size = 2.5, fontface = "bold", hjust = 1.1) + 
   annotate("text", x = -122.1611, y = 48.6270, label = "Seahawks", size = 2.5, fontface = "bold", hjust = 0) +  
   annotate("text", x = -122.3321, y = 36.5, label = "49ers", size = 2.5, fontface = "bold", hjust = -0.6, vjust = -0.4) +  
-  annotate("text", x = -75, y = 40.9, label = "Steelers", size = 2.5, fontface = "bold", hjust = 1.3) + 
+  annotate("text", x = -77, y = 40.9, label = "Steelers", size = 2.5, fontface = "bold", hjust = 1.3) + 
   annotate("text", x = -76, y = 38.5, label = "Ravens", size = 2.5, fontface = "bold", hjust = -0.5) + 
-  annotate("text", x = -74, y = 40.9, label = "Giants/Jets", size = 2.5, fontface = "bold", hjust = -0.45, vjust = 0.7) +  
+  annotate("text", x = -73.5, y = 40.9, label = "Giants/Jets", size = 2.5, fontface = "bold", hjust = -0.45, vjust = 0.7) +  
   annotate("text", x = -88.5, y = 44.7, label = "Packers", size = 2.5, fontface = "bold", vjust = 1.6, hjust = 0.8) +  
   annotate("text", x = -90.1, y = 29.2, label = "Saints", size = 2.5, fontface = "bold", vjust = 1.2)  +
-  annotate("text", x = -122.1, y = 33, label = "Cargers (San Diego)", size = 2.5, fontface = "bold", vjust = 1.2)  
+  annotate("text", x = -120.1, y = 33, label = "Cargers (San Diego)", size = 2.5, fontface = "bold", vjust = 1.2)  
 
 print(p)

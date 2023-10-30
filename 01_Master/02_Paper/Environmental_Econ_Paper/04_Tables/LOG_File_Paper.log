@@ -1,0 +1,1603 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\02_Code\LOG_File_Paper.log
+  log type:  text
+ opened on:  30 Oct 2023, 16:01:54
+r; t=0.00 16:01:54
+
+. 
+. * -----------------------------------------------------------------------------*        
+. * 2 Preparation of NFL Data *
+. 
+. * 2.1 Exclusion if Pathway Games
+. *QBs of Home-Team
+. drop if (Date == mdy(10, 31, 2010) & inlist(Team, "San Francisco")) ///
+>        | (Date == mdy(09, 07, 2010) & inlist(Team, "Chicago")) ///
+>        | (Date == mdy(10, 23, 2011) & inlist(Team, "Chicago")) ///
+>        | (Date == mdy(10, 30, 2011) & inlist(Team, "Buffalo")) ///
+>        | (Date == mdy(10, 28, 2012) & inlist(Team, "New England")) ///
+>        | (Date == mdy(12, 16, 2012) & inlist(Team, "Seattle")) ///
+>        | (Date == mdy(09, 29, 2013) & inlist(Team, "Minnesota")) ///
+>        | (Date == mdy(10, 27, 2013) & inlist(Team, "San Francisco")) ///
+>        | (Date == mdy(12, 01, 2013) & inlist(Team, "Atlanta")) ///
+>        | (Date == mdy(09, 28, 2014) & inlist(Team, "Miami")) ///
+>        | (Date == mdy(10, 26, 2014) & inlist(Team, "Detroit")) ///
+>        | (Date == mdy(11, 09, 2014) & inlist(Team, "Dallas")) ///
+>        | (Date == mdy(10, 04, 2015) & inlist(Team, "New York")) ///
+>        | (Date == mdy(10, 25, 2015) & inlist(Team, "Jacksonville")) ///
+>        | (Date == mdy(11, 01, 2015) & inlist(Team, "Kansas")) ///
+>        | (Date == mdy(10, 02, 2016) & inlist(Team, "Jacksonville")) ///
+>        | (Date == mdy(10, 23, 2016) & inlist(Team, "New York")) ///
+>        | (Date == mdy(10, 30, 2016) & inlist(Team, "Washington")) ///
+>        | (Date == mdy(11, 21, 2016) & inlist(Team, "Oakland")) ///
+>        | (Date == mdy(09, 24, 2017) & inlist(Team, "Jacksonville")) ///
+>        | (Date == mdy(10, 01, 2017) & inlist(Team, "New Orleans")) ///
+>        | (Date == mdy(10, 22, 2017) & inlist(Team, "Los Angeles")) ///
+>        | (Date == mdy(10, 29, 2017) & inlist(Team, "Minnesota")) ///
+>        | (Date == mdy(11, 19, 2017) & inlist(Team, "New England")) ///
+>        | (Date == mdy(10, 14, 2018) & inlist(Team, "Seattle")) ///
+>        | (Date == mdy(10, 21, 2018) & inlist(Team, "Los Angeles")) ///
+>        | (Date == mdy(10, 28, 2018) & inlist(Team, "Philadelphia")) ///
+>        | (Date == mdy(11, 19, 2018) & inlist(Team, "Los Angeles")) ///
+>        | (Date == mdy(08, 13, 2019) & inlist(Team, "Oakland")) ///
+>        | (Date == mdy(10, 06, 2019) & inlist(Team, "Oakland")) ///
+>        | (Date == mdy(10, 13, 2019) & inlist(Team, "Carolina")) ///
+>        | (Date == mdy(10, 27, 2019) & inlist(Team, "Cincinnati")) ///
+>        | (Date == mdy(11, 03, 2019) & inlist(Team, "Houston")) ///
+>        | (Date == mdy(11, 18, 2019) & inlist(Team, "Kansas")) ///
+>        | (Date == mdy(10, 10, 2021) & inlist(Team, "Atlanta")) ///
+>        | (Date == mdy(10, 17, 2021) & inlist(Team, "Jacksonville")) ///
+>        | (Date == mdy(10, 02, 2022) & inlist(Team, "Minnesota")) ///
+>        | (Date == mdy(10, 09, 2022) & inlist(Team, "New York")) ///
+>        | (Date == mdy(10, 30, 2022) & inlist(Team, "Denver")) ///
+>        | (Date == mdy(11, 13, 2022) & inlist(Team, "Tampa Bay")) ///
+>        | (Date == mdy(11, 21, 2022) & inlist(Team, "San Francisco")) ///
+>        | (Date == mdy(10, 01, 2023) & inlist(Team, "Jacksonville")) ///
+>        | (Date == mdy(10, 08, 2023) & inlist(Team, "Jacksonville")) ///
+>        | (Date == mdy(10, 15, 2023) & inlist(Team, "Baltimore"))
+(35 observations deleted)
+r; t=0.03 16:01:54
+
+. 
+. 
+. *QBs of Away-Team
+. drop if (Date == mdy(10, 31, 2010) & inlist(Team, "Denver")) ///
+>        | (Date == mdy(09, 07, 2010) & inlist(Team, "Buffalo")) ///
+>        | (Date == mdy(10, 23, 2011) & inlist(Team, "Tampa Bay")) ///
+>        | (Date == mdy(10, 30, 2011) & inlist(Team, "Washington")) ///
+>        | (Date == mdy(10, 28, 2012) & inlist(Team, "St. Louis")) ///
+>        | (Date == mdy(12, 16, 2012) & inlist(Team, "Buffalo")) ///
+>        | (Date == mdy(09, 29, 2013) & inlist(Team, "Pittsburgh")) ///
+>        | (Date == mdy(10, 27, 2013) & inlist(Team, "Jacksonville")) ///
+>        | (Date == mdy(12, 01, 2013) & inlist(Team, "Buffalo")) ///
+>        | (Date == mdy(09, 28, 2014) & inlist(Team, "Oakland")) ///
+>        | (Date == mdy(10, 26, 2014) & inlist(Team, "Atlanta")) ///
+>        | (Date == mdy(11, 09, 2014) & inlist(Team, "Jacksonville")) ///
+>        | (Date == mdy(10, 04, 2015) & inlist(Team, "Miami")) ///
+>        | (Date == mdy(10, 25, 2015) & inlist(Team, "Buffalo")) ///
+>        | (Date == mdy(11, 01, 2015) & inlist(Team, "Detroit")) ///
+>        | (Date == mdy(10, 02, 2016) & inlist(Team, "Indianapolis")) ///
+>        | (Date == mdy(10, 23, 2016) & inlist(Team, "Los Angeles")) ///
+>        | (Date == mdy(10, 30, 2016) & inlist(Team, "Cincinnati")) ///
+>        | (Date == mdy(11, 21, 2016) & inlist(Team, "Houston")) ///
+>        | (Date == mdy(09, 24, 2017) & inlist(Team, "Baltimore")) ///
+>        | (Date == mdy(10, 01, 2017) & inlist(Team, "Miami")) ///
+>        | (Date == mdy(10, 22, 2017) & inlist(Team, "Arizona")) ///
+>        | (Date == mdy(10, 29, 2017) & inlist(Team, "Cleveland")) ///
+>        | (Date == mdy(11, 19, 2017) & inlist(Team, "Oakland")) ///
+>        | (Date == mdy(10, 14, 2018) & inlist(Team, "Oakland")) ///
+>        | (Date == mdy(10, 21, 2018) & inlist(Team, "Tennessee")) ///
+>        | (Date == mdy(10, 28, 2018) & inlist(Team, "Jacksonville")) ///
+>        | (Date == mdy(11, 19, 2018) & inlist(Team, "Kansas")) ///
+>        | (Date == mdy(08, 13, 2019) & inlist(Team, "Green Bay")) ///
+>        | (Date == mdy(10, 06, 2019) & inlist(Team, "Chicago")) ///
+>        | (Date == mdy(10, 13, 2019) & inlist(Team, "Tampa Bay")) ///
+>        | (Date == mdy(10, 27, 2019) & inlist(Team, "Los Angeles")) ///
+>        | (Date == mdy(11, 03, 2019) & inlist(Team, "Jacksonville")) ///
+>        | (Date == mdy(11, 18, 2019) & inlist(Team, "Los Angeles (Chargers)")) ///
+>        | (Date == mdy(10, 10, 2021) & inlist(Team, "New York (Jets)")) ///
+>        | (Date == mdy(10, 17, 2021) & inlist(Team, "Miami")) ///
+>        | (Date == mdy(10, 02, 2022) & inlist(Team, "New Orleans")) ///
+>        | (Date == mdy(10, 09, 2022) & inlist(Team, "Green Bay")) ///
+>        | (Date == mdy(10, 30, 2022) & inlist(Team, "Jacksonville")) ///
+>        | (Date == mdy(11, 13, 2022) & inlist(Team, "Seattle")) ///
+>        | (Date == mdy(11, 21, 2022) & inlist(Team, "Arizona")) ///
+>        | (Date == mdy(10, 01, 2023) & inlist(Team, "Atlanta")) ///
+>        | (Date == mdy(10, 08, 2023) & inlist(Team, "Buffalo")) ///
+>        | (Date == mdy(10, 15, 2023) & inlist(Team, "Tennessee"))
+(42 observations deleted)
+r; t=0.03 16:01:54
+
+. 
+. *2.2 Stadion
+. * Attach Stadion to Place - which is right now only in Team Location
+. gen Stadion = ""
+(7,290 missing values generated)
+r; t=0.00 16:01:54
+
+. replace Stadion = "State Farm Stadium" if inlist(Place, "Arizona")
+variable Stadion was str1 now str18
+(229 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "Mercedes-Benz Stadium" if inlist(Place, "Atlanta")
+variable Stadion was str18 now str21
+(232 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "M&T Bank Stadium" if inlist(Place, "Baltimore")
+(221 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "Highmark Stadium" if inlist(Place, "Buffalo")
+(221 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "Bank of America Stadium" if inlist(Place, "Carolina")
+variable Stadion was str21 now str23
+(230 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "Soldier Field" if inlist(Place, "Chicago")
+(233 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "Paul Brown Stadium" if inlist(Place, "Cincinatti")
+(230 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "FirstEnergy Stadium" if inlist(Place, "Cleveland")
+(231 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "AT&T Stadium" if inlist(Place, "Dallas")
+(229 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "Empower Field at Mile High" if inlist(Place, "Denver")
+variable Stadion was str23 now str26
+(236 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "Ford Field" if inlist(Place, "Detroit")
+(228 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "Lambeau Field" if inlist(Place, "Green Bay")
+(224 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "NRG Stadium" if inlist(Place, "Houston")
+(232 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "Lucas Oil Stadium" if inlist(Place, "Indianapolis")
+(232 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "TIAA Bank Field" if inlist(Place, "Jacksonville")
+(212 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "Arrowhead Stadium" if inlist(Place, "Kansas")
+(221 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "Allegiant Stadium" if inlist(Place, "Las Vegas")
+(59 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "SoFi Stadium" if inlist(Place, "Los Angeles (Chargers)") ///
+> | inlist(Place, "Los Angeles (Rams)")
+(229 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "Hard Rock Stadium" if inlist(Place, "Miami")
+(234 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "U.S. Bank Stadium" if inlist(Place, "Minnesota")
+(232 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "Gillette Stadium" if inlist(Place, "New England")
+(232 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "Caesars Superdome" if inlist(Place, "New Orleans")
+(224 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "MetLife Stadium" if inlist(Place, "New York (Giants)") ///
+> | inlist(Place, "New York (Jets)")
+(461 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "Lincoln Financial Field" if inlist(Place, "Philadelphia")
+(228 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "Heinz Field" if inlist(Place, "Pittsburgh")
+(232 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "Levi's Stadium" if inlist(Place, "San Francisco")
+(228 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "Lumen Field" if inlist(Place, "Seattle")
+(227 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "Raymond James Stadium" if inlist(Place, "Tampa Bay")
+(214 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "Nissan Stadium" if inlist(Place, "Tennesse")
+(234 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "FedExField" if inlist(Place, "Washington")
+(233 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "Edward Jones Dome" if inlist(Place, "St. Louis")
+(102 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "Qualcomm Stadium" if inlist(Place, "San Diego")
+(116 real changes made)
+r; t=0.00 16:01:54
+
+. replace Stadion = "O.co Coliseum" if inlist(Place, "Oakland")
+(164 real changes made)
+r; t=0.00 16:01:54
+
+. 
+. * Switch to the actual place of the Stadion
+. gen Place_2 = ""
+(7,290 missing values generated)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Glendale, Arizona" if Stadion == "State Farm Stadium"
+variable Place_2 was str1 now str17
+(229 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Atlanta, Georgia" if Stadion == "Mercedes-Benz Stadium"
+(232 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Baltimore, Maryland" if Stadion == "M&T Bank Stadium"
+variable Place_2 was str17 now str19
+(221 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Orchard Park, New York" if Stadion == "Highmark Stadium"
+variable Place_2 was str19 now str22
+(221 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Charlotte, North Carolina" ///
+> if Stadion == "Bank of America Stadium"
+variable Place_2 was str22 now str25
+(230 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Chicago, Illinois" if Stadion == "Soldier Field"
+(233 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Cincinnati, Ohio" if Stadion == "Paul Brown Stadium"
+(230 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Cleveland, Ohio" if Stadion == "FirstEnergy Stadium"
+(231 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Arlington, Texas" if Stadion == "AT&T Stadium"
+(229 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Denver, Colorado" if Stadion == "Empower Field at Mile High"
+(236 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Detroit, Michigan" if Stadion == "Ford Field"
+(228 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Green Bay, Wisconsin" if Stadion == "Lambeau Field"
+(224 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Houston, Texas" if Stadion == "NRG Stadium"
+(232 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Indianapolis, Indiana" if Stadion == "Lucas Oil Stadium"
+(232 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Jacksonville, Florida" if Stadion == "TIAA Bank Field"
+(212 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Kansas City, Missouri" if Stadion == "Arrowhead Stadium"
+(221 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Paradise, Nevada" if Stadion == "Allegiant Stadium"
+(59 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Inglewood, California" if Stadion == "SoFi Stadium"
+(229 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Miami Gardens, Florida" if Stadion == "Hard Rock Stadium"
+(234 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Minneapolis, Minnesota" if Stadion == "U.S. Bank Stadium"
+(232 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Foxborough, Massachusetts" if Stadion == "Gillette Stadium"
+(232 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "New Orleans, Louisiana" if Stadion == "Caesars Superdome"
+(224 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "East Rutherford, New Jersey" if Stadion == "MetLife Stadium"
+variable Place_2 was str25 now str27
+(461 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Philadelphia, Pennsylvania" if Stadion == "Lincoln Financial Field"
+(228 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Pittsburgh, Pennsylvania" if Stadion == "Heinz Field"
+(232 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Santa Clara, California" if Stadion == "Levi's Stadium"
+(228 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Seattle, Washington" if Stadion == "Lumen Field"
+(227 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Tampa, Florida" if Stadion == "Raymond James Stadium"
+(214 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Nashville, Tennessee" if Stadion == "Nissan Stadium"
+(234 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Landover, Maryland" if Stadion == "FedExField"
+(233 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "St. Louis, Missouri" if Stadion == "Edward Jones Dome"
+(102 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "San Diego, California" if Stadion == "Qualcomm Stadium"
+(116 real changes made)
+r; t=0.00 16:01:54
+
+. replace Place_2 = "Oakland, California" if Stadion == "O.co Coliseum"
+(164 real changes made)
+r; t=0.00 16:01:54
+
+. drop Place
+r; t=0.00 16:01:54
+
+. rename Place_2 Place
+r; t=0.03 16:01:54
+
+. 
+. ** Insert Info on Rooftype
+. gen Stadiontype = ""
+(7,290 missing values generated)
+r; t=0.00 16:01:54
+
+. 
+. replace Stadiontype = "Retractable" if Stadion == "AT&T Stadium" ///
+>                                                                         | Stadion == "Hard Rock Stadium" ///
+>                                                                         | Stadion == "Lucas Oil Stadium" ///
+>                                                                         | Stadion == "Lumen Field" ///
+>                                                                         | Stadion == "Mercedes-Benz Stadium" ///
+>                                                                         | Stadion == "SoFi Stadium" ///
+>                                                                         | Stadion == "State Farm Stadium" ///   
+>                                                                         | Stadion == "NRG Stadium" 
+variable Stadiontype was str1 now str11
+(1,844 real changes made)
+r; t=0.00 16:01:54
+
+. 
+. replace Stadiontype = "Fixed" if Stadion == "Allegiant Stadium" ///
+>                                                         | Stadion == "Bank of America Stadium" ///
+>                                                         | Stadion == "Caesars Superdome" ///
+>                                                         | Stadion == "Edward Jones Dome" ///
+>                                                         | Stadion == "Ford Field" ///
+>                                                         | Stadion == "MetLife Stadium" ///
+>                                                         | Stadion == "Raymond James Stadium" 
+(1,518 real changes made)
+r; t=0.00 16:01:54
+
+. 
+. replace Stadiontype = "Open" if Stadion == "Arrowhead Stadium" ///
+>                                                         | Stadion == "Empower Field at Mile High"  ///
+>                                                         | Stadion == "FedExField" ///
+>                                                         | Stadion == "FirstEnergy Stadium" ///
+>                                                         | Stadion == "Gillette Stadium" ///
+>                                                         | Stadion == "Heinz Field" ///
+>                                                         | Stadion == "Highmark Stadium" ///
+>                                                         | Stadion == "Lambeau Field" ///
+>                                                         | Stadion == "Levi's Stadium" ///
+>                                                         | Stadion == "Lincoln Financial Field" ///
+>                                                         | Stadion == "M&T Bank Stadium" ///
+>                                                         | Stadion == "Nissan Stadium" ///
+>                                                         | Stadion == "Paul Brown Stadium" ///
+>                                                         | Stadion == "Soldier Field" ///
+>                                                         | Stadion == "TIAA Bank Field" ///
+>                                                         | Stadion == "U.S. Bank Stadium" ///
+>                                                         | Stadion == "Qualcomm Stadium" ///
+>                                                         | Stadion == "O.co Coliseum"
+(3,928 real changes made)
+r; t=0.01 16:01:54
+
+. 
+. * 2.3 Prepartion for Merge -> Creation of Matching Var with Filenames
+. split Place, parse(",") gen(Place_Merge)                                                                                // split in two vars with , as seperator
+variables created as string: 
+Place_Merge1  Place_Merge2
+r; t=0.02 16:01:54
+
+. gen Place_Merge = subinstr(Place_Merge1, " ", "", .)                                                    // drop blankets -> San Francisco => SanFrancisco
+r; t=0.00 16:01:54
+
+. drop Place_Merge1 Place_Merge2                          
+r; t=0.00 16:01:54
+
+. 
+. 
+. format Date %td                                 
+r; t=0.00 16:01:54
+
+. gen DateStr = string(Date)
+r; t=0.00 16:01:54
+
+. gen Place_Date_Merge = Place_Merge + "_" + DateStr                                                              // create unifier based on place + date to merge m:1 
+r; t=0.00 16:01:54
+
+. drop Place_Merge DateStr
+r; t=0.00 16:01:54
+
+. 
+. save "$data\Full.dta", replace
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Full.dta saved
+r; t=0.00 16:01:54
+
+. 
+. * -----------------------------------------------------------------------------*                        
+. * 3 Preparation of Pollution Data *
+. 
+. * 3.1 PM10 Data Preperation
+. local string_list "Atlanta Arlington Atlanta Baltimore Charlotte Chicago Cincinnati Cleveland Denver Detroit EastRutherford Foxborough Glendale GreenBay Houston"
+r; t=0.00 16:01:54
+
+. 
+. foreach str in `string_list' {  
+  2.         import delimited "$data\PM10\PM10_`str'.csv", clear
+  3.         drop sitename siteid source mainpollutant                                                                       // drop unnecessary
+  4.         rename pm10aqivalue pm10                                                                                                        
+  5.         gen Date = date(date, "MDY")
+  6.         format Date %td 
+  7.         drop date
+  8.         tset Date                                                                                                                                       
+  9.         tsfill                                                                                                                                          // fill TS with missing dates
+ 10.         count if missing(pm10)
+ 11.         ipolate pm10 Date, gen(pm10_ipol)                                                                                       // linear interpolation of missings (kind of debatable; could be changed to ARIMA or similar)
+ 12.         drop pm10 
+ 13.         gen pm10 = round(pm10_ipol, 1)                                                                                          // round to integers (not needed, also debatable, just a harmonization to AQI Index - also only an integer)
+ 14.         drop pm10_ipol
+ 15.         generate Name = "`str'"
+ 16.         gen DateStr = string(Date)
+ 17.         gen Place_Date_Merge = Name + "_" + DateStr                                                                     // create unifier based on place + date to merge m:1 
+ 18.         drop Name DateStr Date
+ 19.         save "$data\PM10\PM10_`str'.dta", replace
+ 20. }
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 4,834 obs)
+
+Time variable: Date, 01jan2010 to 27oct2023, but with gaps
+        Delta: 1 day
+  214
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Atlanta.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 947 obs)
+
+Time variable: Date, 02jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  4,102
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Arlington.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 4,834 obs)
+
+Time variable: Date, 01jan2010 to 27oct2023, but with gaps
+        Delta: 1 day
+  214
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Atlanta.dta saved
+(encoding automatically selected: ISO-8859-2)
+(6 vars, 893 obs)
+
+Time variable: Date, 02jan2010 to 29jun2023, but with gaps
+        Delta: 1 day
+  4,034
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Baltimore.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 3,279 obs)
+
+Time variable: Date, 02jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  1,770
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Charlotte.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 5,050 obs)
+
+Time variable: Date, 01jan2010 to 29oct2023
+        Delta: 1 day
+  0
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Chicago.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 4,851 obs)
+
+Time variable: Date, 01jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  199
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Cincinnati.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 5,047 obs)
+
+Time variable: Date, 01jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  3
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Cleveland.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 5,037 obs)
+
+Time variable: Date, 01jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  13
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Denver.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 4,980 obs)
+
+Time variable: Date, 01jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  70
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Detroit.dta saved
+(encoding automatically selected: ISO-8859-2)
+(6 vars, 1,290 obs)
+
+Time variable: Date, 02jan2010 to 29jun2023, but with gaps
+        Delta: 1 day
+  3,637
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_EastRutherford.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 3,852 obs)
+
+Time variable: Date, 02jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  1,197
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Foxborough.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 5,050 obs)
+
+Time variable: Date, 01jan2010 to 29oct2023
+        Delta: 1 day
+  0
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Glendale.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 4,700 obs)
+
+Time variable: Date, 02jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  349
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_GreenBay.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 1,781 obs)
+
+Time variable: Date, 02jan2010 to 30jun2023, but with gaps
+        Delta: 1 day
+  3,147
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Houston.dta saved
+r; t=1.23 16:01:56
+
+. 
+. * -----------------------------------------------------------------------------*        
+. * 4 Merge and, hence, Creation of Final Data Set *
+. use "$data\Full.dta", clear
+r; t=0.00 16:01:56
+
+. gen PM10 =. 
+(7,290 missing values generated)
+r; t=0.00 16:01:56
+
+. 
+. local string_list "Atlanta Arlington Atlanta Baltimore Charlotte Chicago Cincinnati Cleveland Denver Detroit EastRutherford Foxborough Glendale GreenBay Houston"
+r; t=0.00 16:01:56
+
+. foreach str in `string_list' {
+  2.         merge m:1 Place_Date_Merge using "$data\PM10\PM10_`str'" 
+  3.         replace PM10 = pm10 if !missing(pm10)
+  4.         drop if _merge == 2
+  5.         drop _merge pm10
+  6. }
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,999
+        from master                     7,058  (_merge==1)
+        from using                      4,941  (_merge==2)
+
+    Matched                               232  (_merge==3)
+    -----------------------------------------
+(5,173 real changes made)
+(4,941 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,003
+        from master                     7,061  (_merge==1)
+        from using                      4,942  (_merge==2)
+
+    Matched                               229  (_merge==3)
+    -----------------------------------------
+(5,171 real changes made)
+(4,942 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,999
+        from master                     7,058  (_merge==1)
+        from using                      4,941  (_merge==2)
+
+    Matched                               232  (_merge==3)
+    -----------------------------------------
+(4,941 real changes made)
+(4,941 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,895
+        from master                     7,073  (_merge==1)
+        from using                      4,822  (_merge==2)
+
+    Matched                               217  (_merge==3)
+    -----------------------------------------
+(5,039 real changes made)
+(4,822 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,002
+        from master                     7,060  (_merge==1)
+        from using                      4,942  (_merge==2)
+
+    Matched                               230  (_merge==3)
+    -----------------------------------------
+(5,172 real changes made)
+(4,942 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,999
+        from master                     7,057  (_merge==1)
+        from using                      4,942  (_merge==2)
+
+    Matched                               233  (_merge==3)
+    -----------------------------------------
+(5,175 real changes made)
+(4,942 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,003
+        from master                     7,060  (_merge==1)
+        from using                      4,943  (_merge==2)
+
+    Matched                               230  (_merge==3)
+    -----------------------------------------
+(5,173 real changes made)
+(4,943 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,001
+        from master                     7,059  (_merge==1)
+        from using                      4,942  (_merge==2)
+
+    Matched                               231  (_merge==3)
+    -----------------------------------------
+(5,173 real changes made)
+(4,942 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,996
+        from master                     7,054  (_merge==1)
+        from using                      4,942  (_merge==2)
+
+    Matched                               236  (_merge==3)
+    -----------------------------------------
+(5,178 real changes made)
+(4,942 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,004
+        from master                     7,062  (_merge==1)
+        from using                      4,942  (_merge==2)
+
+    Matched                               228  (_merge==3)
+    -----------------------------------------
+(5,170 real changes made)
+(4,942 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,559
+        from master                     6,842  (_merge==1)
+        from using                      4,717  (_merge==2)
+
+    Matched                               448  (_merge==3)
+    -----------------------------------------
+(5,165 real changes made)
+(4,717 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,999
+        from master                     7,058  (_merge==1)
+        from using                      4,941  (_merge==2)
+
+    Matched                               232  (_merge==3)
+    -----------------------------------------
+(5,173 real changes made)
+(4,941 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,004
+        from master                     7,061  (_merge==1)
+        from using                      4,943  (_merge==2)
+
+    Matched                               229  (_merge==3)
+    -----------------------------------------
+(5,172 real changes made)
+(4,943 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,008
+        from master                     7,066  (_merge==1)
+        from using                      4,942  (_merge==2)
+
+    Matched                               224  (_merge==3)
+    -----------------------------------------
+(5,166 real changes made)
+(4,942 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,889
+        from master                     7,066  (_merge==1)
+        from using                      4,823  (_merge==2)
+
+    Matched                               224  (_merge==3)
+    -----------------------------------------
+(5,047 real changes made)
+(4,823 observations deleted)
+r; t=0.24 16:01:56
+
+. 
+end of do-file
+
+r; t=3.53 16:01:56
+. tab Player
+
+                  Player |      Freq.     Percent        Cum.
+-------------------------+-----------------------------------
+             A.J. Feeley |          4        0.05        0.05
+            A.J. McCaron |          7        0.10        0.15
+           Aaron Rodgers |        188        2.58        2.73
+         Aidan O'Connell |          1        0.01        2.74
+              Alex Smith |        129        1.77        4.51
+             Alex Tanney |          1        0.01        4.53
+             Andrew Luck |         85        1.17        5.69
+             Andy Dalton |        164        2.25        7.94
+           Anthony Brown |          2        0.03        7.97
+      Anthony Richardson |          4        0.05        8.02
+            Austin Davis |         12        0.16        8.19
+            Bailey Zappe |          6        0.08        8.27
+          Baker Mayfield |         77        1.06        9.33
+             Ben DiNucci |          1        0.01        9.34
+      Ben Roethlisberger |        161        2.21       11.55
+          Blaine Gabbert |         55        0.75       12.30
+           Blake Bortles |         70        0.96       13.26
+             Brady Quinn |          8        0.11       13.37
+           Brandon Allen |          9        0.12       13.50
+          Brandon Weeden |         30        0.41       13.91
+             Brett Favre |         12        0.16       14.07
+           Brett Hundley |         11        0.15       14.22
+            Brett Rypien |          6        0.08       14.31
+             Brian Brohm |          1        0.01       14.32
+             Brian Hoyer |         47        0.64       14.97
+        Brian St. Pierre |          1        0.01       14.98
+          Brock Osweiler |         35        0.48       15.46
+             Brock Purdy |         13        0.18       15.64
+           Brodie Croyle |          1        0.01       15.65
+        Bruce Gradkowski |          9        0.12       15.78
+           Bryce Perkins |          2        0.03       15.80
+             Bryce Petty |          8        0.11       15.91
+             Bryce Young |          5        0.07       15.98
+          Byron Leftwich |          3        0.04       16.02
+           C.J. Beathard |         17        0.23       16.26
+             C.J. Stroud |          6        0.08       16.34
+             Caleb Hanie |          4        0.05       16.39
+              Cam Newton |        145        1.99       18.38
+           Cardase Jones |          1        0.01       18.40
+           Carson Palmer |         99        1.36       19.75
+            Carson Wentz |         92        1.26       21.02
+             Case Keenum |         69        0.95       21.96
+              Chad Henne |         46        0.63       22.59
+           Charlie Batch |          6        0.08       22.67
+      Charlie Whitehurst |         19        0.26       22.94
+            Chase Daniel |         11        0.15       23.09
+            Chris Redman |          4        0.05       23.14
+         Chris Streveler |          3        0.04       23.18
+        Christian Ponder |         37        0.51       23.69
+            Cody Kessler |         14        0.19       23.88
+        Colin Kaepernick |         59        0.81       24.69
+              Colt McCoy |         41        0.56       25.25
+             Connor Cook |          1        0.01       25.27
+             Connor Shaw |          1        0.01       25.28
+             Cooper Rush |          8        0.11       25.39
+          Curtis Painter |         10        0.14       25.53
+            Dak Prescott |        103        1.41       26.94
+            Dan Orlovsky |         10        0.14       27.08
+            Daniel Jones |         58        0.80       27.87
+            David Blough |          8        0.11       27.98
+              David Carr |          1        0.01       28.00
+             David Fales |          2        0.03       28.02
+           David Garrard |         14        0.19       28.22
+             Davis Mills |         28        0.38       28.60
+              Davis Webb |          1        0.01       28.61
+           DeShone Kizer |         16        0.22       28.83
+         Denvernis Dixon |          2        0.03       28.86
+          Derek Anderson |         22        0.30       29.16
+              Derek Carr |        144        1.98       31.14
+          Deshaun Watson |         62        0.85       31.99
+          Desmond Ridder |          9        0.12       32.11
+           Devlin Hodges |          8        0.11       32.22
+         Dominique Davis |          1        0.01       32.24
+          Donovan McNabb |         19        0.26       32.50
+Dorian Thompson-Robinson |          1        0.01       32.51
+              Drew Brees |        164        2.25       34.76
+               Drew Lock |         25        0.34       35.10
+            Drew Stanton |         20        0.27       35.38
+          Dwayne Haskins |         16        0.22       35.60
+               EJ Manuel |         17        0.23       35.83
+             Eli Manning |        147        2.02       37.85
+      Gardner Minshew II |         30        0.41       38.26
+         Garrett Gilbert |          2        0.03       38.29
+              Geno Smith |         60        0.82       39.11
+            Greg McElroy |          2        0.03       39.14
+                Ian Book |          1        0.01       39.15
+             J.P. Losman |          1        0.01       39.16
+             Jacob Eason |          2        0.03       39.19
+         Jacoby Brissett |         50        0.69       39.88
+           Jake Delhomme |          6        0.08       39.96
+              Jake Fromm |          3        0.04       40.00
+             Jake Locker |         27        0.37       40.37
+              Jake Luton |          3        0.04       40.41
+             Jake Rudock |          1        0.01       40.43
+             Jalen Hurts |         41        0.56       40.99
+          Jameis Winston |         83        1.14       42.13
+              Jared Goff |        106        1.45       43.58
+         Jarrett Stidham |          7        0.10       43.68
+          Jason Campbell |         33        0.45       44.13
+              Jay Cutler |         97        1.33       45.46
+            Jeff Driskel |         12        0.16       45.62
+               Jeff Tuel |          2        0.03       45.65
+           Jimmy Clausen |         18        0.25       45.90
+         Jimmy Garoppolo |         63        0.86       46.76
+              Joe Burrow |         48        0.66       47.42
+            Joe Callahan |          1        0.01       47.43
+              Joe Flacco |        147        2.02       49.45
+                Joe Webb |          8        0.11       49.56
+               John Beck |          3        0.04       49.60
+            John Skelton |         20        0.27       49.88
+            John Wolford |          3        0.04       49.92
+          Johnny Manziel |         12        0.16       50.08
+               Jon Kitna |         11        0.15       50.23
+             Jordan Love |         10        0.14       50.37
+              Josh Allen |         82        1.12       51.50
+            Josh Freeman |         51        0.70       52.19
+            Josh Johnson |          8        0.11       52.30
+             Josh McCown |         50        0.69       52.99
+              Josh Rosen |         19        0.26       53.25
+            Joshua Dobbs |         10        0.14       53.39
+           Justin Fields |         32        0.44       53.83
+          Justin Herbert |         54        0.74       54.57
+          Kellen Clemens |         14        0.19       54.76
+            Kellen Moore |          3        0.04       54.80
+          Kendall Hinton |          1        0.01       54.81
+           Kenny Pickett |         17        0.23       55.05
+           Kerry Collins |         13        0.18       55.23
+             Kevin Hogan |          5        0.07       55.29
+              Kevin Kolb |         20        0.27       55.57
+            Kirk Cousins |        145        1.99       57.56
+              Kyle Allen |         21        0.29       57.85
+             Kyle Boller |          2        0.03       57.87
+           Kyle Lauletta |          1        0.01       57.89
+              Kyle Orton |         35        0.48       58.37
+              Kyle Trask |          1        0.01       58.38
+            Kyler Murray |         56        0.77       59.15
+           Lamar Jackson |         65        0.89       60.04
+            Landry Jones |          6        0.08       60.12
+            Logan Thomas |          1        0.01       60.14
+               Luke Falk |          3        0.04       60.18
+             Luke McCown |          5        0.07       60.25
+               Mac Jones |         36        0.49       60.74
+            Malik Willis |          4        0.05       60.80
+          Marcus Mariota |         76        1.04       61.84
+            Mark Brunell |          1        0.01       61.85
+            Mark Sanchez |         61        0.84       62.69
+           Mason Rudolph |         13        0.18       62.87
+            Matt Barkley |         14        0.19       63.06
+             Matt Cassel |         58        0.80       63.85
+              Matt Flynn |         12        0.16       64.02
+         Matt Hasselbeck |         47        0.64       64.66
+            Matt Leinart |          2        0.03       64.69
+            Matt McGloin |          9        0.12       64.81
+              Matt Moore |         32        0.44       65.25
+               Matt Ryan |        201        2.76       68.01
+             Matt Schaub |         59        0.81       68.82
+              Matt Simms |          4        0.05       68.88
+        Matthew Stafford |        184        2.52       71.40
+                Max Hall |          4        0.05       71.45
+            Michael Vick |         50        0.69       72.14
+            Mike Glennon |         38        0.52       72.66
+              Mike Kafka |          2        0.03       72.69
+              Mike White |          8        0.11       72.80
+       Mitchell Trubisky |         58        0.80       73.59
+            Nate Sudfeld |          2        0.03       73.62
+         Nathan Peterman |         10        0.14       73.76
+              Nick Foles |         63        0.86       74.62
+            Nick Mullens |         21        0.29       74.91
+             P.J. Walker |         13        0.18       75.09
+         Patrick Mahomes |         84        1.15       76.24
+            Paxton Lynch |          5        0.07       76.31
+          Peyton Manning |         74        1.02       77.33
+           Philip Rivers |        175        2.40       79.73
+            Rex Grossman |         17        0.23       79.96
+          Richard Bartel |          3        0.04       80.00
+      Robert Griffin III |         44        0.60       80.60
+          Russell Wilson |        176        2.41       83.02
+             Rusty Smith |          3        0.04       83.06
+             Ryan Finley |          6        0.08       83.14
+        Ryan Fitzpatrick |        133        1.82       84.97
+            Ryan Lindley |         10        0.14       85.10
+            Ryan Mallett |         10        0.14       85.24
+             Ryan Nassib |          2        0.03       85.27
+          Ryan Tannehill |        148        2.03       87.30
+            Sam Bradford |         82        1.12       88.42
+             Sam Darnold |         56        0.77       89.19
+            Sam Ehlinger |          4        0.05       89.25
+              Sam Howell |          7        0.10       89.34
+           Scott Tolzien |          5        0.07       89.41
+            Sean Mannion |          5        0.07       89.48
+            Sean Renfree |          1        0.01       89.49
+          Seneca Wallace |          9        0.12       89.62
+              Shaun Hill |         22        0.30       89.92
+         Skylar Thompson |          5        0.07       89.99
+           Stephen McGee |          3        0.04       90.03
+              T.J. Yates |         14        0.19       90.22
+        Tarvaris Jackson |         19        0.26       90.48
+         Taylor Heinicke |         27        0.37       90.85
+             Taysom Hill |          9        0.12       90.97
+       Teddy Bridgewater |         68        0.93       91.91
+          Terrelle Pryor |         13        0.18       92.09
+          Thaddeus Lewis |          6        0.08       92.17
+               Tim Boyle |          4        0.05       92.22
+               Tim Tebow |         15        0.21       92.43
+             Todd Bouman |          1        0.01       92.44
+            Todd Collins |          2        0.03       92.47
+               Tom Brady |        203        2.78       95.25
+              Tom Savage |         11        0.15       95.40
+               Tony Pike |          1        0.01       95.42
+               Tony Romo |         70        0.96       96.38
+          Trace McSorley |          4        0.05       96.43
+           Trent Edwards |          4        0.05       96.49
+          Trevone Boykin |          2        0.03       96.52
+         Trevor Lawrence |         37        0.51       97.02
+          Trevor Siemian |         33        0.45       97.48
+              Trey Lance |          4        0.05       97.53
+              Troy Smith |          5        0.07       97.60
+          Tua Tagovailoa |         39        0.53       98.13
+              Tyler Bray |          1        0.01       98.15
+           Tyler Huntley |         11        0.15       98.30
+             Tyler Palko |          5        0.07       98.37
+           Tyler Thigpen |          5        0.07       98.44
+            Tyrod Taylor |         59        0.81       99.25
+            Tyson Bagent |          1        0.01       99.26
+             Vince Young |         12        0.16       99.42
+              Will Grier |          2        0.03       99.45
+       Zach Mettenberger |         13        0.18       99.63
+             Zach Wilson |         27        0.37      100.00
+-------------------------+-----------------------------------
+                   Total |      7,290      100.00
+r; t=0.01 16:02:05
+
+. xtset
+repeated time values in sample
+r(451); t=0.03 16:04:18
+
+. r; t=1.04 16:04:24
+xtset Date
+
+Panel variable: Date (unbalanced)
+r; t=0.01 16:04:28
+
+. xtreg INTs PM10, vce(cluster Player)
+panels are not nested within clusters
+r(498); t=0.42 16:04:55
+
+. r; t=1.07 16:05:00
+encode Player, generate(Player_N)
+r; t=0.00 16:05:10
+
+. encode Player, generate(Player_N)
+variable Player_N already defined
+r(110); t=0.02 16:05:11
+
+.  xtreg INTs PM10, vce(cluster Player_N)
+panels are not nested within clusters
+r(498); t=0.06 16:05:22
+
+. reg INTs PM10, vce(cluster Player_N)
+
+Linear regression                               Number of obs     =      3,423
+                                                F(1, 205)         =       0.00
+                                                Prob > F          =     0.9994
+                                                R-squared         =     0.0000
+                                                Root MSE          =       .944
+
+                             (Std. err. adjusted for 206 clusters in Player_N)
+------------------------------------------------------------------------------
+             |               Robust
+        INTs | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        PM10 |  -6.59e-07   .0009176    -0.00   0.999    -.0018097    .0018084
+       _cons |   .8147963   .0407872    19.98   0.000     .7343802    .8952124
+------------------------------------------------------------------------------
+r; t=0.29 16:06:36
+
+. 
+. reg INT_Percentage PM10, vce(cluster Player_N)
+
+Linear regression                               Number of obs     =      3,423
+                                                F(1, 205)         =       0.31
+                                                Prob > F          =     0.5781
+                                                R-squared         =     0.0001
+                                                Root MSE          =       3.41
+
+                             (Std. err. adjusted for 206 clusters in Player_N)
+------------------------------------------------------------------------------
+             |               Robust
+INT_Percen~e | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        PM10 |   .0017288   .0031034     0.56   0.578    -.0043899    .0078474
+       _cons |   2.596256   .1490977    17.41   0.000     2.302295    2.890218
+------------------------------------------------------------------------------
+r; t=0.03 16:13:19
+
+. reg INT_Percentage PM10 i.Player_N, vce(cluster Player_N)
+
+Linear regression                               Number of obs     =      3,423
+                                                F(0, 205)         =          .
+                                                Prob > F          =          .
+                                                R-squared         =     0.1635
+                                                Root MSE          =     3.2169
+
+                                          (Std. err. adjusted for 206 clusters in Player_N)
+-------------------------------------------------------------------------------------------
+                          |               Robust
+           INT_Percentage | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+--------------------------+----------------------------------------------------------------
+                     PM10 |  -.0002633   .0031566    -0.08   0.934    -.0064869    .0059603
+                          |
+                 Player_N |
+            A.J. McCaron  |  -1.178631   .0164144   -71.80   0.000    -1.210993   -1.146268
+           Aaron Rodgers  |  -1.785753   .0080944  -220.61   0.000    -1.801712   -1.769794
+              Alex Smith  |  -1.898139   .0223067   -85.09   0.000    -1.942119   -1.854159
+             Andrew Luck  |   .5631837   .0153321    36.73   0.000     .5329549    .5934125
+             Andy Dalton  |  -.2163012    .014897   -14.52   0.000    -.2456721   -.1869303
+           Anthony Brown  |   1.500263   .0031566   475.28   0.000      1.49404    1.506487
+            Austin Davis  |    .411125   .1333666     3.08   0.002     .1481789    .6740711
+            Bailey Zappe  |  -.6828945    .005261  -129.80   0.000    -.6932671   -.6725218
+          Baker Mayfield  |  -.1881337   .0138102   -13.62   0.000    -.2153619   -.1609056
+      Ben Roethlisberger  |   -.854715   .0154042   -55.49   0.000    -.8850861    -.824344
+          Blaine Gabbert  |  -.9725554    .062606   -15.53   0.000     -1.09599   -.8491211
+           Blake Bortles  |  -.0108199   .0113266    -0.96   0.341    -.0331515    .0115118
+             Brady Quinn  |  -.5984201   .0189396   -31.60   0.000    -.6357616   -.5610787
+           Brandon Allen  |  -.8478935   .0252529   -33.58   0.000    -.8976821   -.7981049
+          Brandon Weeden  |   .1514482   .0173613     8.72   0.000     .1172186    .1856779
+             Brett Favre  |   3.500987   .0118373   295.76   0.000     3.477649    3.524326
+           Brett Hundley  |   .7634216   .0110481    69.10   0.000     .7416391    .7852041
+            Brett Rypien  |   4.863581   .0429299   113.29   0.000      4.77894    4.948222
+             Brian Brohm  |    10.0029   .0347227   288.08   0.000     9.934437    10.07136
+             Brian Hoyer  |  -1.072583   .0289731   -37.02   0.000    -1.129707    -1.01546
+        Brian St. Pierre  |   4.102633   .0315661   129.97   0.000     4.040397    4.164869
+          Brock Osweiler  |   .6020438   .0245013    24.57   0.000      .553737    .6503506
+             Brock Purdy  |   .6986834    .015783    44.27   0.000     .6675655    .7298013
+        Bruce Gradkowski  |  -2.028857   .0536623   -37.81   0.000    -2.134658   -1.923056
+             Bryce Petty  |   .3829384   .0047349    80.88   0.000      .373603    .3922737
+             Bryce Young  |  -.4505266   .0063132   -71.36   0.000    -.4629738   -.4380795
+          Byron Leftwich  |   -3.00158   .0189396  -158.48   0.000    -3.038921   -2.964238
+           C.J. Beathard  |   .3645817    .054925     6.64   0.000     .2562914    .4728719
+             C.J. Stroud  |  -3.001843   .0220962  -135.85   0.000    -3.045408   -2.958278
+             Caleb Hanie  |   5.502545   .0305139   180.33   0.000     5.442384    5.562707
+              Cam Newton  |  -.1375021    .008789   -15.64   0.000    -.1548305   -.1201738
+           Cardase Jones  |    6.09921   .0094698   644.07   0.000     6.080539    6.117881
+           Carson Palmer  |  -.5567496   .0978548    -5.69   0.000    -.7496804   -.3638187
+            Carson Wentz  |  -1.437436   .0203121   -70.77   0.000    -1.477483   -1.397389
+             Case Keenum  |  -.8373034   .0250615   -33.41   0.000    -.8867148    -.787892
+              Chad Henne  |   .1123172   .0277781     4.04   0.000     .0575497    .1670846
+           Charlie Batch  |        2.8   4.58e-13  6.1e+12   0.000          2.8         2.8
+      Charlie Whitehurst  |   3.057965   .0954874    32.02   0.000     2.869702    3.246228
+            Chase Daniel  |  -2.149605   .0047349  -453.99   0.000     -2.15894    -2.14027
+            Chris Redman  |  -.2315779    .021044   -11.00   0.000    -.2730684   -.1900874
+         Chris Streveler  |  -2.993812   .0741803   -40.36   0.000    -3.140066   -2.847558
+        Christian Ponder  |   .4807156   .0257038    18.70   0.000     .4300379    .5313933
+            Cody Kessler  |  -.9289448   .0526101   -17.66   0.000    -1.032671   -.8252185
+        Colin Kaepernick  |  -.4785387   .0393141   -12.17   0.000    -.5560505   -.4010269
+              Colt McCoy  |  -.3895459   .0294196   -13.24   0.000    -.4475496   -.3315422
+             Connor Cook  |   1.805793   .0694453    26.00   0.000     1.668874    1.942712
+             Connor Shaw  |   .5989467   .0126264    47.44   0.000     .5740524    .6238411
+             Cooper Rush  |   -2.99605   .0473491   -63.28   0.000    -3.089404   -2.902697
+          Curtis Painter  |   4.699737   .0031566  1488.86   0.000     4.693513     4.70596
+            Dak Prescott  |  -1.221618   .0238938   -51.13   0.000    -1.268727   -1.174509
+            Dan Orlovsky  |  -.3316657   .0199918   -16.59   0.000    -.3710817   -.2922497
+            Daniel Jones  |   -1.12919   .0097066  -116.33   0.000    -1.148328   -1.110053
+            David Blough  |   .4520187   .0242007    18.68   0.000     .4043047    .4997328
+              David Carr  |    4.70079   .0094698   496.40   0.000     4.682119    4.719461
+           David Garrard  |   -1.54842   .0189396   -81.76   0.000    -1.585762   -1.511079
+             Davis Mills  |  -.6799707   .0602912   -11.28   0.000     -.798841   -.5611004
+           DeShone Kizer  |   2.855669   .0218534   130.67   0.000     2.812583    2.898755
+          Derek Anderson  |   .1843267   .0689944     2.67   0.008     .0482971    .3203563
+              Derek Carr  |  -1.873971   .0123305  -151.98   0.000    -1.898282   -1.849661
+          Deshaun Watson  |  -1.324372   .0217956   -60.76   0.000    -1.367345     -1.2814
+          Desmond Ridder  |  -1.812665   .0019729  -918.79   0.000    -1.816554   -1.808775
+           Devlin Hodges  |  -.0479593   .0244637    -1.96   0.051     -.096192    .0002734
+          Donovan McNabb  |   .5247367   .0031566   166.23   0.000     .5185131    .5309603
+Dorian Thompson-Robinson  |   5.305793   .0694453    76.40   0.000     5.168874    5.442712
+              Drew Brees  |   -.943566   .0133652   -70.60   0.000    -.9699169   -.9172151
+               Drew Lock  |  -.2037139   .0259956    -7.84   0.000    -.2549669   -.1524609
+            Drew Stanton  |   1.192636   .0829737    14.37   0.000     1.029045    1.356227
+          Dwayne Haskins  |   2.883897   .0467178    61.73   0.000     2.791788    2.976006
+               EJ Manuel  |  -.5150429   .0194657   -26.46   0.000    -.5534216   -.4766642
+             Eli Manning  |   .0072099   .0172703     0.42   0.677    -.0268403      .04126
+      Gardner Minshew II  |  -2.248683    .015783  -142.47   0.000    -2.279801   -2.217566
+         Garrett Gilbert  |  -.3973669   .0315661   -12.59   0.000    -.4596026   -.3351311
+              Geno Smith  |   2.376025   .0122882   193.36   0.000     2.351798    2.400253
+            Greg McElroy  |  -.8989467   .0126264   -71.20   0.000    -.9238411   -.8740524
+         Jacoby Brissett  |  -1.799375   .0074969  -240.01   0.000    -1.814156   -1.784594
+           Jake Delhomme  |   1.803599   .0431403    41.81   0.000     1.718543    1.888654
+              Jake Fromm  |   .2502633   .0031566    79.28   0.000     .2440397    .2564869
+             Jake Locker  |    2.86237   .0284095   100.75   0.000     2.806358    2.918382
+              Jake Luton  |  -.1005266   .0063132   -15.92   0.000    -.1129738   -.0880795
+             Jake Rudock  |   17.00316   .0378793   448.88   0.000     16.92848    17.07784
+             Jalen Hurts  |  -.2917535   .0189396   -15.40   0.000    -.3290949    -.254412
+          Jameis Winston  |   .6105057    .026042    23.44   0.000     .5591612    .6618502
+              Jared Goff  |   -1.30232   .0254633   -51.15   0.000    -1.352524   -1.252117
+         Jarrett Stidham  |   1.999342   .0078915   253.35   0.000     1.983783    2.014901
+          Jason Campbell  |  -1.583218   .0167543   -94.50   0.000    -1.616251   -1.550185
+              Jay Cutler  |   .5815877    .022508    25.84   0.000     .5372109    .6259645
+            Jeff Driskel  |  -1.598256   .0209125   -76.43   0.000    -1.639487   -1.557024
+               Jeff Tuel  |   2.007899   .0946982    21.20   0.000     1.821192    2.194607
+           Jimmy Clausen  |   .4928141   .0060704    81.18   0.000     .4808456    .5047825
+         Jimmy Garoppolo  |  -1.243946   .0373222   -33.33   0.000     -1.31753   -1.170361
+              Joe Burrow  |  -.8631853    .020134   -42.87   0.000    -.9028817    -.823489
+            Joe Callahan  |  -2.996314   .0441925   -67.80   0.000    -3.083444   -2.909184
+              Joe Flacco  |  -.8719014   .0099003   -88.07   0.000    -.8914208    -.852382
+                Joe Webb  |  -1.447235   .0331444   -43.66   0.000    -1.512583   -1.381888
+               John Beck  |  -.2984201   .0189396   -15.76   0.000    -.3357616   -.2610787
+            John Skelton  |  -.1824939    .124235    -1.47   0.143    -.4274361    .0624483
+          Johnny Manziel  |  -.3564658    .008117   -43.92   0.000    -.3724692   -.3404623
+               Jon Kitna  |    1.17006   .0406852    28.76   0.000     1.089846    1.250275
+             Jordan Love  |   .9411586   .0138891    67.76   0.000     .9137748    .9685423
+              Josh Allen  |  -.8545655   .0052084  -164.07   0.000    -.8648344   -.8442966
+            Josh Freeman  |   .4201489   .0167695    25.05   0.000     .3870861    .4532116
+            Josh Johnson  |  -.4984201   .0189396   -26.32   0.000    -.5357616   -.4610787
+             Josh McCown  |  -.1519895   .0136129   -11.17   0.000    -.1788286   -.1251503
+              Josh Rosen  |   2.706439   .0771934    35.06   0.000     2.554244    2.858634
+            Joshua Dobbs  |  -1.419207   .0694453   -20.44   0.000    -1.556126   -1.282288
+           Justin Fields  |   1.026623   .0314398    32.65   0.000     .9646358    1.088609
+          Justin Herbert  |  -.7259713   .0482961   -15.03   0.000     -.821192   -.6307506
+          Kellen Clemens  |   4.402896   .0347227   126.80   0.000     4.334437    4.471356
+            Kellen Moore  |   5.098552   .0173613   293.67   0.000     5.064322    5.132781
+          Kendall Hinton  |   19.20211   .0252529   760.39   0.000     19.15232     19.2519
+           Kenny Pickett  |  -3.000263   .0031566  -950.47   0.000    -3.006487    -2.99404
+           Kerry Collins  |  -2.993944    .072602   -41.24   0.000    -3.137086   -2.850802
+             Kevin Hogan  |   3.161369   .0164144   192.60   0.000     3.129007    3.193732
+              Kevin Kolb  |  -1.126044   .1673002    -6.73   0.000    -1.455894   -.7961948
+            Kirk Cousins  |  -.1458767   .0094698   -15.40   0.000    -.1645475    -.127206
+              Kyle Allen  |   -.097772   .0267097    -3.66   0.000     -.150433   -.0451109
+              Kyle Orton  |  -.9017876   .0385106   -23.42   0.000    -.9777152   -.8258599
+              Kyle Trask  |   -2.99921   .0094698  -316.71   0.000    -3.017881   -2.980539
+            Kyler Murray  |  -.9280594   .0917671   -10.11   0.000    -1.108988   -.7471311
+           Lamar Jackson  |  -.5605442   .0065237   -85.92   0.000    -.5734062   -.5476821
+            Logan Thomas  |  -2.998683    .015783  -189.99   0.000    -3.029801   -2.967566
+               Luke Falk  |  -.7497367   .0031566  -237.51   0.000    -.7559603   -.7435131
+             Luke McCown  |       8.85   4.58e-13  1.9e+13   0.000         8.85        8.85
+               Mac Jones  |   .3455361   .0074059    46.66   0.000     .3309346    .3601375
+            Malik Willis  |   7.004476   .0536623   130.53   0.000     6.898676    7.110277
+          Marcus Mariota  |  -.2261715   .0359064    -6.30   0.000    -.2969647   -.1553783
+            Mark Brunell  |   5.302896   .0347227   152.72   0.000     5.234437    5.371356
+            Mark Sanchez  |   .3078376   .0273573    11.25   0.000     .2538999    .3617753
+           Mason Rudolph  |   1.501317    .015783    95.12   0.000     1.470199    1.532434
+            Matt Barkley  |   2.215377   .0130774   169.41   0.000     2.189593     2.24116
+             Matt Cassel  |   3.539789   .0025253  1401.74   0.000      3.53481    3.544768
+              Matt Flynn  |   1.210237   .0028409   426.00   0.000     1.204636    1.215838
+         Matt Hasselbeck  |   .2389489   .0309921     7.71   0.000     .1778447    .3000531
+            Matt Leinart  |   .0986834    .015783     6.25   0.000     .0675655    .1298013
+            Matt McGloin  |  -1.372499   .0299878   -45.77   0.000    -1.431622   -1.313375
+              Matt Moore  |   1.809531   .0286349    63.19   0.000     1.753075    1.865988
+               Matt Ryan  |  -.8938663   .0109068   -81.96   0.000    -.9153702   -.8723625
+             Matt Schaub  |  -.5663883   .0340752   -16.62   0.000     -.633571   -.4992056
+              Matt Simms  |  -.1997367   .0031566   -63.28   0.000    -.2059603   -.1935131
+        Matthew Stafford  |    -.84862   .0213387   -39.77   0.000    -.8906914   -.8065486
+                Max Hall  |   5.109743   .1167944    43.75   0.000      4.87947    5.340015
+            Michael Vick  |  -.7446955   .0174827   -42.60   0.000    -.7791645   -.7102265
+            Mike Glennon  |   1.301373   .0164594    79.07   0.000     1.268921    1.333825
+              Mike Kafka  |         -3   4.58e-13 -6.5e+12   0.000           -3          -3
+              Mike White  |   1.949539   .0055241   352.92   0.000     1.938648     1.96043
+       Mitchell Trubisky  |  -1.005566   .0254957   -39.44   0.000    -1.055833   -.9552982
+         Nathan Peterman  |   6.561106   .0132577   494.89   0.000     6.534967    6.587245
+              Nick Foles  |   .2986559    .054405     5.49   0.000     .1913908    .4059211
+            Nick Mullens  |   1.479789   .0025253   585.99   0.000      1.47481    1.484768
+             P.J. Walker  |   3.155527   .0117655   268.20   0.000      3.13233    3.178724
+         Patrick Mahomes  |  -1.562119    .031009   -50.38   0.000    -1.623257   -1.500982
+            Paxton Lynch  |   1.701975   .0236745    71.89   0.000     1.655298    1.748652
+          Peyton Manning  |  -.5501246   .0245666   -22.39   0.000    -.5985603    -.501689
+           Philip Rivers  |   .0424186   .0353042     1.20   0.231    -.0271872    .1120244
+            Rex Grossman  |   .9263166    .015783    58.69   0.000     .8951987    .9574345
+      Robert Griffin III  |   1.319786   .0192266    68.64   0.000     1.281878    1.357693
+          Russell Wilson  |  -1.182129   .0464021   -25.48   0.000    -1.273616   -1.090643
+             Rusty Smith  |    6.70158   .0189396   353.84   0.000     6.664238    6.738921
+             Ryan Finley  |  -1.898859   .0136786  -138.82   0.000    -1.925828    -1.87189
+        Ryan Fitzpatrick  |   .6338826   .0208562    30.39   0.000     .5927625    .6750027
+            Ryan Lindley  |    .555749   .0689192     8.06   0.000     .4198676    .6916304
+            Ryan Mallett  |  -.2884201   .0189396   -15.23   0.000    -.3257616   -.2510787
+          Ryan Tannehill  |   .1155965   .0106768    10.83   0.000     .0945462    .1366468
+            Sam Bradford  |  -.8412944   .0377624   -22.28   0.000    -.9157468    -.766842
+             Sam Darnold  |   -.174305   .0006475  -269.19   0.000    -.1755816   -.1730283
+            Sam Ehlinger  |  -1.298947   .0126264  -102.88   0.000    -1.323841   -1.274052
+              Sam Howell  |  -3.001185   .0142047  -211.28   0.000    -3.029191   -2.973179
+           Scott Tolzien  |   1.631578    .021044    77.53   0.000     1.590087    1.673068
+            Sean Mannion  |  -2.997367   .0315661   -94.96   0.000    -3.059603   -2.935131
+            Sean Renfree  |   11.30132    .015783   716.04   0.000      11.2702    11.33243
+          Seneca Wallace  |  -1.087455    .017186   -63.28   0.000    -1.121339   -1.053571
+              Shaun Hill  |  -.1987493   .0149939   -13.26   0.000    -.2283112   -.1691873
+         Skylar Thompson  |   .8980251   .0236745    37.93   0.000     .8513483     .944702
+           Stephen McGee  |  -2.994075   .0710236   -42.16   0.000    -3.134106   -2.854045
+              T.J. Yates  |   2.234972   .0196411   113.79   0.000     2.196247    2.273696
+        Tarvaris Jackson  |   .4859509   .0713393     6.81   0.000     .3452981    .6266037
+         Taylor Heinicke  |  -.4879819   .0108728   -44.88   0.000    -.5094187   -.4665452
+             Taysom Hill  |  -1.424605   .0047349  -300.87   0.000     -1.43394    -1.41527
+       Teddy Bridgewater  |  -.8621463   .0284095   -30.35   0.000    -.9181585   -.8061341
+          Terrelle Pryor  |  -1.734211    .010522  -164.82   0.000    -1.754956   -1.713466
+          Thaddeus Lewis  |         -3   4.58e-13 -6.5e+12   0.000           -3          -3
+               Tim Boyle  |    9.20079   .0094698   971.59   0.000     9.182119    9.219461
+               Tim Tebow  |  -.6711819   .0457708   -14.66   0.000    -.7614238   -.5809401
+            Todd Collins  |   14.05158   .0189396   741.91   0.000     14.01424    14.08892
+               Tom Brady  |  -1.775888   .0013384 -1326.87   0.000    -1.778527    -1.77325
+              Tom Savage  |   -1.78357   .0257038   -69.39   0.000    -1.834248   -1.732892
+               Tony Pike  |   -3.00079   .0094698  -316.88   0.000    -3.019461   -2.982119
+               Tony Romo  |  -.4850037   .0329833   -14.70   0.000    -.5500338   -.4199737
+          Trace McSorley  |   4.761849   .1420473    33.52   0.000     4.481788     5.04191
+           Trent Edwards  |   4.553818   .0457708    99.49   0.000     4.463576     4.64406
+         Trevor Lawrence  |   .1165051   .0266057     4.38   0.000     .0640492    .1689609
+          Trevor Siemian  |  -.8588136   .0441925   -19.43   0.000    -.9459437   -.7716835
+              Trey Lance  |   .5064512   .0773369     6.55   0.000     .3539736    .6589288
+              Troy Smith  |   1.160796   .1294209     8.97   0.000     .9056292    1.415963
+          Tua Tagovailoa  |  -.6538001    .021044   -31.07   0.000    -.6952906   -.6123096
+              Tyler Bray  |  -2.995787   .0505057   -59.32   0.000    -3.095364    -2.89621
+           Tyler Huntley  |  -.6396577   .0041036  -155.88   0.000    -.6477483    -.631567
+             Tyler Palko  |   .7332456   .0010522   696.87   0.000      .731171    .7353201
+           Tyler Thigpen  |  -2.997893   .0252529  -118.72   0.000    -3.047682   -2.948105
+            Tyrod Taylor  |  -1.715803   .0001661 -1.0e+04   0.000    -1.716131   -1.715476
+            Tyson Bagent  |   4.098683    .015783   259.69   0.000     4.067566    4.129801
+             Vince Young  |  -.2307002   .0315661    -7.31   0.000     -.292936   -.1684644
+              Will Grier  |   9.498157   .0220962   429.85   0.000     9.454592    9.541722
+       Zach Mettenberger  |   1.825527   .0063132   289.16   0.000     1.813079    1.837974
+             Zach Wilson  |   .0452765   .0033144    13.66   0.000     .0387417    .0518112
+                          |
+                    _cons |   3.003686   .0441925    67.97   0.000     2.916556    3.090816
+-------------------------------------------------------------------------------------------
+r; t=0.19 16:15:51
+
+. reg INT_Percentage PM10 Sacks i.Player_N, vce(cluster Player_N)
+
+Linear regression                               Number of obs     =      3,423
+                                                F(1, 205)         =          .
+                                                Prob > F          =          .
+                                                R-squared         =     0.1637
+                                                Root MSE          =     3.2169
+
+                                          (Std. err. adjusted for 206 clusters in Player_N)
+-------------------------------------------------------------------------------------------
+                          |               Robust
+           INT_Percentage | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+--------------------------+----------------------------------------------------------------
+                     PM10 |  -.0003558   .0031466    -0.11   0.910    -.0065596    .0058481
+                    Sacks |   .0349205   .0374814     0.93   0.353    -.0389781     .108819
+                          |
+                 Player_N |
+            A.J. McCaron  |  -1.234023   .0622034   -19.84   0.000    -1.356663   -1.111382
+           Aaron Rodgers  |  -1.825425   .0436099   -41.86   0.000    -1.911407   -1.739444
+              Alex Smith  |  -1.970819   .0818472   -24.08   0.000    -2.132189   -1.809449
+             Andrew Luck  |   .5220608   .0472032    11.06   0.000     .4289947    .6151269
+             Andy Dalton  |  -.2486411   .0382212    -6.51   0.000    -.3239982    -.173284
+           Anthony Brown  |   1.395594   .1124965    12.41   0.000     1.173796    1.617393
+            Austin Davis  |   .3015398   .1805468     1.67   0.096     -.054427    .6575065
+            Bailey Zappe  |  -.6885605   .0081668   -84.31   0.000    -.7046622   -.6724587
+          Baker Mayfield  |  -.2270148    .044391    -5.11   0.000    -.3145361   -.1394934
+      Ben Roethlisberger  |  -.8849939    .036419   -24.30   0.000    -.9567978     -.81319
+          Blaine Gabbert  |  -1.032803   .0914133   -11.30   0.000    -1.213033   -.8525717
+           Blake Bortles  |  -.0803291   .0758374    -1.06   0.291    -.2298504    .0691923
+             Brady Quinn  |  -.7200871   .1325852    -5.43   0.000    -.9814925   -.4586816
+           Brandon Allen  |  -.8646141    .031422   -27.52   0.000    -.9265657   -.8026624
+          Brandon Weeden  |    .099576   .0588685     1.69   0.092    -.0164894    .2156414
+             Brett Favre  |   3.483874    .022172   157.13   0.000     3.440159    3.527588
+           Brett Hundley  |   .7069994   .0619232    11.42   0.000     .5849114    .8290874
+            Brett Rypien  |   4.836902   .0523172    92.45   0.000     4.733753    4.940051
+             Brian Brohm  |   9.934073   .0826497   120.19   0.000      9.77112    10.09702
+             Brian Hoyer  |  -1.094183   .0376607   -29.05   0.000    -1.168435   -1.019931
+        Brian St. Pierre  |   4.033717   .0813745    49.57   0.000     3.873278    4.194155
+          Brock Osweiler  |   .5611895   .0509234    11.02   0.000     .4607886    .6615903
+             Brock Purdy  |   .6283802    .076556     8.21   0.000     .4774421    .7793183
+        Bruce Gradkowski  |  -2.038925   .0549635   -37.10   0.000    -2.147292   -1.930559
+             Bryce Petty  |   .3478792   .0377653     9.21   0.000     .2734211    .4223373
+             Bryce Young  |  -.5205525   .0752103    -6.92   0.000    -.6688373   -.3722677
+          Byron Leftwich  |  -3.037055   .0419239   -72.44   0.000    -3.119712   -2.954398
+           C.J. Beathard  |   .3312699   .0664319     4.99   0.000     .2002927    .4622472
+             C.J. Stroud  |   -2.96757   .0435236   -68.18   0.000    -3.053381   -2.881759
+             Caleb Hanie  |   5.363757   .1530577    35.04   0.000     5.061988    5.665526
+              Cam Newton  |  -.1790123   .0457012    -3.92   0.000    -.2691169   -.0889078
+           Cardase Jones  |   6.098933   .0094398   646.09   0.000     6.080321    6.117544
+           Carson Palmer  |  -.5912544   .1055664    -5.60   0.000    -.7993895   -.3831194
+            Carson Wentz  |  -1.480871   .0514624   -28.78   0.000    -1.582335   -1.379408
+             Case Keenum  |  -.8714898   .0450981   -19.32   0.000    -.9604053   -.7825743
+              Chad Henne  |   .0642421   .0593955     1.08   0.281    -.0528622    .1813465
+           Charlie Batch  |    2.78254   .0187407   148.48   0.000      2.74559    2.819489
+      Charlie Whitehurst  |   3.017111   .1061999    28.41   0.000     2.807727    3.226496
+            Chase Daniel  |  -2.190207   .0439945   -49.78   0.000    -2.276947   -2.103467
+            Chris Redman  |   -.196041   .0429047    -4.57   0.000    -.2806322   -.1114499
+         Chris Streveler  |  -2.991639   .0739451   -40.46   0.000     -3.13743   -2.845849
+        Christian Ponder  |   .4240991   .0667562     6.35   0.000     .2924822    .5557159
+            Cody Kessler  |  -.9565042   .0611099   -15.65   0.000    -1.076989   -.8360197
+        Colin Kaepernick  |  -.5250061    .064487    -8.14   0.000    -.6521489   -.3978632
+              Colt McCoy  |  -.4305888   .0537577    -8.01   0.000    -.5365777   -.3245999
+             Connor Cook  |   1.772906   .0788067    22.50   0.000     1.617531    1.928282
+             Connor Shaw  |   .4938155    .113114     4.37   0.000     .2707995    .7168314
+             Cooper Rush  |  -2.994663    .047199   -63.45   0.000    -3.087721   -2.901606
+          Curtis Painter  |   4.717104   .0190111   248.12   0.000     4.679622    4.754587
+            Dak Prescott  |  -1.254869   .0435856   -28.79   0.000    -1.340802   -1.168935
+            Dan Orlovsky  |  -.3660006   .0424958    -8.61   0.000    -.4497854   -.2822158
+            Daniel Jones  |  -1.190017   .0663272   -17.94   0.000    -1.320788   -1.059246
+            David Blough  |   .4178071   .0446265     9.36   0.000     .3298213    .5057929
+              David Carr  |   4.701067   .0094398   498.00   0.000     4.682456    4.719679
+           David Garrard  |  -1.635167   .0956348   -17.10   0.000     -1.82372   -1.446613
+             Davis Mills  |  -.7288395    .081134    -8.98   0.000    -.8888036   -.5688754
+           DeShone Kizer  |    2.81333   .0510671    55.09   0.000     2.712646    2.914014
+          Derek Anderson  |   .1838532   .0688347     2.67   0.008     .0481384    .3195681
+              Derek Carr  |  -1.907439   .0383644   -49.72   0.000    -1.983079     -1.8318
+          Deshaun Watson  |  -1.395238   .0798181   -17.48   0.000    -1.552607   -1.237868
+          Desmond Ridder  |  -1.865103   .0562514   -33.16   0.000    -1.976009   -1.754198
+           Devlin Hodges  |  -.0996235   .0613413    -1.62   0.106    -.2205641    .0213171
+          Donovan McNabb  |   .4111527   .1218471     3.37   0.001     .1709184    .6513869
+Dorian Thompson-Robinson  |   5.203066   .1321982    39.36   0.000     4.942423    5.463708
+              Drew Brees  |  -.9610062   .0233483   -41.16   0.000     -1.00704   -.9149726
+               Drew Lock  |  -.2152773   .0291252    -7.39   0.000    -.2727007    -.157854
+            Drew Stanton  |   1.182594   .0838212    14.11   0.000     1.017332    1.347857
+          Dwayne Haskins  |   2.794472   .1081166    25.85   0.000     2.581309    3.007635
+               EJ Manuel  |  -.5726735   .0654615    -8.75   0.000    -.7017377   -.4436094
+             Eli Manning  |  -.0218324   .0361256    -0.60   0.546    -.0930578     .049393
+      Gardner Minshew II  |   -2.31457   .0729719   -31.72   0.000    -2.458442   -2.170698
+         Garrett Gilbert  |  -.4313628   .0490011    -8.80   0.000    -.5279734   -.3347521
+              Geno Smith  |   2.332734   .0484574    48.14   0.000     2.237196    2.428273
+            Greg McElroy  |  -1.055719   .1691681    -6.24   0.000    -1.389251   -.7221867
+         Jacoby Brissett  |  -1.842806   .0474633   -38.83   0.000    -1.936384   -1.749227
+           Jake Delhomme  |   1.781582   .0497923    35.78   0.000     1.683411    1.879753
+              Jake Fromm  |   .2154353   .0376214     5.73   0.000     .1412607    .2896099
+             Jake Locker  |   2.786377   .0872563    31.93   0.000     2.614342    2.958412
+              Jake Luton  |  -.1705525   .0752103    -2.27   0.024    -.3188373   -.0222677
+             Jake Rudock  |   17.03919   .0531343   320.68   0.000     16.93443    17.14395
+             Jalen Hurts  |  -.3377593   .0534684    -6.32   0.000    -.4431779   -.2323408
+          Jameis Winston  |   .5632528    .057766     9.75   0.000     .4493611    .6771445
+              Jared Goff  |  -1.327959   .0380789   -34.87   0.000    -1.403035   -1.252883
+         Jarrett Stidham  |   1.999111   .0078665   254.13   0.000     1.983601     2.01462
+          Jason Campbell  |  -1.598844   .0240768   -66.41   0.000    -1.646314   -1.551374
+              Jay Cutler  |   .5291071   .0613456     8.63   0.000      .408158    .6500562
+            Jeff Driskel  |  -1.645659   .0556437   -29.57   0.000    -1.755366   -1.535951
+               Jeff Tuel  |   1.975753   .1016575    19.44   0.000     1.775324    2.176181
+           Jimmy Clausen  |    .452699   .0436847    10.36   0.000     .3665701    .5388279
+         Jimmy Garoppolo  |   -1.26134   .0422105   -29.88   0.000    -1.344562   -1.178117
+              Joe Burrow  |  -.9314928   .0766754   -12.15   0.000    -1.082666   -.7803193
+            Joe Callahan  |  -2.960099   .0577657   -51.24   0.000     -3.07399   -2.846208
+              Joe Flacco  |  -.9081192   .0404337   -22.46   0.000    -.9878384      -.8284
+                Joe Webb  |  -1.481185    .050029   -29.61   0.000    -1.579822   -1.382548
+               John Beck  |  -.3677063   .0773514    -4.75   0.000    -.5202126   -.2152001
+            John Skelton  |  -.2112812   .1287261    -1.64   0.102     -.465078    .0425156
+          Johnny Manziel  |  -.3861599   .0331506   -11.65   0.000    -.4515197      -.3208
+               Jon Kitna  |   1.132452   .0582064    19.46   0.000     1.017692    1.247212
+             Jordan Love  |    .913629   .0330599    27.64   0.000     .8484481      .97881
+              Josh Allen  |  -.8928255   .0415686   -21.48   0.000    -.9747823   -.8108687
+            Josh Freeman  |   .3988147    .028814    13.84   0.000      .342005    .4556245
+            Josh Johnson  |  -.4978654   .0188796   -26.37   0.000    -.5350885   -.4606423
+             Josh McCown  |  -.2072453   .0612923    -3.38   0.001    -.3280894   -.0864011
+              Josh Rosen  |   2.648383   .1006895    26.30   0.000     2.449863    2.846903
+            Joshua Dobbs  |  -1.425903   .0698807   -20.40   0.000     -1.56368   -1.288126
+           Justin Fields  |   .9339566   .1053036     8.87   0.000     .7263397    1.141573
+          Justin Herbert  |  -.7559851   .0588569   -12.84   0.000    -.8720276   -.6399427
+          Kellen Clemens  |   4.299152    .117737    36.51   0.000     4.067021    4.531283
+            Kellen Moore  |   5.045663   .0587824    85.84   0.000     4.929767    5.161558
+          Kendall Hinton  |   19.20285   .0251728   762.84   0.000     19.15322    19.25248
+           Kenny Pickett  |  -3.000356   .0031466  -953.52   0.000     -3.00656   -2.994152
+           Kerry Collins  |  -3.061658   .1043328   -29.35   0.000    -3.267361   -2.855955
+             Kevin Hogan  |   3.140898   .0278458   112.80   0.000     3.085997    3.195799
+              Kevin Kolb  |  -1.215429   .1952983    -6.22   0.000     -1.60048   -.8303787
+            Kirk Cousins  |  -.1743117   .0322549    -5.40   0.000    -.2379056   -.1107179
+              Kyle Allen  |  -.1614582   .0742067    -2.18   0.031    -.3077644    -.015152
+              Kyle Orton  |  -.9233579   .0455203   -20.28   0.000    -1.013106   -.8336099
+              Kyle Trask  |  -2.964012   .0386281   -76.73   0.000    -3.040171   -2.887853
+            Kyler Murray  |  -.9711007   .1039249    -9.34   0.000    -1.175999   -.7662021
+           Lamar Jackson  |  -.5925517   .0347468   -17.05   0.000    -.6610586   -.5240448
+            Logan Thomas  |  -3.033142   .0406873   -74.55   0.000    -3.113361   -2.952922
+               Luke Falk  |  -.8369454   .0937646    -8.93   0.000    -1.021812   -.6520788
+             Luke McCown  |       8.85   4.73e-13  1.9e+13   0.000         8.85        8.85
+               Mac Jones  |   .2983108    .050974     5.85   0.000     .1978103    .3988113
+            Malik Willis  |   6.936207   .0922047    75.23   0.000     6.754416    7.117998
+          Marcus Mariota  |  -.2745905    .064113    -4.28   0.000    -.4009958   -.1481851
+            Mark Brunell  |   5.303913   .0346126   153.24   0.000     5.235671    5.372156
+            Mark Sanchez  |   .2562582   .0625507     4.10   0.000      .132933    .3795834
+           Mason Rudolph  |   1.475588     .03225    45.75   0.000     1.412004    1.539173
+            Matt Barkley  |   2.220748   .0140799   157.73   0.000     2.192988    2.248508
+             Matt Cassel  |   3.516435   .0251076   140.05   0.000     3.466933    3.565937
+              Matt Flynn  |   1.150955   .0637887    18.04   0.000     1.025189    1.276721
+         Matt Hasselbeck  |   .2335075   .0316539     7.38   0.000     .1710985    .2959164
+            Matt Leinart  |   .0982211    .015733     6.24   0.000     .0672019    .1292404
+            Matt McGloin  |   -1.38035   .0313502   -44.03   0.000     -1.44216    -1.31854
+              Matt Moore  |   1.743024   .0777864    22.41   0.000      1.58966    1.896387
+               Matt Ryan  |  -.9352429   .0460831   -20.29   0.000    -1.026101   -.8443853
+             Matt Schaub  |  -.5913568    .043994   -13.44   0.000    -.6780956    -.504618
+              Matt Simms  |  -.2345647   .0376214    -6.23   0.000    -.3087393   -.1603901
+        Matthew Stafford  |   -.897163   .0569507   -15.75   0.000    -1.009447   -.7848789
+                Max Hall  |   5.078243   .1224016    41.49   0.000     4.836916    5.319571
+            Michael Vick  |  -.8032796   .0658243   -12.20   0.000    -.9330591   -.6735001
+            Mike Glennon  |   1.266935   .0409543    30.94   0.000     1.186189     1.34768
+              Mike Kafka  |   -2.96508   .0374814   -79.11   0.000    -3.038978   -2.891181
+              Mike White  |   1.940647   .0108562   178.76   0.000     1.919243    1.962051
+       Mitchell Trubisky  |  -1.050484   .0552701   -19.01   0.000    -1.159455   -.9415132
+         Nathan Peterman  |    6.55451   .0152107   430.91   0.000     6.524521      6.5845
+              Nick Foles  |   .2735456   .0614067     4.45   0.000     .1524758    .3946153
+            Nick Mullens  |   1.472731   .0079014   186.39   0.000     1.457153     1.48831
+             P.J. Walker  |   3.149522   .0135797   231.93   0.000     3.122748    3.176296
+         Patrick Mahomes  |  -1.561211   .0309107   -50.51   0.000    -1.622155   -1.500267
+            Paxton Lynch  |   1.545526   .1703703     9.07   0.000     1.209624    1.881429
+          Peyton Manning  |  -.5532008   .0248358   -22.27   0.000    -.6021671   -.5042345
+           Philip Rivers  |    .014046   .0473341     0.30   0.767    -.0792781    .1073701
+            Rex Grossman  |   .8743981   .0584214    14.97   0.000     .7592143     .989582
+      Robert Griffin III  |   1.237809   .0906906    13.65   0.000     1.059004    1.416615
+          Russell Wilson  |  -1.237341   .0764268   -16.19   0.000    -1.388025   -1.086658
+             Rusty Smith  |   6.702135   .0188796   354.99   0.000     6.664912    6.739358
+             Ryan Finley  |  -1.956659   .0639745   -30.58   0.000    -2.082791   -1.830527
+        Ryan Fitzpatrick  |   .6107974   .0328916    18.57   0.000     .5459483    .6756466
+            Ryan Lindley  |    .511207   .0850599     6.01   0.000     .3435026    .6789114
+            Ryan Mallett  |  -.2773892   .0219493   -12.64   0.000    -.3206646   -.2341139
+          Ryan Tannehill  |   .0491495   .0724692     0.68   0.498     -.093731    .1920299
+            Sam Bradford  |  -.8880424   .0637592   -13.93   0.000     -1.01375   -.7623345
+             Sam Darnold  |  -.2244282   .0538251    -4.17   0.000    -.3305499   -.1183066
+            Sam Ehlinger  |  -1.438259   .1504858    -9.56   0.000    -1.734957   -1.141561
+              Sam Howell  |  -3.123823   .1319104   -23.68   0.000    -3.383898   -2.863748
+           Scott Tolzien  |   1.630962   .0209773    77.75   0.000     1.589603    1.672321
+            Sean Mannion  |  -2.996442    .031466   -95.23   0.000    -3.058481   -2.934404
+            Sean Renfree  |   11.26686   .0406873   276.91   0.000     11.18664    11.34708
+          Seneca Wallace  |  -1.114112   .0338517   -32.91   0.000    -1.180854    -1.04737
+              Shaun Hill  |  -.2201354   .0278206    -7.91   0.000    -.2749867   -.1652841
+         Skylar Thompson  |   .8798715   .0300973    29.23   0.000     .8205315    .9392115
+           Stephen McGee  |  -3.026916   .0801941   -37.74   0.000    -3.185027   -2.868805
+              T.J. Yates  |   2.188986    .053721    40.75   0.000      2.08307    2.294903
+        Tarvaris Jackson  |   .4461358    .084242     5.30   0.000     .2800439    .6122278
+         Taylor Heinicke  |  -.5575044   .0757702    -7.36   0.000    -.7068933   -.4081155
+             Taysom Hill  |  -1.459387   .0377896   -38.62   0.000    -1.533893   -1.384881
+       Teddy Bridgewater  |  -.9029935   .0530083   -17.03   0.000    -1.007505   -.7984821
+          Terrelle Pryor  |   -1.78108   .0510373   -34.90   0.000    -1.881705   -1.680454
+          Thaddeus Lewis  |  -3.104761   .1124443   -27.61   0.000    -3.326457   -2.883066
+               Tim Boyle  |   9.235988   .0386281   239.10   0.000     9.159829    9.312147
+               Tim Tebow  |  -.7353172   .0838889    -8.77   0.000    -.9007128   -.5699216
+            Todd Collins  |   14.05213   .0188796   744.30   0.000     14.01491    14.08936
+               Tom Brady  |  -1.802668   .0288201   -62.55   0.000     -1.85949   -1.745846
+              Tom Savage  |  -1.832704   .0594197   -30.84   0.000    -1.949856   -1.715552
+               Tony Pike  |  -3.001067   .0094398  -317.92   0.000    -3.019679   -2.982456
+               Tony Romo  |  -.5232341    .053462    -9.79   0.000    -.6286399   -.4178283
+          Trace McSorley  |    4.76601    .141597    33.66   0.000     4.486837    5.045183
+           Trent Edwards  |   4.485318   .0878575    51.05   0.000     4.312098    4.658538
+         Trevor Lawrence  |   .1073071   .0286276     3.75   0.000     .0508647    .1637494
+          Trevor Siemian  |  -.9011698   .0643929   -13.99   0.000    -1.028127   -.7742125
+              Trey Lance  |   .4737959   .0858081     5.52   0.000     .3046164    .6429754
+              Troy Smith  |   1.112206   .1408631     7.90   0.000     .8344797    1.389932
+          Tua Tagovailoa  |  -.6803441   .0359595   -18.92   0.000    -.7512419   -.6094463
+              Tyler Bray  |  -2.959387   .0626875   -47.21   0.000    -3.082982   -2.835792
+           Tyler Huntley  |  -.6884262   .0526438   -13.08   0.000    -.7922189   -.5846334
+             Tyler Palko  |   .6517336   .0874603     7.45   0.000     .4792967    .8241706
+           Tyler Thigpen  |  -3.032074   .0452044   -67.07   0.000    -3.121199   -2.942949
+            Tyrod Taylor  |  -1.796677   .0867988   -20.70   0.000     -1.96781   -1.625544
+            Tyson Bagent  |   4.098221    .015733   260.49   0.000     4.067202     4.12924
+             Vince Young  |  -.2530559   .0402316    -6.29   0.000    -.3323767   -.1737352
+              Will Grier  |    9.49751   .0220262   431.19   0.000     9.454083    9.540937
+       Zach Mettenberger  |    1.72968   .1032822    16.75   0.000     1.526049    1.933312
+             Zach Wilson  |  -.0192293   .0694279    -0.28   0.782    -.1561137     .117655
+                          |
+                    _cons |    2.97006   .0579143    51.28   0.000     2.855876    3.084244
+-------------------------------------------------------------------------------------------
+r; t=0.21 16:24:57
+
+. reg INT_ Sacks
+
+      Source |       SS           df       MS      Number of obs   =     7,290
+-------------+----------------------------------   F(1, 7288)      =      2.40
+       Model |  27.0647041         1  27.0647041   Prob > F        =    0.1214
+    Residual |   82189.147     7,288  11.2773253   R-squared       =    0.0003
+-------------+----------------------------------   Adj R-squared   =    0.0002
+       Total |  82216.2117     7,289  11.2794913   Root MSE        =    3.3582
+
+------------------------------------------------------------------------------
+INT_Percen~e | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       Sacks |   .0361306   .0233226     1.55   0.121    -.0095884    .0818497
+       _cons |   2.487432   .0642826    38.70   0.000     2.361419    2.613444
+------------------------------------------------------------------------------
+r; t=0.03 16:25:25
+
+. reg INT_ Sacks, vce(cluster Player_N)
+
+Linear regression                               Number of obs     =      7,290
+                                                F(1, 227)         =       1.97
+                                                Prob > F          =     0.1623
+                                                R-squared         =     0.0003
+                                                Root MSE          =     3.3582
+
+                             (Std. err. adjusted for 228 clusters in Player_N)
+------------------------------------------------------------------------------
+             |               Robust
+INT_Percen~e | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+       Sacks |   .0361306   .0257739     1.40   0.162    -.0146561    .0869174
+       _cons |   2.487432   .1060329    23.46   0.000     2.278497    2.696366
+------------------------------------------------------------------------------
+r; t=0.03 16:25:57
+

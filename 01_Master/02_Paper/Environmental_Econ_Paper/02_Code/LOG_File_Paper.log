@@ -2,10 +2,11 @@
       name:  <unnamed>
        log:  C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\02_Code\LOG_File_Paper.log
   log type:  text
- opened on:  28 Oct 2023, 16:27:50
-r; t=0.00 16:27:50
+ opened on:  30 Oct 2023, 18:05:58
+r; t=0.00 18:05:58
 
 . 
+. * -----------------------------------------------------------------------------*        
 . * 2 Preparation of NFL Data *
 . 
 . * 2.1 Exclusion if Pathway Games
@@ -55,7 +56,7 @@ r; t=0.00 16:27:50
 >        | (Date == mdy(10, 08, 2023) & inlist(Team, "Jacksonville")) ///
 >        | (Date == mdy(10, 15, 2023) & inlist(Team, "Baltimore"))
 (35 observations deleted)
-r; t=0.03 16:27:50
+r; t=0.03 18:05:58
 
 . 
 . 
@@ -105,308 +106,308 @@ r; t=0.03 16:27:50
 >        | (Date == mdy(10, 08, 2023) & inlist(Team, "Buffalo")) ///
 >        | (Date == mdy(10, 15, 2023) & inlist(Team, "Tennessee"))
 (42 observations deleted)
-r; t=0.03 16:27:50
+r; t=0.03 18:05:58
 
 . 
 . *2.2 Stadion
 . * Attach Stadion to Place - which is right now only in Team Location
 . gen Stadion = ""
-(7,491 missing values generated)
-r; t=0.00 16:27:50
+(7,290 missing values generated)
+r; t=0.00 18:05:58
 
 . replace Stadion = "State Farm Stadium" if inlist(Place, "Arizona")
 variable Stadion was str1 now str18
 (229 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "Mercedes-Benz Stadium" if inlist(Place, "Atlanta")
 variable Stadion was str18 now str21
 (232 real changes made)
-r; t=0.01 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "M&T Bank Stadium" if inlist(Place, "Baltimore")
 (221 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "Highmark Stadium" if inlist(Place, "Buffalo")
 (221 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "Bank of America Stadium" if inlist(Place, "Carolina")
 variable Stadion was str21 now str23
 (230 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "Soldier Field" if inlist(Place, "Chicago")
 (233 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "Paul Brown Stadium" if inlist(Place, "Cincinatti")
 (230 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "FirstEnergy Stadium" if inlist(Place, "Cleveland")
 (231 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "AT&T Stadium" if inlist(Place, "Dallas")
 (229 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "Empower Field at Mile High" if inlist(Place, "Denver")
 variable Stadion was str23 now str26
 (236 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "Ford Field" if inlist(Place, "Detroit")
 (228 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "Lambeau Field" if inlist(Place, "Green Bay")
 (224 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "NRG Stadium" if inlist(Place, "Houston")
 (232 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "Lucas Oil Stadium" if inlist(Place, "Indianapolis")
 (232 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "TIAA Bank Field" if inlist(Place, "Jacksonville")
 (212 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "Arrowhead Stadium" if inlist(Place, "Kansas")
 (221 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "Allegiant Stadium" if inlist(Place, "Las Vegas")
 (59 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "SoFi Stadium" if inlist(Place, "Los Angeles (Chargers)") ///
 > | inlist(Place, "Los Angeles (Rams)")
 (229 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "Hard Rock Stadium" if inlist(Place, "Miami")
 (234 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "U.S. Bank Stadium" if inlist(Place, "Minnesota")
 (232 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "Gillette Stadium" if inlist(Place, "New England")
 (232 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "Caesars Superdome" if inlist(Place, "New Orleans")
 (224 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "MetLife Stadium" if inlist(Place, "New York (Giants)") ///
 > | inlist(Place, "New York (Jets)")
 (461 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "Lincoln Financial Field" if inlist(Place, "Philadelphia")
 (228 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "Heinz Field" if inlist(Place, "Pittsburgh")
 (232 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "Levi's Stadium" if inlist(Place, "San Francisco")
 (228 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "Lumen Field" if inlist(Place, "Seattle")
 (227 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "Raymond James Stadium" if inlist(Place, "Tampa Bay")
 (214 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "Nissan Stadium" if inlist(Place, "Tennesse")
 (234 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "FedExField" if inlist(Place, "Washington")
 (233 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "Edward Jones Dome" if inlist(Place, "St. Louis")
 (102 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "Qualcomm Stadium" if inlist(Place, "San Diego")
 (116 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Stadion = "O.co Coliseum" if inlist(Place, "Oakland")
 (164 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . 
 . * Switch to the actual place of the Stadion
 . gen Place_2 = ""
-(7,491 missing values generated)
-r; t=0.00 16:27:50
+(7,290 missing values generated)
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Glendale, Arizona" if Stadion == "State Farm Stadium"
 variable Place_2 was str1 now str17
 (229 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Atlanta, Georgia" if Stadion == "Mercedes-Benz Stadium"
 (232 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Baltimore, Maryland" if Stadion == "M&T Bank Stadium"
 variable Place_2 was str17 now str19
 (221 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Orchard Park, New York" if Stadion == "Highmark Stadium"
 variable Place_2 was str19 now str22
 (221 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Charlotte, North Carolina" ///
 > if Stadion == "Bank of America Stadium"
 variable Place_2 was str22 now str25
 (230 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Chicago, Illinois" if Stadion == "Soldier Field"
 (233 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Cincinnati, Ohio" if Stadion == "Paul Brown Stadium"
 (230 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Cleveland, Ohio" if Stadion == "FirstEnergy Stadium"
 (231 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Arlington, Texas" if Stadion == "AT&T Stadium"
 (229 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Denver, Colorado" if Stadion == "Empower Field at Mile High"
 (236 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Detroit, Michigan" if Stadion == "Ford Field"
 (228 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Green Bay, Wisconsin" if Stadion == "Lambeau Field"
 (224 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Houston, Texas" if Stadion == "NRG Stadium"
 (232 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Indianapolis, Indiana" if Stadion == "Lucas Oil Stadium"
 (232 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Jacksonville, Florida" if Stadion == "TIAA Bank Field"
 (212 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Kansas City, Missouri" if Stadion == "Arrowhead Stadium"
 (221 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Paradise, Nevada" if Stadion == "Allegiant Stadium"
 (59 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Inglewood, California" if Stadion == "SoFi Stadium"
 (229 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Miami Gardens, Florida" if Stadion == "Hard Rock Stadium"
 (234 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Minneapolis, Minnesota" if Stadion == "U.S. Bank Stadium"
 (232 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Foxborough, Massachusetts" if Stadion == "Gillette Stadium"
 (232 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "New Orleans, Louisiana" if Stadion == "Caesars Superdome"
 (224 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "East Rutherford, New Jersey" if Stadion == "MetLife Stadium"
 variable Place_2 was str25 now str27
 (461 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Philadelphia, Pennsylvania" if Stadion == "Lincoln Financial Field"
 (228 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Pittsburgh, Pennsylvania" if Stadion == "Heinz Field"
 (232 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Santa Clara, California" if Stadion == "Levi's Stadium"
 (228 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Seattle, Washington" if Stadion == "Lumen Field"
 (227 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Tampa, Florida" if Stadion == "Raymond James Stadium"
 (214 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Nashville, Tennessee" if Stadion == "Nissan Stadium"
 (234 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Landover, Maryland" if Stadion == "FedExField"
 (233 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
-. replace Place_2 = "St. Louis, Missouri" if Stadion == "Edward Jones Dome"
+. replace Place_2 = "St Louis, Missouri" if Stadion == "Edward Jones Dome"
 (102 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "San Diego, California" if Stadion == "Qualcomm Stadium"
 (116 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . replace Place_2 = "Oakland, California" if Stadion == "O.co Coliseum"
 (164 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . drop Place
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . rename Place_2 Place
-r; t=0.02 16:27:50
+r; t=0.03 18:05:58
 
 . 
 . ** Insert Info on Rooftype
 . gen Stadiontype = ""
-(7,491 missing values generated)
-r; t=0.00 16:27:50
+(7,290 missing values generated)
+r; t=0.00 18:05:58
 
 . 
 . replace Stadiontype = "Retractable" if Stadion == "AT&T Stadium" ///
@@ -419,7 +420,7 @@ r; t=0.00 16:27:50
 >                                                                         | Stadion == "NRG Stadium" 
 variable Stadiontype was str1 now str11
 (1,844 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . 
 . replace Stadiontype = "Fixed" if Stadion == "Allegiant Stadium" ///
@@ -430,7 +431,7 @@ r; t=0.00 16:27:50
 >                                                         | Stadion == "MetLife Stadium" ///
 >                                                         | Stadion == "Raymond James Stadium" 
 (1,518 real changes made)
-r; t=0.00 16:27:50
+r; t=0.00 18:05:58
 
 . 
 . replace Stadiontype = "Open" if Stadion == "Arrowhead Stadium" ///
@@ -452,987 +453,817 @@ r; t=0.00 16:27:50
 >                                                         | Stadion == "Qualcomm Stadium" ///
 >                                                         | Stadion == "O.co Coliseum"
 (3,928 real changes made)
-r; t=0.01 16:27:50
+r; t=0.01 18:05:58
 
 . 
-. * 3. Preparation of Pollution Data *
-. 
-. * 3.1 PM10
-. import delimited "$data\PM10\Atlanta, Georgia.csv", clear
-(encoding automatically selected: ISO-8859-1)
-(6 vars, 4,834 obs)
-r; t=0.17 16:27:50
+. * 2.3 Prepartion for Merge -> Creation of Matching Var with Filenames
+. split Place, parse(",") gen(Place_Merge)                                                                                // split in two vars with , as seperator
+variables created as string: 
+Place_Merge1  Place_Merge2
+r; t=0.02 18:05:58
 
-. drop sitename siteid source
-r; t=0.00 16:27:50
+. gen Place_Merge = subinstr(Place_Merge1, " ", "", .)                                                    // drop blankets -> San Francisco => SanFrancisco
+r; t=0.00 18:05:58
 
-. rename pm10aqivalue pm10
-r; t=0.00 16:27:50
-
-. encode date, generate(Date)
-r; t=0.03 16:27:50
-
-. drop date
-r; t=0.00 16:27:50
-
-. sort Date
-r; t=0.00 16:27:50
-
-. tset Date, daily
-
-Time variable: Date, 02jan1960 to 27mar1973
-        Delta: 1 day
-r; t=0.01 16:27:50
-
-. tsfill
-r; t=0.00 16:27:50
-
-. count if missing(pm10)
-  0
-r; t=0.00 16:27:50
+. drop Place_Merge1 Place_Merge2                          
+r; t=0.00 18:05:58
 
 . 
 . 
-end of do-file
+. format Date %td                                 
+r; t=0.00 18:05:58
 
-r; t=1.89 16:27:50
-. // 1. Setze den Datumsstempel für die Zeitreihenvariable
-/ is not a valid command name
-r(199); t=0.00 16:27:55
+. gen DateStr = string(Date)
+r; t=0.00 18:05:58
 
-. 
-. tsset Date, daily
+. gen Place_Date_Merge = Place_Merge + "_" + DateStr                                                              // create unifier based on place + date to merge m:1 
+r; t=0.00 18:05:58
 
-Time variable: Date, 02jan1960 to 27mar1973
-        Delta: 1 day
-r; t=0.01 16:27:55
+. drop Place_Merge DateStr
+r; t=0.00 18:05:58
 
 . 
-. 
-. 
-. // 2. Schätze die fehlenden Werte in "pm10" mit linearer Interpolation
-/ is not a valid command name
-r(199); t=0.00 16:27:55
+. save "$data\Full.dta", replace
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Full.dta saved
+r; t=0.01 18:05:58
 
 . 
-. ipolate pm10 Date if missing(pm10), gen(pm10_imputed)
-(4834 missing values generated)
-r; t=0.02 16:27:55
-
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. import delimited "$data\PM10\Atlanta, Georgia.csv", clear
-(encoding automatically selected: ISO-8859-1)
-(6 vars, 4,834 obs)
-r; t=0.04 16:28:23
-
-. drop sitename siteid source
-r; t=0.00 16:28:23
-
-. rename pm10aqivalue pm10
-r; t=0.00 16:28:23
-
-. encode date, generate(Date)
-r; t=0.05 16:28:23
-
-. drop date
-r; t=0.00 16:28:23
-
-. sort Date
-r; t=0.00 16:28:23
-
-. tset Date, daily
-
-Time variable: Date, 02jan1960 to 27mar1973
-        Delta: 1 day
-r; t=0.00 16:28:23
-
-. tsfill
-r; t=0.00 16:28:23
-
-. count if missing(pm10)
-  0
-r; t=0.00 16:28:23
+. * -----------------------------------------------------------------------------*                        
+. * 3 Preparation of Pollution Data *
+. 
+. * 3.1 PM10 Data Preperation
+. local string_list "Atlanta Arlington Atlanta Baltimore Charlotte Chicago Cincinnati Cleveland Denver Detroit EastRutherford Foxborough Glendale GreenBay Houston Indianapolis Inglewood Jacksonville KansasCity Landover MiamiGardens Minneapolis Nashville N
+> ewOrleans Oakland OrchardPark Paradise Philadelphia Pittsburgh SanDiego SantaClara Seattle StLouis Tampa" 
+r; t=0.00 18:05:58
 
 . 
-end of do-file
-
-r; t=0.10 16:28:23
-. replace pm10 = . in 5
-(1 real change made, 1 to missing)
-r; t=0.00 16:28:35
-
-. replace pm10 = . in 6
-(1 real change made, 1 to missing)
-r; t=0.01 16:28:36
-
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. count if missing(pm10)
-  2
-r; t=0.01 16:28:49
-
-. 
-end of do-file
-
-r; t=0.01 16:28:49
-. // 1. Setze den Datumsstempel für die Zeitreihenvariable
-/ is not a valid command name
-r(199); t=0.00 16:28:55
-
-. 
-. tsset Date, daily
-
-Time variable: Date, 02jan1960 to 27mar1973
-        Delta: 1 day
-r; t=0.01 16:28:55
-
-. 
-. 
-. 
-. // 2. Schätze die fehlenden Werte in "pm10" mit linearer Interpolation
-/ is not a valid command name
-r(199); t=0.00 16:28:55
-
-. 
-. ipolate pm10 Date if missing(pm10), gen(pm10_imputed)
-(4834 missing values generated)
-r; t=0.02 16:28:55
-
-. tab pm10_imp
-no observations
-r; t=0.01 16:29:08
-
-. arima pm10, arima(1,0,1) innovate(imputed_resid)
-option innovate() not allowed
-r(198); t=0.02 16:29:40
-
-. arima pm10, arima(1,0,1)
-
-Number of gaps in sample = 1
-(note: filtering over missing observations)
-
-(setting optimization to BHHH)
-Iteration 0:   log likelihood = -16327.504  
-Iteration 1:   log likelihood = -16218.959  
-Iteration 2:   log likelihood = -16208.138  
-Iteration 3:   log likelihood = -16144.039  
-Iteration 4:   log likelihood = -15991.395  
-(switching optimization to BFGS)
-Iteration 5:   log likelihood = -15939.411  
-Iteration 6:   log likelihood = -15926.043  (backed up)
-Iteration 7:   log likelihood = -15921.088  
-Iteration 8:   log likelihood = -15918.662  
-Iteration 9:   log likelihood = -15917.338  
-Iteration 10:  log likelihood =  -15917.28  
-Iteration 11:  log likelihood = -15917.272  
-Iteration 12:  log likelihood = -15917.223  
-Iteration 13:  log likelihood =  -15917.13  
-Iteration 14:  log likelihood = -15917.122  
-(switching optimization to BHHH)
-Iteration 15:  log likelihood = -15917.118  
-Iteration 16:  log likelihood = -15917.102  
-Iteration 17:  log likelihood =   -15917.1  
-Iteration 18:  log likelihood =   -15917.1  
-Iteration 19:  log likelihood = -15917.099  
-(switching optimization to BFGS)
-Iteration 20:  log likelihood = -15917.099  
-Iteration 21:  log likelihood = -15917.099  
-Iteration 22:  log likelihood = -15917.099  
-Iteration 23:  log likelihood = -15917.099  
-Iteration 24:  log likelihood = -15917.099  
-Iteration 25:  log likelihood = -15917.099  (backed up)
-BFGS stepping has contracted, resetting BFGS Hessian (0)
-Iteration 26:  log likelihood = -15917.099  (backed up)
-Iteration 27:  log likelihood = -15917.099  (backed up)
-Iteration 28:  log likelihood = -15917.099  (backed up)
-Iteration 29:  log likelihood = -15917.099  (backed up)
-(switching optimization to BHHH)
-Iteration 30:  log likelihood = -15917.099  (backed up)
-Iteration 31:  log likelihood = -15917.099  (backed up)
-Iteration 32:  log likelihood = -15917.099  (backed up)
-Iteration 33:  log likelihood = -15917.099  (backed up)
-Iteration 34:  log likelihood = -15917.099  (backed up)
-(switching optimization to BFGS)
-Iteration 35:  log likelihood = -15917.099  (backed up)
-Iteration 36:  log likelihood = -15917.099  (backed up)
-Iteration 37:  log likelihood = -15917.099  (backed up)
-Iteration 38:  log likelihood = -15917.099  (backed up)
-Iteration 39:  log likelihood = -15917.099  (backed up)
-Iteration 40:  log likelihood = -15917.099  (backed up)
-Iteration 41:  log likelihood = -15917.099  (backed up)
-Iteration 42:  log likelihood = -15917.099  (backed up)
-Iteration 43:  log likelihood = -15917.099  (backed up)
-Iteration 44:  log likelihood = -15917.099  (backed up)
-(switching optimization to BHHH)
-Iteration 45:  log likelihood = -15917.099  (backed up)
-Iteration 46:  log likelihood = -15917.099  (backed up)
-Iteration 47:  log likelihood = -15917.099  (backed up)
-Iteration 48:  log likelihood = -15917.099  (backed up)
-Iteration 49:  log likelihood = -15917.099  (backed up)
-(switching optimization to BFGS)
-Iteration 50:  log likelihood = -15917.099  (backed up)
-BFGS stepping has contracted, resetting BFGS Hessian (1)
-Iteration 51:  log likelihood = -15917.099  (backed up)
-Iteration 52:  log likelihood = -15917.099  (backed up)
-Iteration 53:  log likelihood = -15917.099  (backed up)
-Iteration 54:  log likelihood = -15917.099  (backed up)
-Iteration 55:  log likelihood = -15917.099  (backed up)
-BFGS stepping has contracted, resetting BFGS Hessian (2)
-Iteration 56:  log likelihood = -15917.099  (backed up)
-Iteration 57:  log likelihood = -15917.099  (backed up)
-Iteration 58:  log likelihood = -15917.099  
-
-ARIMA regression
-
-Sample: 02jan1960 thru 27mar1973, but with a gap
-                                                Number of obs     =       4832
-                                                Wald chi2(2)      =   5.68e+06
-Log likelihood = -15917.1                       Prob > chi2       =     0.0000
-
-------------------------------------------------------------------------------
-             |                 OPG
-        pm10 | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-pm10         |
-       _cons |   15.30782    2.01759     7.59   0.000     11.35342    19.26223
--------------+----------------------------------------------------------------
-ARMA         |
-          ar |
-         L1. |   .9995261    .000437  2287.42   0.000     .9986697    1.000383
-             |
-          ma |
-         L1. |  -.9870894    .002459  -401.41   0.000     -.991909   -.9822697
--------------+----------------------------------------------------------------
-      /sigma |   6.520535   .0433247   150.50   0.000      6.43562    6.605449
-------------------------------------------------------------------------------
-Note: The test of the variance against zero is one sided, and the two-sided
-      confidence interval is truncated at zero.
-r; t=17.46 16:30:21
-
-. forecast variable=pm10_forecast, stepahead(1)
-unrecognized forecast subcommand:  variable=pm10_forecast
-    forecast subcommands are create, estimates, identity, coefvector, exogenous, solve, adjust, describe, list, clear, drop, and query.  You have not started a forecast model yet, so you must begin with forecast create.
-r(199); t=0.02 16:30:36
-
-. ipolate pm10 Date, gen(pm10_i)
-r; t=0.02 16:32:05
-
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. import delimited "$data\PM10\Atlanta, Georgia.csv", clear
-(encoding automatically selected: ISO-8859-1)
-(6 vars, 4,834 obs)
-r; t=0.04 16:33:32
-
-. drop sitename siteid source
-r; t=0.00 16:33:32
-
-. rename pm10aqivalue pm10
-r; t=0.00 16:33:32
-
-. encode date, generate(Date)
-r; t=0.05 16:33:32
-
-. drop date
-r; t=0.00 16:33:32
-
-. sort Date
-r; t=0.00 16:33:32
-
-. tset Date, daily
-
-Time variable: Date, 02jan1960 to 27mar1973
-        Delta: 1 day
-r; t=0.00 16:33:32
-
-. tsfill
-r; t=0.00 16:33:32
-
-. count if missing(pm10)
-  0
-r; t=0.00 16:33:32
-
-. ipolate pm10 Date, gen(pm10_ipol)
-r; t=0.01 16:33:32
-
-. drop pm10 
-r; t=0.00 16:33:32
-
-. rename pm10_ipol pm10
-r; t=0.00 16:33:32
-
-. 
-end of do-file
-
-r; t=0.11 16:33:32
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. import delimited "$data\PM10\Atlanta, Georgia.csv", clear
-(encoding automatically selected: ISO-8859-1)
-(6 vars, 4,834 obs)
-r; t=0.06 16:34:13
-
-. drop sitename siteid source
-r; t=0.00 16:34:13
-
-. rename pm10aqivalue pm10
-r; t=0.00 16:34:13
-
-. 
-end of do-file
-
-r; t=0.06 16:34:13
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. encode date, generate(Date)
-r; t=0.03 16:34:26
-
-. 
-end of do-file
-
-r; t=0.04 16:34:26
-. replace pm10 = 1000 in 1
-variable pm10 was byte now int
-(1 real change made)
-r; t=0.01 16:35:04
-
-. replace pm10 = 1000 in 2
-(1 real change made)
-r; t=0.00 16:35:05
-
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. tset Date, daily
-
-Time variable: Date, 02jan1960 to 27mar1973
-        Delta: 1 day
-r; t=0.01 16:35:11
-
-. 
-end of do-file
-
-r; t=0.01 16:35:11
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. tset Date
-
-Time variable: Date, 02jan1960 to 27mar1973
-        Delta: 1 day
-r; t=0.01 16:35:24
-
-. tsfill
-r; t=0.00 16:35:24
-
-. 
-end of do-file
-
-r; t=0.01 16:35:24
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. import delimited "$data\PM10\Atlanta, Georgia.csv", clear
-(encoding automatically selected: ISO-8859-1)
-(6 vars, 4,834 obs)
-r; t=0.02 16:35:28
-
-. drop sitename siteid source
-r; t=0.00 16:35:28
-
-. rename pm10aqivalue pm10
-r; t=0.00 16:35:28
-
-. encode date, generate(Date)
-r; t=0.03 16:35:28
-
-. drop date
-r; t=0.00 16:35:28
-
-. tset Date
-
-Time variable: Date, 1 to 4834
-        Delta: 1 unit
-r; t=0.00 16:35:28
-
-. tsfill
-r; t=0.00 16:35:28
-
-. 
-end of do-file
-
-r; t=0.07 16:35:28
-. replace pm10 = 1000 in 1
-variable pm10 was byte now int
-(1 real change made)
-r; t=0.00 16:35:46
-
-. replace pm10 = 1000 in 2
-(1 real change made)
-r; t=0.00 16:35:47
-
-. twoway (tsline pm10)
-r; t=2.55 16:36:03
-
-. help tsset
-r; t=0.21 16:36:17
-
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. import delimited "$data\PM10\Atlanta, Georgia.csv", clear
-(encoding automatically selected: ISO-8859-1)
-(6 vars, 4,834 obs)
-r; t=0.04 16:36:51
-
-. drop sitename siteid source
-r; t=0.00 16:36:51
-
-. rename pm10aqivalue pm10
-r; t=0.01 16:36:51
-
-. 
-end of do-file
-
-r; t=0.05 16:36:51
-. encode date, generate(date_2)
-r; t=0.04 16:37:12
-
-. encode date, generate(date_2)
-variable date_2 already defined
-r(110); t=0.01 16:37:15
-
-. sort date_2
-r; t=0.01 16:37:27
-
-. sort date_2
-r; t=0.01 16:37:29
-
-. DatumVariable = date(date_2, "MDY")
-command DatumVariable is unrecognized
-r(199); t=0.00 16:38:41
-
-. // Setze den Datumsstempel für die Zeitreihenvariable
-/ is not a valid command name
-r(199); t=0.01 16:38:58
-
-. 
-. gen DatumVariable = date(Date, "MDY")
-Date not found
-r(111); t=0.00 16:38:58
-
-. 
-. 
-. 
-. // Sortiere den Datensatz nach der neuen DatumVariable
-/ is not a valid command name
-r(199); t=0.01 16:38:58
-
-. 
-. sort DatumVariable
-variable DatumVariable not found
-r(111); t=0.00 16:38:58
-
-. gen DatumVariable = date(date, "MDY")
-r; t=0.00 16:39:28
-
-. sort DatumVariable
-r; t=0.00 16:39:58
-
-. tsset DatumVariable
-
-Time variable: DatumVariable, 18263 to 23310, but with gaps
-        Delta: 1 unit
-r; t=0.01 16:40:10
-
-. tsset date_2
-
-Time variable: date_2, 1 to 4834
-        Delta: 1 unit
-r; t=0.01 16:40:26
-
-. format format DatumVariable %tdDD/MM/YYYY
-variable format not found
-r(111); t=0.00 16:40:58
-
-. format DatumVariable %tdDD/MM/YYYY
-r; t=0.01 16:41:01
-
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. import delimited "$data\PM10\Atlanta, Georgia.csv", clear
-(encoding automatically selected: ISO-8859-1)
-(6 vars, 4,834 obs)
-r; t=0.03 16:41:57
-
-. drop sitename siteid source
-r; t=0.00 16:41:57
-
-. rename pm10aqivalue pm10
-r; t=0.00 16:41:57
-
-. 
-end of do-file
-
-r; t=0.04 16:41:57
-. gen DatumVariable = date(date, "MDY")
-r; t=0.00 16:42:06
-
-. // Angenommen, 18263 ist das Stata-Datum
-/ is not a valid command name
-r(199); t=0.01 16:42:55
-
-. 
-. gen human_date = daily("01jan2010", "DMY") + 18263
-r; t=0.01 16:42:55
-
-. help format
-r; t=0.48 16:43:19
-
-. format DatumVariable  %td
-r; t=0.00 16:43:52
-
-. tsset DatumVariable
-
-Time variable: DatumVariable, 01jan2010 to 27oct2023, but with gaps
-        Delta: 1 day
-r; t=0.02 16:44:10
-
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. tsfill
-r; t=0.01 16:44:22
-
-. 
-end of do-file
-
-r; t=0.02 16:44:22
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. ipolate pm10 Date, gen(pm10_ipol)
-variable Date not found
-r(111); t=0.00 16:44:27
-
-end of do-file
-
-r(111); t=0.01 16:44:27
-
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. ipolate pm10 Date, gen(pm10_ipol)
-variable Date not found
-r(111); t=0.00 16:44:31
-
-end of do-file
-
-r(111); t=0.01 16:44:31
-
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. import delimited "$data\PM10\Atlanta, Georgia.csv", clear
-(encoding automatically selected: ISO-8859-1)
-(6 vars, 4,834 obs)
-r; t=0.03 16:45:44
-
-. drop sitename siteid source
-r; t=0.00 16:45:44
-
-. rename pm10aqivalue pm10
-r; t=0.00 16:45:44
-
-. gen Date = date(date, "MDY")
-r; t=0.00 16:45:44
-
-. 
-end of do-file
-
-r; t=0.04 16:45:44
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. format Date %td 
-r; t=0.00 16:46:19
-
-. 
-end of do-file
-
-r; t=0.00 16:46:19
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. drop date
-r; t=0.00 16:46:40
-
-. tset Date
-
-Time variable: Date, 01jan2010 to 27oct2023, but with gaps
-        Delta: 1 day
-r; t=0.00 16:46:40
-
-. 
-end of do-file
-
-r; t=0.01 16:46:40
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. tsfill
-r; t=0.02 16:46:45
-
-. 
-end of do-file
-
-r; t=0.02 16:46:45
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. ipolate pm10 Date, gen(pm10_ipol)
-r; t=0.01 16:46:49
-
-. 
-end of do-file
-
-r; t=0.02 16:46:49
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. import delimited "$data\PM10\Atlanta, Georgia.csv", clear
-(encoding automatically selected: ISO-8859-1)
-(6 vars, 4,834 obs)
-r; t=0.04 16:47:01
-
-. drop sitename siteid source
-r; t=0.00 16:47:01
-
-. rename pm10aqivalue pm10
-r; t=0.00 16:47:01
-
-. gen Date = date(date, "MDY")
-r; t=0.00 16:47:01
-
-. format Date %td 
-r; t=0.00 16:47:01
-
-. drop date
-r; t=0.00 16:47:01
-
-. tset Date
-
-Time variable: Date, 01jan2010 to 27oct2023, but with gaps
-        Delta: 1 day
-r; t=0.00 16:47:02
-
-. tsfill
-r; t=0.01 16:47:02
-
-. count if missing(pm10)
-  214
-r; t=0.00 16:47:02
-
-. ipolate pm10 Date, gen(pm10_ipol)
-r; t=0.03 16:47:02
-
-. drop pm10 
-r; t=0.00 16:47:02
-
-. rename pm10_ipol pm10
-r; t=0.00 16:47:02
-
-. 
-end of do-file
-
-r; t=0.08 16:47:02
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. import delimited "$data\PM10\Atlanta, Georgia.csv", clear
-(encoding automatically selected: ISO-8859-1)
-(6 vars, 4,834 obs)
-r; t=0.03 16:47:16
-
-. drop sitename siteid source mainpollutant
-r; t=0.00 16:47:16
-
-. rename pm10aqivalue pm10
-r; t=0.00 16:47:16
-
-. gen Date = date(date, "MDY")
-r; t=0.00 16:47:16
-
-. format Date %td 
-r; t=0.00 16:47:16
-
-. drop date
-r; t=0.00 16:47:16
-
-. tset Date
-
-Time variable: Date, 01jan2010 to 27oct2023, but with gaps
-        Delta: 1 day
-r; t=0.00 16:47:16
-
-. tsfill
-r; t=0.01 16:47:16
-
-. count if missing(pm10)
-  214
-r; t=0.00 16:47:16
-
-. ipolate pm10 Date, gen(pm10_ipol)
-r; t=0.03 16:47:16
-
-. drop pm10 
-r; t=0.00 16:47:16
-
-. rename pm10_ipol pm10
-r; t=0.00 16:47:16
-
-. 
-end of do-file
-
-r; t=0.07 16:47:16
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. local string_list "Atlanta"
-r; t=0.00 16:51:42
-
-. foreach str in `string_list' {
-  2.         import delimited "$data\PM10\`str'.csv", clear
-  3.         drop sitename siteid source mainpollutant
-  4.         rename pm10aqivalue pm10
-  5.         gen Date = date(date, "MDY")
-  6.         format Date %td 
-  7.         drop date
-  8.         tset Date
-  9.         tsfill
- 10.         count if missing(pm10)
- 11.         ipolate pm10 Date, gen(pm10_ipol)
- 12.         drop pm10 
- 13. }
-file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10.csv not found
-r(601); t=0.01 16:51:42
-
-end of do-file
-
-r(601); t=0.01 16:51:42
-
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. local string_list "Atlanta"
-r; t=0.00 16:53:01
-
-. foreach str in `string_list' {
-  2.         import delimited "$data\PM10\ `str'.csv", clear
-  3.         drop sitename siteid source mainpollutant
-  4.         rename pm10aqivalue pm10
-  5.         gen Date = date(date, "MDY")
-  6.         format Date %td 
-  7.         drop date
-  8.         tset Date
-  9.         tsfill
- 10.         count if missing(pm10)
- 11.         ipolate pm10 Date, gen(pm10_ipol)
- 12.         drop pm10 
- 13. }
-file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\ Atlanta.csv not found
-r(601); t=0.00 16:53:01
-
-end of do-file
-
-r(601); t=0.01 16:53:01
-
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. local string_list "Atlanta"
-r; t=0.00 16:53:17
-
-. foreach str in `string_list' {
-  2.         import delimited "$data\PM10\`str'.csv", clear
-  3.         drop sitename siteid source mainpollutant
-  4.         rename pm10aqivalue pm10
-  5.         gen Date = date(date, "MDY")
-  6.         format Date %td 
-  7.         drop date
-  8.         tset Date
-  9.         tsfill
- 10.         count if missing(pm10)
- 11.         ipolate pm10 Date, gen(pm10_ipol)
- 12.         drop pm10 
- 13. }
-file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10.csv not found
-r(601); t=0.02 16:53:17
-
-end of do-file
-
-r(601); t=0.02 16:53:17
-
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. local string_list "Atlanta"
-r; t=0.00 16:53:25
-
-. foreach str in `string_list' {
-  2.         import delimited "$data\PM10\ `str'.csv", clear
-  3.         drop sitename siteid source mainpollutant
-  4.         rename pm10aqivalue pm10
-  5.         gen Date = date(date, "MDY")
-  6.         format Date %td 
-  7.         drop date
-  8.         tset Date
-  9.         tsfill
- 10.         count if missing(pm10)
- 11.         ipolate pm10 Date, gen(pm10_ipol)
- 12.         drop pm10 
- 13. }
-file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\ Atlanta.csv not found
-r(601); t=0.00 16:53:25
-
-end of do-file
-
-r(601); t=0.01 16:53:25
-
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. local string_list "Atlanta"
-r; t=0.00 16:53:52
-
-. foreach str in `string_list' {
-  2.         import delimited "$data\PM10\ `str'.csv", clear
-  3.         drop sitename siteid source mainpollutant
-  4.         rename pm10aqivalue pm10
-  5.         gen Date = date(date, "MDY")
-  6.         format Date %td 
-  7.         drop date
-  8.         tset Date
-  9.         tsfill
- 10.         count if missing(pm10)
- 11.         ipolate pm10 Date, gen(pm10_ipol)
- 12.         drop pm10 
- 13. }
-file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\ Atlanta.csv not found
-r(601); t=0.01 16:53:52
-
-end of do-file
-
-r(601); t=0.01 16:53:52
-
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. local string_list "Atlanta"
-r; t=0.00 16:54:29
-
-. foreach str in `string_list' {
+. foreach str in `string_list' {  
   2.         import delimited "$data\PM10\PM10_`str'.csv", clear
-  3.         drop sitename siteid source mainpollutant
-  4.         rename pm10aqivalue pm10
+  3.         drop sitename siteid source mainpollutant                                                                       // drop unnecessary
+  4.         rename pm10aqivalue pm10                                                                                                        
   5.         gen Date = date(date, "MDY")
   6.         format Date %td 
   7.         drop date
-  8.         tset Date
-  9.         tsfill
+  8.         tset Date                                                                                                                                       
+  9.         tsfill                                                                                                                                          // fill TS with missing dates
  10.         count if missing(pm10)
- 11.         ipolate pm10 Date, gen(pm10_ipol)
+ 11.         ipolate pm10 Date, gen(pm10_ipol)                                                                                       // linear interpolation of missings (kind of debatable; could be changed to ARIMA or similar)
  12.         drop pm10 
- 13. }
-(encoding automatically selected: ISO-8859-1)
-(6 vars, 4,834 obs)
-
-Time variable: Date, 01jan2010 to 27oct2023, but with gaps
-        Delta: 1 day
-  214
-r; t=0.07 16:54:29
-
-. 
-end of do-file
-
-r; t=0.08 16:54:29
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. local string_list "Atlanta"
-r; t=0.00 16:56:53
-
-. foreach str in `string_list' {
-  2.         import delimited "$data\PM10\PM10_`str'.csv", clear
-  3.         drop sitename siteid source mainpollutant
-  4.         rename pm10aqivalue pm10
-  5.         gen Date = date(date, "MDY")
-  6.         format Date %td 
-  7.         drop date
-  8.         tset Date
-  9.         tsfill
- 10.         count if missing(pm10)
- 11.         ipolate pm10 Date, gen(pm10_ipol)
- 12.         drop pm10 
- 13.         generate Name = `str'
- 14. }
-(encoding automatically selected: ISO-8859-1)
-(6 vars, 4,834 obs)
-
-Time variable: Date, 01jan2010 to 27oct2023, but with gaps
-        Delta: 1 day
-  214
-Atlanta not found
-r(111); t=0.07 16:56:53
-
-end of do-file
-
-r(111); t=0.08 16:56:53
-
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. local string_list "Atlanta"
-r; t=0.00 16:57:00
-
-. foreach str in `string_list' {
-  2.         import delimited "$data\PM10\PM10_`str'.csv", clear
-  3.         drop sitename siteid source mainpollutant
-  4.         rename pm10aqivalue pm10
-  5.         gen Date = date(date, "MDY")
-  6.         format Date %td 
-  7.         drop date
-  8.         tset Date
-  9.         tsfill
- 10.         count if missing(pm10)
- 11.         ipolate pm10 Date, gen(pm10_ipol)
- 12.         drop pm10 
- 13.         generate Name = "`str'"
- 14. }
-(encoding automatically selected: ISO-8859-1)
-(6 vars, 4,834 obs)
-
-Time variable: Date, 01jan2010 to 27oct2023, but with gaps
-        Delta: 1 day
-  214
-r; t=0.08 16:57:00
-
-. 
-end of do-file
-
-r; t=0.08 16:57:00
-. do "C:\Users\Fynn\AppData\Local\Temp\STD75b0_000000.tmp"
-
-. local string_list "Atlanta"
-r; t=0.00 16:58:46
-
-. foreach str in `string_list' {
-  2.         import delimited "$data\PM10\PM10_`str'.csv", clear
-  3.         drop sitename siteid source mainpollutant
-  4.         rename pm10aqivalue pm10
-  5.         gen Date = date(date, "MDY")
-  6.         format Date %td 
-  7.         drop date
-  8.         tset Date
-  9.         tsfill
- 10.         count if missing(pm10)
- 11.         ipolate pm10 Date, gen(pm10_ipol)
- 12.         drop pm10 
- 13.         gen pm10 = round(pm10_ipol, 1)
+ 13.         gen pm10 = round(pm10_ipol, 1)                                                                                          // round to integers (not needed, also debatable, just a harmonization to AQI Index - also only an integer)
  14.         drop pm10_ipol
  15.         generate Name = "`str'"
- 16. }
+ 16.         gen DateStr = string(Date)
+ 17.         gen Place_Date_Merge = Name + "_" + DateStr                                                                     // create unifier based on place + date to merge m:1 
+ 18.         drop Name DateStr Date
+ 19.         save "$data\PM10\PM10_`str'.dta", replace
+ 20. }
 (encoding automatically selected: ISO-8859-1)
 (6 vars, 4,834 obs)
 
 Time variable: Date, 01jan2010 to 27oct2023, but with gaps
         Delta: 1 day
   214
-r; t=0.06 16:58:46
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Atlanta.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 947 obs)
 
+Time variable: Date, 02jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  4,102
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Arlington.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 4,834 obs)
+
+Time variable: Date, 01jan2010 to 27oct2023, but with gaps
+        Delta: 1 day
+  214
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Atlanta.dta saved
+(encoding automatically selected: ISO-8859-2)
+(6 vars, 893 obs)
+
+Time variable: Date, 02jan2010 to 29jun2023, but with gaps
+        Delta: 1 day
+  4,034
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Baltimore.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 3,279 obs)
+
+Time variable: Date, 02jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  1,770
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Charlotte.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 5,050 obs)
+
+Time variable: Date, 01jan2010 to 29oct2023
+        Delta: 1 day
+  0
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Chicago.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 4,851 obs)
+
+Time variable: Date, 01jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  199
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Cincinnati.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 5,047 obs)
+
+Time variable: Date, 01jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  3
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Cleveland.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 5,037 obs)
+
+Time variable: Date, 01jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  13
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Denver.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 4,980 obs)
+
+Time variable: Date, 01jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  70
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Detroit.dta saved
+(encoding automatically selected: ISO-8859-2)
+(6 vars, 1,290 obs)
+
+Time variable: Date, 02jan2010 to 29jun2023, but with gaps
+        Delta: 1 day
+  3,637
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_EastRutherford.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 3,852 obs)
+
+Time variable: Date, 02jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  1,197
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Foxborough.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 5,050 obs)
+
+Time variable: Date, 01jan2010 to 29oct2023
+        Delta: 1 day
+  0
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Glendale.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 4,700 obs)
+
+Time variable: Date, 02jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  349
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_GreenBay.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 1,781 obs)
+
+Time variable: Date, 02jan2010 to 30jun2023, but with gaps
+        Delta: 1 day
+  3,147
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Houston.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 4,754 obs)
+
+Time variable: Date, 02jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  295
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Indianapolis.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 5,050 obs)
+
+Time variable: Date, 01jan2010 to 29oct2023
+        Delta: 1 day
+  0
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Inglewood.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 4,202 obs)
+
+Time variable: Date, 01jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  848
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Jacksonville.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 4,054 obs)
+
+Time variable: Date, 02jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  995
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_KansasCity.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 4,250 obs)
+
+Time variable: Date, 02jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  799
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Landover.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 4,666 obs)
+
+Time variable: Date, 02jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  383
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_MiamiGardens.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 5,001 obs)
+
+Time variable: Date, 01jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  49
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Minneapolis.dta saved
+(encoding automatically selected: ISO-8859-2)
+(6 vars, 2,511 obs)
+
+Time variable: Date, 02jan2010 to 30jun2023, but with gaps
+        Delta: 1 day
+  2,417
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Nashville.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 4,987 obs)
+
+Time variable: Date, 01jan2010 to 30sep2023, but with gaps
+        Delta: 1 day
+  34
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_NewOrleans.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 810 obs)
+
+Time variable: Date, 02jan2010 to 31dec2022, but with gaps
+        Delta: 1 day
+  3,937
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Oakland.dta saved
+(encoding automatically selected: ISO-8859-2)
+(6 vars, 1,290 obs)
+
+Time variable: Date, 02jan2010 to 29jun2023, but with gaps
+        Delta: 1 day
+  3,637
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_OrchardPark.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 5,048 obs)
+
+Time variable: Date, 01jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  2
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Paradise.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 4,255 obs)
+
+Time variable: Date, 01jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  795
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Philadelphia.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 4,981 obs)
+
+Time variable: Date, 01jan2010 to 28aug2023, but with gaps
+        Delta: 1 day
+  7
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Pittsburgh.dta saved
+(encoding automatically selected: ISO-8859-2)
+(6 vars, 2,003 obs)
+
+Time variable: Date, 01jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  3,047
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_SanDiego.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 4,662 obs)
+
+Time variable: Date, 02jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  387
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_SantaClara.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 1,619 obs)
+
+Time variable: Date, 02jan2010 to 29jun2023, but with gaps
+        Delta: 1 day
+  3,308
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Seattle.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 5,050 obs)
+
+Time variable: Date, 01jan2010 to 29oct2023
+        Delta: 1 day
+  0
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_StLouis.dta saved
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 5,001 obs)
+
+Time variable: Date, 01jan2010 to 29oct2023, but with gaps
+        Delta: 1 day
+  49
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Tampa.dta saved
+r; t=2.38 18:06:00
+
+. 
+. * -----------------------------------------------------------------------------*        
+. * 4 Merge and, hence, Creation of Final Data Set *
+. 
+. * 4.1 PM10 
+. use "$data\Full.dta", clear
+r; t=0.00 18:06:00
+
+. gen PM10 =. 
+(7,290 missing values generated)
+r; t=0.00 18:06:00
+
+. 
+. local string_list "Atlanta Arlington Atlanta Baltimore Charlotte Chicago Cincinnati Cleveland Denver Detroit EastRutherford Foxborough Glendale GreenBay Houston Indianapolis Inglewood Jacksonville KansasCity Landover MiamiGardens Minneapolis Nashville N
+> ewOrleans Oakland OrchardPark Paradise Philadelphia Pittsburgh SanDiego SantaClara Seattle StLouis Tampa" 
+r; t=0.00 18:06:00
+
+. 
+. foreach str in `string_list' {
+  2.         merge m:1 Place_Date_Merge using "$data\PM10\PM10_`str'" 
+  3.         replace PM10 = pm10 if !missing(pm10)
+  4.         drop if _merge == 2
+  5.         drop _merge pm10
+  6. }
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,999
+        from master                     7,058  (_merge==1)
+        from using                      4,941  (_merge==2)
+
+    Matched                               232  (_merge==3)
+    -----------------------------------------
+(5,173 real changes made)
+(4,941 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,003
+        from master                     7,061  (_merge==1)
+        from using                      4,942  (_merge==2)
+
+    Matched                               229  (_merge==3)
+    -----------------------------------------
+(5,171 real changes made)
+(4,942 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,999
+        from master                     7,058  (_merge==1)
+        from using                      4,941  (_merge==2)
+
+    Matched                               232  (_merge==3)
+    -----------------------------------------
+(4,941 real changes made)
+(4,941 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,895
+        from master                     7,073  (_merge==1)
+        from using                      4,822  (_merge==2)
+
+    Matched                               217  (_merge==3)
+    -----------------------------------------
+(5,039 real changes made)
+(4,822 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,002
+        from master                     7,060  (_merge==1)
+        from using                      4,942  (_merge==2)
+
+    Matched                               230  (_merge==3)
+    -----------------------------------------
+(5,172 real changes made)
+(4,942 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,999
+        from master                     7,057  (_merge==1)
+        from using                      4,942  (_merge==2)
+
+    Matched                               233  (_merge==3)
+    -----------------------------------------
+(5,175 real changes made)
+(4,942 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,003
+        from master                     7,060  (_merge==1)
+        from using                      4,943  (_merge==2)
+
+    Matched                               230  (_merge==3)
+    -----------------------------------------
+(5,173 real changes made)
+(4,943 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,001
+        from master                     7,059  (_merge==1)
+        from using                      4,942  (_merge==2)
+
+    Matched                               231  (_merge==3)
+    -----------------------------------------
+(5,173 real changes made)
+(4,942 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,996
+        from master                     7,054  (_merge==1)
+        from using                      4,942  (_merge==2)
+
+    Matched                               236  (_merge==3)
+    -----------------------------------------
+(5,178 real changes made)
+(4,942 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,004
+        from master                     7,062  (_merge==1)
+        from using                      4,942  (_merge==2)
+
+    Matched                               228  (_merge==3)
+    -----------------------------------------
+(5,170 real changes made)
+(4,942 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,559
+        from master                     6,842  (_merge==1)
+        from using                      4,717  (_merge==2)
+
+    Matched                               448  (_merge==3)
+    -----------------------------------------
+(5,165 real changes made)
+(4,717 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,999
+        from master                     7,058  (_merge==1)
+        from using                      4,941  (_merge==2)
+
+    Matched                               232  (_merge==3)
+    -----------------------------------------
+(5,173 real changes made)
+(4,941 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,004
+        from master                     7,061  (_merge==1)
+        from using                      4,943  (_merge==2)
+
+    Matched                               229  (_merge==3)
+    -----------------------------------------
+(5,172 real changes made)
+(4,943 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,008
+        from master                     7,066  (_merge==1)
+        from using                      4,942  (_merge==2)
+
+    Matched                               224  (_merge==3)
+    -----------------------------------------
+(5,166 real changes made)
+(4,942 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,889
+        from master                     7,066  (_merge==1)
+        from using                      4,823  (_merge==2)
+
+    Matched                               224  (_merge==3)
+    -----------------------------------------
+(5,047 real changes made)
+(4,823 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,999
+        from master                     7,058  (_merge==1)
+        from using                      4,941  (_merge==2)
+
+    Matched                               232  (_merge==3)
+    -----------------------------------------
+(5,173 real changes made)
+(4,941 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,005
+        from master                     7,061  (_merge==1)
+        from using                      4,944  (_merge==2)
+
+    Matched                               229  (_merge==3)
+    -----------------------------------------
+(5,173 real changes made)
+(4,944 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,029
+        from master                     7,078  (_merge==1)
+        from using                      4,951  (_merge==2)
+
+    Matched                               212  (_merge==3)
+    -----------------------------------------
+(5,163 real changes made)
+(4,951 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,011
+        from master                     7,069  (_merge==1)
+        from using                      4,942  (_merge==2)
+
+    Matched                               221  (_merge==3)
+    -----------------------------------------
+(5,163 real changes made)
+(4,942 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,998
+        from master                     7,057  (_merge==1)
+        from using                      4,941  (_merge==2)
+
+    Matched                               233  (_merge==3)
+    -----------------------------------------
+(5,174 real changes made)
+(4,941 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,998
+        from master                     7,056  (_merge==1)
+        from using                      4,942  (_merge==2)
+
+    Matched                               234  (_merge==3)
+    -----------------------------------------
+(5,176 real changes made)
+(4,942 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,001
+        from master                     7,058  (_merge==1)
+        from using                      4,943  (_merge==2)
+
+    Matched                               232  (_merge==3)
+    -----------------------------------------
+(5,175 real changes made)
+(4,943 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,885
+        from master                     7,062  (_merge==1)
+        from using                      4,823  (_merge==2)
+
+    Matched                               228  (_merge==3)
+    -----------------------------------------
+(5,051 real changes made)
+(4,823 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,986
+        from master                     7,070  (_merge==1)
+        from using                      4,916  (_merge==2)
+
+    Matched                               220  (_merge==3)
+    -----------------------------------------
+(5,136 real changes made)
+(4,916 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,798
+        from master                     7,126  (_merge==1)
+        from using                      4,672  (_merge==2)
+
+    Matched                               164  (_merge==3)
+    -----------------------------------------
+(4,836 real changes made)
+(4,672 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,900
+        from master                     7,075  (_merge==1)
+        from using                      4,825  (_merge==2)
+
+    Matched                               215  (_merge==3)
+    -----------------------------------------
+(5,040 real changes made)
+(4,825 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,253
+        from master                     7,231  (_merge==1)
+        from using                      5,022  (_merge==2)
+
+    Matched                                59  (_merge==3)
+    -----------------------------------------
+(5,081 real changes made)
+(5,022 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,005
+        from master                     7,062  (_merge==1)
+        from using                      4,943  (_merge==2)
+
+    Matched                               228  (_merge==3)
+    -----------------------------------------
+(5,171 real changes made)
+(4,943 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,947
+        from master                     7,064  (_merge==1)
+        from using                      4,883  (_merge==2)
+
+    Matched                               226  (_merge==3)
+    -----------------------------------------
+(5,109 real changes made)
+(4,883 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,168
+        from master                     7,174  (_merge==1)
+        from using                      4,994  (_merge==2)
+
+    Matched                               116  (_merge==3)
+    -----------------------------------------
+(5,110 real changes made)
+(4,994 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,004
+        from master                     7,062  (_merge==1)
+        from using                      4,942  (_merge==2)
+
+    Matched                               228  (_merge==3)
+    -----------------------------------------
+(5,170 real changes made)
+(4,942 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        11,889
+        from master                     7,067  (_merge==1)
+        from using                      4,822  (_merge==2)
+
+    Matched                               223  (_merge==3)
+    -----------------------------------------
+(5,045 real changes made)
+(4,822 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,191
+        from master                     7,188  (_merge==1)
+        from using                      5,003  (_merge==2)
+
+    Matched                               102  (_merge==3)
+    -----------------------------------------
+(5,105 real changes made)
+(5,003 observations deleted)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        12,021
+        from master                     7,076  (_merge==1)
+        from using                      4,945  (_merge==2)
+
+    Matched                               214  (_merge==3)
+    -----------------------------------------
+(5,159 real changes made)
+(4,945 observations deleted)
+r; t=0.69 18:06:01
+
+. 
+. * 4.x Final changes
+. gen Season = year(Date) - cond(month(Date) < 3, 1, 0)
+r; t=0.00 18:06:01
+
+. drop if Season == 2023
+(195 observations deleted)
+r; t=0.00 18:06:01
+
+. drop Place_Date_Merge 
+r; t=0.00 18:06:01
+
+. * 5 Descriptive Statistics *
 . 
 end of do-file
 
-r; t=0.07 16:58:46
-. twoway (tsline pm10)
-r; t=0.80 17:02:29
+r; t=4.81 18:06:01
+. 
+. graph box PM10, by (Place)
+option by() not allowed
+r(198); t=0.64 18:16:15
 
+. graph box PM10, over(Place)
+r; t=1.49 18:16:27
+
+. graph hbox PM10
+r; t=1.32 18:16:47
+
+. graph hbox PM10, by(PM10)
+--Break--
+r(1); t=13.91 18:17:25
+
+. graph hbox PM10, by(Place)
+r; t=10.31 18:17:44
+
+. r; t=0.00 18:18:14
+r; t=3.77 18:18:18
+r; t=3.78 18:18:22
+r; t=0.00 18:18:22
+r; t=0.00 18:18:22
+r; t=0.00 18:18:22
+r; t=0.00 18:18:22
+r; t=0.00 18:18:22
+r; t=0.00 18:18:22
+r; t=0.00 18:18:22
+r; t=0.00 18:18:22
+r; t=0.00 18:18:22
+r; t=0.00 18:18:22
+r; t=1.95 18:18:24
+r; t=0.00 18:18:24
+r; t=0.00 18:18:24
+r; t=0.00 18:18:24
+r; t=0.00 18:18:25
+r; t=0.39 18:18:25
+r; t=2.39 18:18:38
+r; t=0.00 18:18:38
+r; t=0.00 18:18:38
+r; t=2.38 18:18:45
+r; t=0.00 18:18:45
+r; t=0.00 18:18:45
+r; t=2.41 18:18:51
+r; t=0.00 18:18:51
+r; t=0.00 18:18:51
+r; t=2.37 18:18:55
+r; t=0.00 18:18:55
+r; t=0.00 18:18:55
+graph box PM10, by(Place, iscale(*0.8))
+r; t=10.96 18:19:56
+
+. graph box PM10, by(, title(`"PM10 Concentration per Location"')) by(Place, iscale(*0.8))
+r; t=10.77 18:21:50
+
+. r; t=0.00 18:21:59
+r; t=3.60 18:22:02
+r; t=3.48 18:22:06
+r; t=0.00 18:22:06
+r; t=0.00 18:22:06
+r; t=0.00 18:22:06
+r; t=0.00 18:22:06
+r; t=0.00 18:22:06
+r; t=0.00 18:22:06
+r; t=4.39 18:22:10
+r; t=0.00 18:22:10
+r; t=2.51 18:22:13
+r; t=0.00 18:22:13
+r; t=0.00 18:22:13
+r; t=0.00 18:22:13
+graph export "C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\04_Tables\PM10_Concentration_per_Place.pdf", as(pdf) name("Graph")
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\04_Tables\PM10_Concentration_per_Place.pdf saved as PDF format
+graph box PM10, by(, title(`"PM10 Concentration per Location"')) scheme(sj) by(Place, iscale(*0.8))
+r; t=10.82 18:25:35
+
+. r; t=0.00 18:26:14
+r; t=3.64 18:26:18
+r; t=3.43 18:26:21
+r; t=0.00 18:26:21
+r; t=0.00 18:26:21
+r; t=0.00 18:26:21
+r; t=7.30 18:26:30
+r; t=0.00 18:26:30
+r; t=2.53 18:26:33
+r; t=0.00 18:26:33
+r; t=0.00 18:26:33
+r; t=0.00 18:26:33
+r; t=0.00 18:26:35
+r; t=0.00 18:26:35
+graph export "C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\04_Tables\PM10_Concentration_per_Place.pdf", as(pdf) name("Graph") replace
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\04_Tables\PM10_Concentration_per_Place.pdf saved as PDF format
+graph export "C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\04_Tables\PM10_Concentration_per_Place.png", as(png) name("Graph")
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\04_Tables\PM10_Concentration_per_Place.png saved as PNG format

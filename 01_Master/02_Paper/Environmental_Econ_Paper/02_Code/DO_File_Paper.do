@@ -13,14 +13,22 @@ Submission Date: 15/12/2023
 
 Examiner: Prof. Timo Hener
 
+Content:
+
+1 Pre 
+2 Preparation of NFL Data 
+3 Preparation of Pollution Data
+4 Merge and, hence, Creation of Final Data Set
 */
 
+* -----------------------------------------------------------------------------*	
 * 1 Pre *
 
-version 17.0
+version 17.0																	// Might be necessary to change minor syntaxes if version < 16, e.g. subinstr was changed
 clear all
 set more off
 set rmsg on
+set linesize 255
 
 **** Only this line has to be adjusted ****
 global folder "C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper"
@@ -33,10 +41,10 @@ global tables "$folder\04_Tables"
 import excel "$data\Football_Data_FULL.xlsx", ///
 sheet("Raw_Data_Scraped_and_Formulars") firstrow
 
-set linesize 255
 capture log close
 log using LOG_File_Paper.log, replace
 
+* -----------------------------------------------------------------------------*	
 * 2 Preparation of NFL Data *
 
 * 2.1 Exclusion if Pathway Games
@@ -250,6 +258,63 @@ replace Stadiontype = "Open" if Stadion == "Arrowhead Stadium" ///
 							| Stadion == "Qualcomm Stadium" ///
 							| Stadion == "O.co Coliseum"
 
+* 2.3 Prepartion for Merge -> Creation of Matching Var with Filenames
+split Place, parse(",") gen(Place_Merge)										// split in two vars with , as seperator
+gen Place_Merge = subinstr(Place_Merge1, " ", "", .)							// drop blankets -> San Francisco => SanFrancisco
+drop Place_Merge1 Place_Merge2				
+
+
+format Date %td 				
+gen DateStr = string(Date)
+gen Place_Date_Merge = Place_Merge + "_" + DateStr								// create unifier based on place + date to merge m:1 
+drop Place_Merge DateStr
+
+save "$data\Full.dta", replace
+
+* -----------------------------------------------------------------------------*			
+* 3 Preparation of Pollution Data *
+
+* 3.1 PM10 Data Preperation
+local string_list "Atlanta Arlington Atlanta Baltimore Charlotte Chicago Cincinnati Cleveland Denver Detroit EastRutherford Foxborough Glendale GreenBay Houston"
+
+foreach str in `string_list' {	
+	import delimited "$data\PM10\PM10_`str'.csv", clear
+	drop sitename siteid source mainpollutant									// drop unnecessary
+	rename pm10aqivalue pm10													
+	gen Date = date(date, "MDY")
+	format Date %td 
+	drop date
+	tset Date																	
+	tsfill																		// fill TS with missing dates
+	count if missing(pm10)
+	ipolate pm10 Date, gen(pm10_ipol)											// linear interpolation of missings (kind of debatable; could be changed to ARIMA or similar)
+	drop pm10 
+	gen pm10 = round(pm10_ipol, 1)												// round to integers (not needed, also debatable, just a harmonization to AQI Index - also only an integer)
+	drop pm10_ipol
+	generate Name = "`str'"
+	gen DateStr = string(Date)
+	gen Place_Date_Merge = Name + "_" + DateStr									// create unifier based on place + date to merge m:1 
+	drop Name DateStr Date
+	save "$data\PM10\PM10_`str'.dta", replace
+}
+
+* -----------------------------------------------------------------------------*	
+* 4 Merge and, hence, Creation of Final Data Set *
+use "$data\Full.dta", clear
+gen PM10 =. 
+
+local string_list "Atlanta Arlington Atlanta Baltimore Charlotte Chicago Cincinnati Cleveland Denver Detroit EastRutherford Foxborough Glendale GreenBay Houston Indianapolis Inglewood Jacksonville KansasCity Landover MiamiGardens Minneapolis Nashville NewOrleans Oakland OrchardPark Paradise Philadelphia Pittsburgh SanDiego SantaClara Seattle St.Louis Tampa" 
+
+foreach str in `string_list' {
+	merge m:1 Place_Date_Merge using "$data\PM10\PM10_`str'" 
+	replace PM10 = pm10 if !missing(pm10)
+	drop if _merge == 2
+	drop _merge pm10
+}
 
 
 
+
+
+
+* 5 Descriptive Statistics *
