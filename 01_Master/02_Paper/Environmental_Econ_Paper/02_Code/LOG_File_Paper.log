@@ -2,8 +2,8 @@
       name:  <unnamed>
        log:  C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\02_Code\LOG_File_Paper.log
   log type:  text
- opened on:  30 Oct 2023, 18:05:58
-r; t=0.00 18:05:58
+ opened on:  31 Oct 2023, 16:27:24
+r; t=0.00 16:27:24
 
 . 
 . * -----------------------------------------------------------------------------*        
@@ -56,7 +56,7 @@ r; t=0.00 18:05:58
 >        | (Date == mdy(10, 08, 2023) & inlist(Team, "Jacksonville")) ///
 >        | (Date == mdy(10, 15, 2023) & inlist(Team, "Baltimore"))
 (35 observations deleted)
-r; t=0.03 18:05:58
+r; t=0.03 16:27:24
 
 . 
 . 
@@ -106,308 +106,308 @@ r; t=0.03 18:05:58
 >        | (Date == mdy(10, 08, 2023) & inlist(Team, "Buffalo")) ///
 >        | (Date == mdy(10, 15, 2023) & inlist(Team, "Tennessee"))
 (42 observations deleted)
-r; t=0.03 18:05:58
+r; t=0.03 16:27:24
 
 . 
 . *2.2 Stadion
 . * Attach Stadion to Place - which is right now only in Team Location
 . gen Stadion = ""
 (7,290 missing values generated)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "State Farm Stadium" if inlist(Place, "Arizona")
 variable Stadion was str1 now str18
 (229 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "Mercedes-Benz Stadium" if inlist(Place, "Atlanta")
 variable Stadion was str18 now str21
 (232 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "M&T Bank Stadium" if inlist(Place, "Baltimore")
 (221 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "Highmark Stadium" if inlist(Place, "Buffalo")
 (221 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "Bank of America Stadium" if inlist(Place, "Carolina")
 variable Stadion was str21 now str23
 (230 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "Soldier Field" if inlist(Place, "Chicago")
 (233 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "Paul Brown Stadium" if inlist(Place, "Cincinatti")
 (230 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "FirstEnergy Stadium" if inlist(Place, "Cleveland")
 (231 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "AT&T Stadium" if inlist(Place, "Dallas")
 (229 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "Empower Field at Mile High" if inlist(Place, "Denver")
 variable Stadion was str23 now str26
 (236 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "Ford Field" if inlist(Place, "Detroit")
 (228 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "Lambeau Field" if inlist(Place, "Green Bay")
 (224 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "NRG Stadium" if inlist(Place, "Houston")
 (232 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "Lucas Oil Stadium" if inlist(Place, "Indianapolis")
 (232 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "TIAA Bank Field" if inlist(Place, "Jacksonville")
 (212 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "Arrowhead Stadium" if inlist(Place, "Kansas")
 (221 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "Allegiant Stadium" if inlist(Place, "Las Vegas")
 (59 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "SoFi Stadium" if inlist(Place, "Los Angeles (Chargers)") ///
 > | inlist(Place, "Los Angeles (Rams)")
 (229 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "Hard Rock Stadium" if inlist(Place, "Miami")
 (234 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "U.S. Bank Stadium" if inlist(Place, "Minnesota")
 (232 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "Gillette Stadium" if inlist(Place, "New England")
 (232 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "Caesars Superdome" if inlist(Place, "New Orleans")
 (224 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "MetLife Stadium" if inlist(Place, "New York (Giants)") ///
 > | inlist(Place, "New York (Jets)")
 (461 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "Lincoln Financial Field" if inlist(Place, "Philadelphia")
 (228 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "Heinz Field" if inlist(Place, "Pittsburgh")
 (232 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "Levi's Stadium" if inlist(Place, "San Francisco")
 (228 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "Lumen Field" if inlist(Place, "Seattle")
 (227 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "Raymond James Stadium" if inlist(Place, "Tampa Bay")
 (214 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "Nissan Stadium" if inlist(Place, "Tennesse")
 (234 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "FedExField" if inlist(Place, "Washington")
 (233 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "Edward Jones Dome" if inlist(Place, "St. Louis")
 (102 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "Qualcomm Stadium" if inlist(Place, "San Diego")
 (116 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Stadion = "O.co Coliseum" if inlist(Place, "Oakland")
 (164 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . 
 . * Switch to the actual place of the Stadion
 . gen Place_2 = ""
 (7,290 missing values generated)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Glendale, Arizona" if Stadion == "State Farm Stadium"
 variable Place_2 was str1 now str17
 (229 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Atlanta, Georgia" if Stadion == "Mercedes-Benz Stadium"
 (232 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Baltimore, Maryland" if Stadion == "M&T Bank Stadium"
 variable Place_2 was str17 now str19
 (221 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Orchard Park, New York" if Stadion == "Highmark Stadium"
 variable Place_2 was str19 now str22
 (221 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Charlotte, North Carolina" ///
 > if Stadion == "Bank of America Stadium"
 variable Place_2 was str22 now str25
 (230 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Chicago, Illinois" if Stadion == "Soldier Field"
 (233 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Cincinnati, Ohio" if Stadion == "Paul Brown Stadium"
 (230 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Cleveland, Ohio" if Stadion == "FirstEnergy Stadium"
 (231 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Arlington, Texas" if Stadion == "AT&T Stadium"
 (229 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Denver, Colorado" if Stadion == "Empower Field at Mile High"
 (236 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Detroit, Michigan" if Stadion == "Ford Field"
 (228 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Green Bay, Wisconsin" if Stadion == "Lambeau Field"
 (224 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Houston, Texas" if Stadion == "NRG Stadium"
 (232 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Indianapolis, Indiana" if Stadion == "Lucas Oil Stadium"
 (232 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Jacksonville, Florida" if Stadion == "TIAA Bank Field"
 (212 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Kansas City, Missouri" if Stadion == "Arrowhead Stadium"
 (221 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Paradise, Nevada" if Stadion == "Allegiant Stadium"
 (59 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Inglewood, California" if Stadion == "SoFi Stadium"
 (229 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Miami Gardens, Florida" if Stadion == "Hard Rock Stadium"
 (234 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Minneapolis, Minnesota" if Stadion == "U.S. Bank Stadium"
 (232 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Foxborough, Massachusetts" if Stadion == "Gillette Stadium"
 (232 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "New Orleans, Louisiana" if Stadion == "Caesars Superdome"
 (224 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "East Rutherford, New Jersey" if Stadion == "MetLife Stadium"
 variable Place_2 was str25 now str27
 (461 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Philadelphia, Pennsylvania" if Stadion == "Lincoln Financial Field"
 (228 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Pittsburgh, Pennsylvania" if Stadion == "Heinz Field"
 (232 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Santa Clara, California" if Stadion == "Levi's Stadium"
 (228 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Seattle, Washington" if Stadion == "Lumen Field"
 (227 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Tampa, Florida" if Stadion == "Raymond James Stadium"
 (214 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Nashville, Tennessee" if Stadion == "Nissan Stadium"
 (234 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Landover, Maryland" if Stadion == "FedExField"
 (233 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "St Louis, Missouri" if Stadion == "Edward Jones Dome"
 (102 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "San Diego, California" if Stadion == "Qualcomm Stadium"
 (116 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . replace Place_2 = "Oakland, California" if Stadion == "O.co Coliseum"
 (164 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . drop Place
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . rename Place_2 Place
-r; t=0.03 18:05:58
+r; t=0.03 16:27:24
 
 . 
 . ** Insert Info on Rooftype
 . gen Stadiontype = ""
 (7,290 missing values generated)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . 
 . replace Stadiontype = "Retractable" if Stadion == "AT&T Stadium" ///
@@ -420,7 +420,7 @@ r; t=0.00 18:05:58
 >                                                                         | Stadion == "NRG Stadium" 
 variable Stadiontype was str1 now str11
 (1,844 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . 
 . replace Stadiontype = "Fixed" if Stadion == "Allegiant Stadium" ///
@@ -431,7 +431,7 @@ r; t=0.00 18:05:58
 >                                                         | Stadion == "MetLife Stadium" ///
 >                                                         | Stadion == "Raymond James Stadium" 
 (1,518 real changes made)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . 
 . replace Stadiontype = "Open" if Stadion == "Arrowhead Stadium" ///
@@ -453,39 +453,39 @@ r; t=0.00 18:05:58
 >                                                         | Stadion == "Qualcomm Stadium" ///
 >                                                         | Stadion == "O.co Coliseum"
 (3,928 real changes made)
-r; t=0.01 18:05:58
+r; t=0.01 16:27:24
 
 . 
 . * 2.3 Prepartion for Merge -> Creation of Matching Var with Filenames
 . split Place, parse(",") gen(Place_Merge)                                                                                // split in two vars with , as seperator
 variables created as string: 
 Place_Merge1  Place_Merge2
-r; t=0.02 18:05:58
+r; t=0.02 16:27:24
 
 . gen Place_Merge = subinstr(Place_Merge1, " ", "", .)                                                    // drop blankets -> San Francisco => SanFrancisco
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . drop Place_Merge1 Place_Merge2                          
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . 
 . 
 . format Date %td                                 
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . gen DateStr = string(Date)
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . gen Place_Date_Merge = Place_Merge + "_" + DateStr                                                              // create unifier based on place + date to merge m:1 
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . drop Place_Merge DateStr
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . 
 . save "$data\Full.dta", replace
 file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Full.dta saved
-r; t=0.01 18:05:58
+r; t=0.00 16:27:24
 
 . 
 . * -----------------------------------------------------------------------------*                        
@@ -494,7 +494,7 @@ r; t=0.01 18:05:58
 . * 3.1 PM10 Data Preperation
 . local string_list "Atlanta Arlington Atlanta Baltimore Charlotte Chicago Cincinnati Cleveland Denver Detroit EastRutherford Foxborough Glendale GreenBay Houston Indianapolis Inglewood Jacksonville KansasCity Landover MiamiGardens Minneapolis Nashville N
 > ewOrleans Oakland OrchardPark Paradise Philadelphia Pittsburgh SanDiego SantaClara Seattle StLouis Tampa" 
-r; t=0.00 18:05:58
+r; t=0.00 16:27:24
 
 . 
 . foreach str in `string_list' {  
@@ -755,515 +755,272 @@ Time variable: Date, 01jan2010 to 29oct2023, but with gaps
         Delta: 1 day
   49
 file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\PM10\PM10_Tampa.dta saved
-r; t=2.38 18:06:00
+r; t=1.98 16:27:26
 
 . 
-. * -----------------------------------------------------------------------------*        
-. * 4 Merge and, hence, Creation of Final Data Set *
+. * 3.2 PM2.5 Data Preparation
 . 
-. * 4.1 PM10 
-. use "$data\Full.dta", clear
-r; t=0.00 18:06:00
-
-. gen PM10 =. 
-(7,290 missing values generated)
-r; t=0.00 18:06:00
-
-. 
+. * 3.3 Weather Data Preparation
 . local string_list "Atlanta Arlington Atlanta Baltimore Charlotte Chicago Cincinnati Cleveland Denver Detroit EastRutherford Foxborough Glendale GreenBay Houston Indianapolis Inglewood Jacksonville KansasCity Landover MiamiGardens Minneapolis Nashville N
 > ewOrleans Oakland OrchardPark Paradise Philadelphia Pittsburgh SanDiego SantaClara Seattle StLouis Tampa" 
-r; t=0.00 18:06:00
+r; t=0.00 16:27:26
 
 . 
 . foreach str in `string_list' {
-  2.         merge m:1 Place_Date_Merge using "$data\PM10\PM10_`str'" 
-  3.         replace PM10 = pm10 if !missing(pm10)
-  4.         drop if _merge == 2
-  5.         drop _merge pm10
-  6. }
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        11,999
-        from master                     7,058  (_merge==1)
-        from using                      4,941  (_merge==2)
-
-    Matched                               232  (_merge==3)
-    -----------------------------------------
-(5,173 real changes made)
-(4,941 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        12,003
-        from master                     7,061  (_merge==1)
-        from using                      4,942  (_merge==2)
-
-    Matched                               229  (_merge==3)
-    -----------------------------------------
-(5,171 real changes made)
-(4,942 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        11,999
-        from master                     7,058  (_merge==1)
-        from using                      4,941  (_merge==2)
-
-    Matched                               232  (_merge==3)
-    -----------------------------------------
-(4,941 real changes made)
-(4,941 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        11,895
-        from master                     7,073  (_merge==1)
-        from using                      4,822  (_merge==2)
-
-    Matched                               217  (_merge==3)
-    -----------------------------------------
-(5,039 real changes made)
-(4,822 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        12,002
-        from master                     7,060  (_merge==1)
-        from using                      4,942  (_merge==2)
-
-    Matched                               230  (_merge==3)
-    -----------------------------------------
-(5,172 real changes made)
-(4,942 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        11,999
-        from master                     7,057  (_merge==1)
-        from using                      4,942  (_merge==2)
-
-    Matched                               233  (_merge==3)
-    -----------------------------------------
-(5,175 real changes made)
-(4,942 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        12,003
-        from master                     7,060  (_merge==1)
-        from using                      4,943  (_merge==2)
-
-    Matched                               230  (_merge==3)
-    -----------------------------------------
-(5,173 real changes made)
-(4,943 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        12,001
-        from master                     7,059  (_merge==1)
-        from using                      4,942  (_merge==2)
-
-    Matched                               231  (_merge==3)
-    -----------------------------------------
-(5,173 real changes made)
-(4,942 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        11,996
-        from master                     7,054  (_merge==1)
-        from using                      4,942  (_merge==2)
-
-    Matched                               236  (_merge==3)
-    -----------------------------------------
-(5,178 real changes made)
-(4,942 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        12,004
-        from master                     7,062  (_merge==1)
-        from using                      4,942  (_merge==2)
-
-    Matched                               228  (_merge==3)
-    -----------------------------------------
-(5,170 real changes made)
-(4,942 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        11,559
-        from master                     6,842  (_merge==1)
-        from using                      4,717  (_merge==2)
-
-    Matched                               448  (_merge==3)
-    -----------------------------------------
-(5,165 real changes made)
-(4,717 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        11,999
-        from master                     7,058  (_merge==1)
-        from using                      4,941  (_merge==2)
-
-    Matched                               232  (_merge==3)
-    -----------------------------------------
-(5,173 real changes made)
-(4,941 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        12,004
-        from master                     7,061  (_merge==1)
-        from using                      4,943  (_merge==2)
-
-    Matched                               229  (_merge==3)
-    -----------------------------------------
-(5,172 real changes made)
-(4,943 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        12,008
-        from master                     7,066  (_merge==1)
-        from using                      4,942  (_merge==2)
-
-    Matched                               224  (_merge==3)
-    -----------------------------------------
-(5,166 real changes made)
-(4,942 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        11,889
-        from master                     7,066  (_merge==1)
-        from using                      4,823  (_merge==2)
-
-    Matched                               224  (_merge==3)
-    -----------------------------------------
-(5,047 real changes made)
-(4,823 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        11,999
-        from master                     7,058  (_merge==1)
-        from using                      4,941  (_merge==2)
-
-    Matched                               232  (_merge==3)
-    -----------------------------------------
-(5,173 real changes made)
-(4,941 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        12,005
-        from master                     7,061  (_merge==1)
-        from using                      4,944  (_merge==2)
-
-    Matched                               229  (_merge==3)
-    -----------------------------------------
-(5,173 real changes made)
-(4,944 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        12,029
-        from master                     7,078  (_merge==1)
-        from using                      4,951  (_merge==2)
-
-    Matched                               212  (_merge==3)
-    -----------------------------------------
-(5,163 real changes made)
-(4,951 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        12,011
-        from master                     7,069  (_merge==1)
-        from using                      4,942  (_merge==2)
-
-    Matched                               221  (_merge==3)
-    -----------------------------------------
-(5,163 real changes made)
-(4,942 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        11,998
-        from master                     7,057  (_merge==1)
-        from using                      4,941  (_merge==2)
-
-    Matched                               233  (_merge==3)
-    -----------------------------------------
-(5,174 real changes made)
-(4,941 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        11,998
-        from master                     7,056  (_merge==1)
-        from using                      4,942  (_merge==2)
-
-    Matched                               234  (_merge==3)
-    -----------------------------------------
-(5,176 real changes made)
-(4,942 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        12,001
-        from master                     7,058  (_merge==1)
-        from using                      4,943  (_merge==2)
-
-    Matched                               232  (_merge==3)
-    -----------------------------------------
-(5,175 real changes made)
-(4,943 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        11,885
-        from master                     7,062  (_merge==1)
-        from using                      4,823  (_merge==2)
-
-    Matched                               228  (_merge==3)
-    -----------------------------------------
-(5,051 real changes made)
-(4,823 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        11,986
-        from master                     7,070  (_merge==1)
-        from using                      4,916  (_merge==2)
-
-    Matched                               220  (_merge==3)
-    -----------------------------------------
-(5,136 real changes made)
-(4,916 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        11,798
-        from master                     7,126  (_merge==1)
-        from using                      4,672  (_merge==2)
-
-    Matched                               164  (_merge==3)
-    -----------------------------------------
-(4,836 real changes made)
-(4,672 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        11,900
-        from master                     7,075  (_merge==1)
-        from using                      4,825  (_merge==2)
-
-    Matched                               215  (_merge==3)
-    -----------------------------------------
-(5,040 real changes made)
-(4,825 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        12,253
-        from master                     7,231  (_merge==1)
-        from using                      5,022  (_merge==2)
-
-    Matched                                59  (_merge==3)
-    -----------------------------------------
-(5,081 real changes made)
-(5,022 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        12,005
-        from master                     7,062  (_merge==1)
-        from using                      4,943  (_merge==2)
-
-    Matched                               228  (_merge==3)
-    -----------------------------------------
-(5,171 real changes made)
-(4,943 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        11,947
-        from master                     7,064  (_merge==1)
-        from using                      4,883  (_merge==2)
-
-    Matched                               226  (_merge==3)
-    -----------------------------------------
-(5,109 real changes made)
-(4,883 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        12,168
-        from master                     7,174  (_merge==1)
-        from using                      4,994  (_merge==2)
-
-    Matched                               116  (_merge==3)
-    -----------------------------------------
-(5,110 real changes made)
-(4,994 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        12,004
-        from master                     7,062  (_merge==1)
-        from using                      4,942  (_merge==2)
-
-    Matched                               228  (_merge==3)
-    -----------------------------------------
-(5,170 real changes made)
-(4,942 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        11,889
-        from master                     7,067  (_merge==1)
-        from using                      4,822  (_merge==2)
-
-    Matched                               223  (_merge==3)
-    -----------------------------------------
-(5,045 real changes made)
-(4,822 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        12,191
-        from master                     7,188  (_merge==1)
-        from using                      5,003  (_merge==2)
-
-    Matched                               102  (_merge==3)
-    -----------------------------------------
-(5,105 real changes made)
-(5,003 observations deleted)
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                        12,021
-        from master                     7,076  (_merge==1)
-        from using                      4,945  (_merge==2)
-
-    Matched                               214  (_merge==3)
-    -----------------------------------------
-(5,159 real changes made)
-(4,945 observations deleted)
-r; t=0.69 18:06:01
+  2.         import delimited "$data\Weather\Weather_`str'.csv", clear
+  3.         rename pptinches PPT
+  4.         rename tmeandegreesf Degree
+  5.         gen Date = date(date, "YMD")
+  6.         format Date %td 
+  7.         drop date
+  8.         tset Date
+  9.         generate Name = "`str'"
+ 10.         gen DateStr = string(Date)
+ 11.         gen Place_Date_Merge = Name + "_" + DateStr
+ 12.         drop Name DateStr Date
+ 13.         save "$data\Weather\Weather_`str'.dta", replace
+ 14. }
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Atlanta.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Atlanta.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Arlington.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Arlington.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Atlanta.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Baltimore.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Baltimore.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Charlotte.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Charlotte.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Chicago.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Chicago.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Cincinnati.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Cincinnati.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Cleveland.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Cleveland.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Denver.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Denver.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Detroit.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Detroit.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_EastRutherford.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_EastRutherford.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Foxborough.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Foxborough.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Glendale.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Glendale.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_GreenBay.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_GreenBay.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Houston.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Houston.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Indianapolis.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Indianapolis.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Inglewood.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Inglewood.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Jacksonville.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Jacksonville.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_KansasCity.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_KansasCity.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Landover.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Landover.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_MiamiGardens.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_MiamiGardens.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Minneapolis.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Minneapolis.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Nashville.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Nashville.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_NewOrleans.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_NewOrleans.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Oakland.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Oakland.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_OrchardPark.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_OrchardPark.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Paradise.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Paradise.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Philadelphia.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Philadelphia.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Pittsburgh.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Pittsburgh.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_SanDiego.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_SanDiego.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_SantaClara.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_SantaClara.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Seattle.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Seattle.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_StLouis.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_StLouis.dta saved
+(encoding automatically selected: ISO-8859-1)
+(3 vars, 4,869 obs)
+
+Time variable: Date, 01jan2010 to 01may2023
+        Delta: 1 day
+(file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Tampa.dta not found)
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\01_Data\Weather\Weather_Tampa.dta saved
+r; t=0.94 16:27:27
 
 . 
-. * 4.x Final changes
-. gen Season = year(Date) - cond(month(Date) < 3, 1, 0)
-r; t=0.00 18:06:01
-
-. drop if Season == 2023
-(195 observations deleted)
-r; t=0.00 18:06:01
-
-. drop Place_Date_Merge 
-r; t=0.00 18:06:01
-
-. * 5 Descriptive Statistics *
 . 
 end of do-file
 
-r; t=4.81 18:06:01
-. 
-. graph box PM10, by (Place)
-option by() not allowed
-r(198); t=0.64 18:16:15
-
-. graph box PM10, over(Place)
-r; t=1.49 18:16:27
-
-. graph hbox PM10
-r; t=1.32 18:16:47
-
-. graph hbox PM10, by(PM10)
---Break--
-r(1); t=13.91 18:17:25
-
-. graph hbox PM10, by(Place)
-r; t=10.31 18:17:44
-
-. r; t=0.00 18:18:14
-r; t=3.77 18:18:18
-r; t=3.78 18:18:22
-r; t=0.00 18:18:22
-r; t=0.00 18:18:22
-r; t=0.00 18:18:22
-r; t=0.00 18:18:22
-r; t=0.00 18:18:22
-r; t=0.00 18:18:22
-r; t=0.00 18:18:22
-r; t=0.00 18:18:22
-r; t=0.00 18:18:22
-r; t=0.00 18:18:22
-r; t=1.95 18:18:24
-r; t=0.00 18:18:24
-r; t=0.00 18:18:24
-r; t=0.00 18:18:24
-r; t=0.00 18:18:25
-r; t=0.39 18:18:25
-r; t=2.39 18:18:38
-r; t=0.00 18:18:38
-r; t=0.00 18:18:38
-r; t=2.38 18:18:45
-r; t=0.00 18:18:45
-r; t=0.00 18:18:45
-r; t=2.41 18:18:51
-r; t=0.00 18:18:51
-r; t=0.00 18:18:51
-r; t=2.37 18:18:55
-r; t=0.00 18:18:55
-r; t=0.00 18:18:55
-graph box PM10, by(Place, iscale(*0.8))
-r; t=10.96 18:19:56
-
-. graph box PM10, by(, title(`"PM10 Concentration per Location"')) by(Place, iscale(*0.8))
-r; t=10.77 18:21:50
-
-. r; t=0.00 18:21:59
-r; t=3.60 18:22:02
-r; t=3.48 18:22:06
-r; t=0.00 18:22:06
-r; t=0.00 18:22:06
-r; t=0.00 18:22:06
-r; t=0.00 18:22:06
-r; t=0.00 18:22:06
-r; t=0.00 18:22:06
-r; t=4.39 18:22:10
-r; t=0.00 18:22:10
-r; t=2.51 18:22:13
-r; t=0.00 18:22:13
-r; t=0.00 18:22:13
-r; t=0.00 18:22:13
-graph export "C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\04_Tables\PM10_Concentration_per_Place.pdf", as(pdf) name("Graph")
-file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\04_Tables\PM10_Concentration_per_Place.pdf saved as PDF format
-graph box PM10, by(, title(`"PM10 Concentration per Location"')) scheme(sj) by(Place, iscale(*0.8))
-r; t=10.82 18:25:35
-
-. r; t=0.00 18:26:14
-r; t=3.64 18:26:18
-r; t=3.43 18:26:21
-r; t=0.00 18:26:21
-r; t=0.00 18:26:21
-r; t=0.00 18:26:21
-r; t=7.30 18:26:30
-r; t=0.00 18:26:30
-r; t=2.53 18:26:33
-r; t=0.00 18:26:33
-r; t=0.00 18:26:33
-r; t=0.00 18:26:33
-r; t=0.00 18:26:35
-r; t=0.00 18:26:35
-graph export "C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\04_Tables\PM10_Concentration_per_Place.pdf", as(pdf) name("Graph") replace
-file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\04_Tables\PM10_Concentration_per_Place.pdf saved as PDF format
-graph export "C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\04_Tables\PM10_Concentration_per_Place.png", as(png) name("Graph")
-file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\04_Tables\PM10_Concentration_per_Place.png saved as PNG format
+r; t=4.72 16:27:27

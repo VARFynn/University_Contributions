@@ -213,7 +213,7 @@ replace Place_2 = "Seattle, Washington" if Stadion == "Lumen Field"
 replace Place_2 = "Tampa, Florida" if Stadion == "Raymond James Stadium"
 replace Place_2 = "Nashville, Tennessee" if Stadion == "Nissan Stadium"
 replace Place_2 = "Landover, Maryland" if Stadion == "FedExField"
-replace Place_2 = "St. Louis, Missouri" if Stadion == "Edward Jones Dome"
+replace Place_2 = "St Louis, Missouri" if Stadion == "Edward Jones Dome"
 replace Place_2 = "San Diego, California" if Stadion == "Qualcomm Stadium"
 replace Place_2 = "Oakland, California" if Stadion == "O.co Coliseum"
 drop Place
@@ -275,7 +275,7 @@ save "$data\Full.dta", replace
 * 3 Preparation of Pollution Data *
 
 * 3.1 PM10 Data Preperation
-local string_list "Atlanta Arlington Atlanta Baltimore Charlotte Chicago Cincinnati Cleveland Denver Detroit EastRutherford Foxborough Glendale GreenBay Houston"
+local string_list "Atlanta Arlington Atlanta Baltimore Charlotte Chicago Cincinnati Cleveland Denver Detroit EastRutherford Foxborough Glendale GreenBay Houston Indianapolis Inglewood Jacksonville KansasCity Landover MiamiGardens Minneapolis Nashville NewOrleans Oakland OrchardPark Paradise Philadelphia Pittsburgh SanDiego SantaClara Seattle StLouis Tampa" 
 
 foreach str in `string_list' {	
 	import delimited "$data\PM10\PM10_`str'.csv", clear
@@ -298,12 +298,35 @@ foreach str in `string_list' {
 	save "$data\PM10\PM10_`str'.dta", replace
 }
 
+* 3.2 PM2.5 Data Preparation
+
+* 3.3 Weather Data Preparation
+local string_list "Atlanta Arlington Atlanta Baltimore Charlotte Chicago Cincinnati Cleveland Denver Detroit EastRutherford Foxborough Glendale GreenBay Houston Indianapolis Inglewood Jacksonville KansasCity Landover MiamiGardens Minneapolis Nashville NewOrleans Oakland OrchardPark Paradise Philadelphia Pittsburgh SanDiego SantaClara Seattle StLouis Tampa" 
+
+foreach str in `string_list' {
+	import delimited "$data\Weather\Weather_`str'.csv", clear
+	rename pptinches PPT
+	rename tmeandegreesf Degree
+	gen Date = date(date, "YMD")
+	format Date %td 
+	drop date
+	tset Date
+	generate Name = "`str'"
+	gen DateStr = string(Date)
+	gen Place_Date_Merge = Name + "_" + DateStr
+	drop Name DateStr Date
+	save "$data\PM10\PM10_`str'.dta", replace
+}
+
+
 * -----------------------------------------------------------------------------*	
 * 4 Merge and, hence, Creation of Final Data Set *
+* 4.1 PM10 
+
 use "$data\Full.dta", clear
 gen PM10 =. 
 
-local string_list "Atlanta Arlington Atlanta Baltimore Charlotte Chicago Cincinnati Cleveland Denver Detroit EastRutherford Foxborough Glendale GreenBay Houston Indianapolis Inglewood Jacksonville KansasCity Landover MiamiGardens Minneapolis Nashville NewOrleans Oakland OrchardPark Paradise Philadelphia Pittsburgh SanDiego SantaClara Seattle St.Louis Tampa" 
+local string_list "Atlanta Arlington Atlanta Baltimore Charlotte Chicago Cincinnati Cleveland Denver Detroit EastRutherford Foxborough Glendale GreenBay Houston Indianapolis Inglewood Jacksonville KansasCity Landover MiamiGardens Minneapolis Nashville NewOrleans Oakland OrchardPark Paradise Philadelphia Pittsburgh SanDiego SantaClara Seattle StLouis Tampa" 
 
 foreach str in `string_list' {
 	merge m:1 Place_Date_Merge using "$data\PM10\PM10_`str'" 
@@ -313,8 +336,32 @@ foreach str in `string_list' {
 }
 
 
+* 4.3 Weather Data
 
+* 4.x final changes
+
+gen Season = year(Date) - cond(month(Date) < 3, 1, 0)
+drop if Season == 2023
+drop Place_Date_Merge
+
+encode Player, generate(Player_N)
+encode Team, generate (Team_N)
+encode Opponent, generate (Opponent_N)
+encode Stadiontype, generate (Stadiontype_N)
 
 
 
 * 5 Descriptive Statistics *
+graph box PM10, by(, title(`"PM10 Concentration per Location"')) by(Place, iscale(*0.8))
+
+
+
+
+
+
+
+* 6 Regressions
+reg INTs c.PM10#i.Stadiontype_N i.Season i.Player_N i.Opponent_N##Season,vce(robust)
+reg INTs c.PM10#i.Stadiontype_N i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
+
+
