@@ -24,7 +24,7 @@ Content:
 * -----------------------------------------------------------------------------*	
 * 1 Pre *
 
-version 17.0																	// Might be necessary to change minor syntaxes if version < 16, e.g. subinstr was changed
+version 17.0																	// Might be necessary to change minor syntaxes if version < 16, e.g. subinstr was changed by stata corp.
 clear all
 set more off
 set rmsg on
@@ -315,7 +315,7 @@ foreach str in `string_list' {
 	gen DateStr = string(Date)
 	gen Place_Date_Merge = Name + "_" + DateStr
 	drop Name DateStr Date
-	save "$data\PM10\PM10_`str'.dta", replace
+	save "$data\Weather\Weather_`str'.dta", replace
 }
 
 
@@ -336,9 +336,23 @@ foreach str in `string_list' {
 }
 
 
-* 4.3 Weather Data
 
-* 4.x final changes
+* 4.3 Weather Data
+gen Percipitation = .
+gen Temperature = . 
+
+local string_list "Atlanta Arlington Atlanta Baltimore Charlotte Chicago Cincinnati Cleveland Denver Detroit EastRutherford Foxborough Glendale GreenBay Houston Indianapolis Inglewood Jacksonville KansasCity Landover MiamiGardens Minneapolis Nashville NewOrleans Oakland OrchardPark Paradise Philadelphia Pittsburgh SanDiego SantaClara Seattle StLouis Tampa" 
+
+foreach str in `string_list' {
+	merge m:1 Place_Date_Merge using "$data\Weather\Weather_`str'" 
+	replace Percipitation = PPT if !missing(PPT)
+	replace Temperature = Degree if !missing(Degree)
+	drop if _merge == 2
+	drop _merge PPT Degree
+}
+
+
+* 4.4 final changes
 
 gen Season = year(Date) - cond(month(Date) < 3, 1, 0)
 drop if Season == 2023
@@ -353,8 +367,8 @@ encode Stadiontype, generate (Stadiontype_N)
 
 * 5 Descriptive Statistics *
 graph box PM10, by(, title(`"PM10 Concentration per Location"')) by(Place, iscale(*0.8))
-
-
+graph box Percipitation, by(, title(`"Percipitation per Location"')) by(Place, iscale(*0.8))
+graph box Temperature, by(, title(`"Temperature per Location"')) by(Place, iscale(*0.8))
 
 
 
@@ -363,5 +377,6 @@ graph box PM10, by(, title(`"PM10 Concentration per Location"')) by(Place, iscal
 * 6 Regressions
 reg INTs c.PM10#i.Stadiontype_N i.Season i.Player_N i.Opponent_N##Season,vce(robust)
 reg INTs c.PM10#i.Stadiontype_N i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
-
-
+reg INTs c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
+reg Attempts c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
+reg INT_Percentage c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
