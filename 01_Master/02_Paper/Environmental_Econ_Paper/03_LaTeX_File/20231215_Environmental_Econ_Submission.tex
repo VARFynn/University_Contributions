@@ -25,6 +25,7 @@
 \usepackage[english]{babel}
 \usepackage[OT1]{fontenc}
 \usepackage{amsmath}
+\usepackage{amsfonts}
 \usepackage{mathtools}
 \usepackage{graphicx}
 \usepackage{caption}
@@ -148,8 +149,12 @@ The relevant Data and Code are publicly available at \url{https://github.com/VAR
 \setcounter{savepage}{\arabic{page}}
 \pagenumbering{arabic}
 \section{Introduction}
+In our modern world characterized by rapid industrialization and urbanization, the menace of airborne particulate matter, specifically PM10 and PM2.5, has risen to prominence as a pressing concern for environmental quality and human well-being. However, despite their increasing significance, PM10 and PM2.5 remain largely imperceptible to our senses, leading to their subtle but often underestimated influence on our daily lives and the environments we inhabit.
 \clearpage
 \section{Theoretical Framework}
+While the exact physical processes and long-term effects of poor air quality are not precisely understood, a substantial body of literature exists showing correlations with various outcomes and potential causal linkages w.r.t. short-term effects. When referring to air pollutants, it is mostly referred to carbon monoxide (CO), sulfur dioxide (SO2), nitrogen oxide (NOx), ozone (O3) and particulate matter (PM). These particulate matter components, including PM10, PM2.5, and even ultrafine PM0.1, encompass a diverse range of particles, such as dust from various sources, smoke, but also pollen. As a significant driver of these pollutants (with the exception of SO2), traffic plays a crucial role(see e.g. \citealp{thorpe2008,costa2017,zhong2017} and also in \citealp{bauernschuster2017}), especially attributable to the impact of trucks (e.g. \citealp{lena2002}), airplanes (e.g. \citealp{schlenker2016}) as well as diesel-fueled vehicles (e.g. \citealp{kinney2000}).
+
+Consequently, for any mitigation policies, the damage curve of these pollutants must be more precisely understood. 
 \clearpage
 \section{Data and Descriptive Statistics}
 \begin{figure}[h]
@@ -162,11 +167,13 @@ The relevant Data and Code are publicly available at \url{https://github.com/VAR
 \end{figure}
 \clearpage
 \section{Empirical Framework}
-
+To investigate a potential causal linkage between air pollution and quarterbacks' performances, this term-paper utilizes an empirical framework effectively capturing both unobserved and observed heterogeneity. As visible in the following equation,
 \begin{equation}
-\hat{Y}_{ijks} = PM10 \times \beta + {W'}_{ijks} \zeta + \alpha_i + \mu_{js} + \eta_{ks} + \varepsilon_{ijks}
+\hat{Y}_{ijks} = PM10 \times Stadiontype \times \beta + {W'} \zeta + \alpha_i + \mu_{js} + \eta_{ks} + \varepsilon_{ijks},
 \end{equation}
+the dependent measurement of performance ($\hat{Y}$) is segmented into four dimensions (i.e. i,j,k and s). This four-dimensional segmentation allows to remove time-invariant heterogeneity (i.e. $ \mu_{js} \wedge \eta_{ks}$) as well as individual-specific variation constant over time (i.e. $\alpha_i$). This already reveals that, $i \in Q$ (set of all quarterbacks), $\{s \in \mathbb{Z} \, | \, 2010 \leq s \leq 2022\}$, $j \in T$ (set of teams) and $k \in O$ (set of opponents). Exemplifying the concept, $\hat{Y}_{ijks}$ encapsulates the estimated performance of a quarterback ($i$) within a designated team ($j$), operating against a distinct defensive unit ($k$) during a specified season ($s$).
 
+Consequently, $\mu_{js}$ is the vector of team (offense) by season and $\eta_{ks}$ the vector of opponent (defense) by season fixed effects. Notably, within the NFL, a significant portion of variation can be attributed to changes on a season basis, including transitions like alterations in offensive and defensive coordinators, playbook changes, player acquisitions, and related dynamics. Furthermore, the strategic practice of teams 'tanking' in specific seasons to gain advantageous draft positions highlights the necessity of employing the previously mentioned fixed effects to comprehensively address the diverse but unobserved factors impacting team's and, hence, quarterback's performance. In light of these considerations, additionally including the quarterback-specific effect\footnote{In a pre-check, I do not find any evidence w.r.t. to a season by quarterback variation, which is not already captured in $\mu_{js}$. The same holds for any age variation as deployed by \citet{heintz2022}.}, which encompasses general playstyle, leads to a robust identification framework that effectively accounts for nearly all non-random variation in performance. In spite of this, it's crucial to recognize that while this model covers a wide range of unobserved factors, it doesn't preclude the presence of additional effects on specific game days, e.g. minor injuries. These effects might be considered random draws from a function f($\theta$) with the same probability for all observed performances and being orthogonal to the primary marginal effect of interest. Hence, it can be considered non-influential w.r.t. the causal inference, as it just leads to more noise not affecting the primary effect.\footnote{Generally, this is a strong assumption to make. However, any correlation between $\varepsilon_{ijks}$ and $\Delta PM10$ seems highly unlikely given the data.} The model's setup is completed with ${W'}$, the matrix weather controls by stadiontype, encompassing temperature and precipitation.
 \clearpage
 \section{Results and Discussion}
 \clearpage
@@ -184,7 +191,7 @@ The relevant Data and Code are publicly available at \url{https://github.com/VAR
 \pagestyle{plain}
 \addcontentsline{toc}{section}{References}
 \bibliographystyle{apalike}
-\bibliography{YourBibName.bib}
+\bibliography{EnvEcon.bib}
 \clearpage
 
 %------------------------------------------------------------------%
@@ -198,7 +205,7 @@ The relevant Data and Code are publicly available at \url{https://github.com/VAR
 	\caption{Map of NFL Team's Stadion Locations in Sample}
 	\addvspace{-0.6\baselineskip}
 	\caption*{\footnotesize \textit{Source: Own Visualization.}}
-	\label{AppF:1}
+	\label{F:1}
 \end{figure}
 \clearpage
 \section{Further Tables}

@@ -1,0 +1,82 @@
+@Article{lena2002,
+  author  = {Lena, T Suvendrini and Ochieng, Victor and Carter, Majora and Holgu{\'\i}n-Veras, Jos{\'e} and Kinney, Patrick L},
+  journal = {Environmental Health Perspectives},
+  title   = {Elemental carbon and PM (2.5) levels in an urban community heavily impacted by truck traffic.},
+  year    = {2002},
+  number  = {10},
+  pages   = {1009--1015},
+  volume  = {110},
+  comment = {Truck Traffic -> PM},
+}
+
+@Article{kinney2000,
+  author  = {Kinney, Patrick L and Aggarwal, Maneesha and Northridge, Mary E and Janssen, Nicole A and Shepard, Peggy},
+  journal = {Environmental Health Perspectives},
+  title   = {Airborne concentrations of PM (2.5) and diesel exhaust particles on Harlem sidewalks: a community-based pilot study.},
+  year    = {2000},
+  number  = {3},
+  pages   = {213--218},
+  volume  = {108},
+  comment = {Diesel -> Air Pollution},
+}
+
+@Article{thorpe2008,
+  author    = {Thorpe, Alistair and Harrison, Roy M},
+  journal   = {Science of the Total Environment},
+  title     = {Sources and properties of non-exhaust particulate matter from road traffic: a review},
+  year      = {2008},
+  number    = {1-3},
+  pages     = {270--282},
+  volume    = {400},
+  comment   = {General traffic},
+  publisher = {Elsevier},
+}
+
+@Article{bauernschuster2017,
+  author    = {Bauernschuster, Stefan and Hener, Timo and Rainer, Helmut},
+  journal   = {American Economic Journal: Economic Policy},
+  title     = {When labor disputes bring cities to a standstill: The impact of public transit strikes on traffic, accidents, air pollution, and health},
+  year      = {2017},
+  number    = {1},
+  pages     = {1--37},
+  volume    = {9},
+  comment   = {Timo's paper with a section on the traffic part},
+  publisher = {American Economic Association 2014 Broadway, Suite 305, Nashville, TN 37203-2425},
+}
+
+@Article{costa2017,
+  author    = {Costa, Lucio G and Cole, Toby B and Coburn, Jacki and Chang, Yu-Chi and Dao, Khoi and Roqu{\'e}, Pamela J},
+  journal   = {Neurotoxicology},
+  title     = {Neurotoxicity of traffic-related air pollution},
+  year      = {2017},
+  pages     = {133--139},
+  volume    = {59},
+  comment   = {Traffic},
+  publisher = {Elsevier},
+}
+
+@Article{zhong2017,
+  author    = {Zhong, Nan and Cao, Jing and Wang, Yuzhu},
+  journal   = {Journal of the Association of Environmental and Resource Economists},
+  title     = {Traffic congestion, ambient air pollution, and health: Evidence from driving restrictions in Beijing},
+  year      = {2017},
+  number    = {3},
+  pages     = {821--856},
+  volume    = {4},
+  comment   = {Traffic},
+  publisher = {University of Chicago Press Chicago, IL},
+}
+
+@Article{schlenker2016,
+  author    = {Schlenker, Wolfram and Walker, W Reed},
+  journal   = {The Review of Economic Studies},
+  title     = {Airports, air pollution, and contemporaneous health},
+  year      = {2016},
+  number    = {2},
+  pages     = {768--809},
+  volume    = {83},
+  comment   = {Airports also driving force},
+  publisher = {Oxford University Press},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

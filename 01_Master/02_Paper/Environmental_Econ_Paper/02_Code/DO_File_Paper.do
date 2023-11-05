@@ -378,5 +378,13 @@ graph box Temperature, by(, title(`"Temperature per Location"')) by(Place, iscal
 reg INTs c.PM10#i.Stadiontype_N i.Season i.Player_N i.Opponent_N##Season,vce(robust)
 reg INTs c.PM10#i.Stadiontype_N i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
 reg INTs c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
+reg INTs c.PM10#i.Stadiontype_N Attempts Temperature Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
 reg Attempts c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
 reg INT_Percentage c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
+reg Rating c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
+reg Rating c.PM10#i.Stadiontype_N Attempts Temperature Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
+reg TDs c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
+reg Passing_Sucess_Rate c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
+
+
+reg Attempts c.PM10#i.Stadiontype_N i.Stadiontype_N#Temperature i.Stadiontype#Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
