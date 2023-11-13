@@ -162,6 +162,33 @@ is poised to grow.
 This paper
 \clearpage
 \section{Data and Descriptive Statistics}
+\begin{table}
+  \centering
+  \caption{Summary Statistics of Metric Variables}
+  \label{tab:summary-stats}
+  \begin{tabular}{lrrrrr}
+    \hline \hline
+    Variable & Obs & Mean & Std. dev. & Min. & Max. \\
+    \hline
+    \textit{Quarterbacks' Performance} \\
+    Rating & 7,095 & 88.47 & 27.83 & 0.00 & 158.30 \\
+    Attempts & 7,095 & 32.29 & 10.33 & 5.00 & 68.00 \\
+    Completion & 7,095 & 20.30 & 7.18 & 0.00 & 45.00 \\
+    Completion Rate & 7,095 & 62.65 & 10.51 & 0.00 & 100.00 \\
+    Yards & 7,095 & 231.05 & 87.84 & 0.00 & 527.00 \\
+    Interceptions & 7,095 & 0.80 & 0.93 & 0.00 & 6.00 \\
+    Interception Rate & 7,095 & 2.57 & 3.34 & 0.00 & 37.50 \\
+    Passing Success Rate & 7,095 & 45.16 & 10.96 & 0.00 & 100.00 \\
+    Away & 7,095 & 0.50 & 0.50 & 0.00 & 1.00 \\ [0.5cm]
+    \textit{Pollution/Weather} \\
+    PM10 & 7,095 & 20.59 & 14.86 & 0.00 & 171.00 \\
+    Precipitation & 7,095 & 0.18 & 0.35 & 0.00 & 2.15 \\
+    Temperature & 7,095 & 50.13 & 10.53 & 18.50 & 76.00 \\
+    \hline \hline
+  \end{tabular}
+\end{table}
+
+
 \begin{figure}[h]
 	\center
 	\includegraphics[scale=1.7]{../05_Figures/PM10_Concentration_per_Place.pdf}
@@ -174,18 +201,77 @@ This paper
 \section{Empirical Framework}
 To investigate a potential causal linkage between air pollution and quarterbacks' performances, this term-paper utilizes an empirical framework effectively capturing both unobserved and observed heterogeneity. As visible in the following equation,
 \begin{equation}
-\hat{Y}_{ijks} = PM10 \times Stadiumtype \times \beta + {W'} \zeta + \alpha_i + \mu_{js} + \eta_{ks} + \varepsilon_{ijks},
+\hat{Y}_{ijkls} = PM10 \times \beta_l + {W'} \zeta_l + \alpha_i + \mu_{js} + \eta_{ks} + Away \times \delta + \varepsilon_{ijkls},
 \end{equation}
-the dependent measurement of performance ($\hat{Y}$) is segmented into four dimensions (i.e. i,j,k and s). This four-dimensional segmentation allows to remove time-invariant heterogeneity (i.e. $ \mu_{js} \wedge \eta_{ks}$) as well as individual-specific variation constant over time (i.e. $\alpha_i$). This already reveals that, $i \in Q$ (set of all quarterbacks), $\{s \in \mathbb{Z} \, | \, 2010 \leq s \leq 2022\}$, $j \in T$ (set of teams) and $k \in O$ (set of opponents). Exemplifying the concept, $\hat{Y}_{ijks}$ encapsulates the estimated performance of a quarterback ($i$) within a designated team ($j$), operating against a distinct defensive unit ($k$) during a specified season ($s$). 
+the dependent measurement of performance ($\hat{Y}$) is segmented into five dimensions (i.e. i,j,k,l and s). This five-dimensional segmentation allows to remove time-invariant heterogeneity (i.e. $ \mu_{js} \wedge \eta_{ks}$) as well as individual-specific variation constant over time (i.e. $\alpha_i$). This already reveals that, $i \in Q$ (set of all quarterbacks), $\{s \in \mathbb{Z} \, | \, 2010 \leq s \leq 2022\}$, $j \in T$ (set of teams) and $k \in O$ (set of opponents). Exemplifying the concept, $\hat{Y}_{ijkls}$ encapsulates the estimated performance of a quarterback ($i$) within a designated team ($j$), operating against a distinct defensive unit ($k$) during a specified season ($s$) in a specific stadiumtype ($l$). 
 
-Consequently, $\mu_{js}$ is the vector of team (offense) by season and $\eta_{ks}$ the vector of opponent (defense) by season fixed effects. Notably, within the NFL, a significant portion of variation can be attributed to changes on a season basis, including transitions like alterations in offensive and defensive coordinators, playbook changes, player acquisitions, and related dynamics. Furthermore, the strategic practice of teams 'tanking' in specific seasons to gain advantageous draft positions highlights the necessity of employing the mentioned seasonal fixed effects to comprehensively address the diverse but unobserved factors impacting team's and, hence, quarterback's performance. In light of these considerations, additionally including the quarterback-specific effect\footnote{In a pre-check, I do not find any evidence w.r.t. to a season by quarterback variation, which is not already captured in $\mu_{js}$. The same holds for any age variation as deployed by \citet{heintz2022}.}, which encompasses general playstyle, leads to a robust identification framework that effectively accounts for nearly all non-random variation in performance. In spite of this, it's crucial to recognize that while this model covers a wide range of unobserved factors, it does not preclude the presence of additional effects on specific game days, e.g. minor injuries. These effects are considered to follow a poisson distribution (Pois({$\lambda$)) with the same probability to occur for defense and offense (i.e. $Pr_j(X=x) = Pr_k(X=x)$) and being orthogonal to the primary marginal effect of interest. Hence, it can be considered non-influential w.r.t. causal inference, as it just leads to more noise not affecting the primary effect.\footnote{Generally, this is a strong assumption to make. However, any correlation between $\varepsilon_{ijks}$ and $\Delta PM10$ seems highly unlikely given the data.} The model's setup is completed with ${W'}$, the matrix weather controls by stadiumtype, encompassing temperature and precipitation.
+Consequently, $\mu_{js}$ is the vector of team (offense) by season and $\eta_{ks}$ the vector of opponent (defense) by season fixed effects. Notably, within the NFL, a significant portion of variation can be attributed to changes on a season basis, including transitions like alterations in offensive and defensive coordinators, playbook changes, player acquisitions, and related dynamics. Furthermore, the strategic practice of teams 'tanking' in specific seasons to gain advantageous draft positions highlights the necessity of employing the mentioned seasonal fixed effects to comprehensively address the diverse but unobserved factors impacting team's and, hence, quarterback's performance. In light of these considerations, additionally including the quarterback-specific effect\footnote{In a pre-check, I do not find any evidence w.r.t. to a season by quarterback variation, which is not already captured in $\mu_{js}$. The same holds for any age variation as deployed by \citet{heintz2022}.}, which encompasses general playstyle, leads to a robust identification framework that effectively accounts for nearly all non-random variation in performance. In spite of this, it's crucial to recognize that while this model covers a wide range of unobserved factors, it does not preclude the presence of additional effects on specific game days, e.g. minor injuries. These effects are considered to follow a poisson distribution (Pois({$\lambda$)) with the same probability to occur for defense and offense (i.e. $Pr_j(X=x) = Pr_k(X=x)$) and being orthogonal to the primary marginal effect of interest. Hence, it can be considered non-influential w.r.t. causal inference, as it just leads to more noise not affecting the primary effect.\footnote{Generally, this is a strong assumption to make. However, any correlation between $\varepsilon_{ijks}$ and $\Delta PM10$ seems highly unlikely given the data.} The model's setup is completed with a dummy for having an away performance as well as ${W'}$, the matrix weather controls by stadiumtype, encompassing temperature and precipitation.
 
-Proceeding to investigate the marginal effect of interest, denoted as $\hat{\beta}$, it is therefore appropriate to frame this analysis a causal one. By incorporating it as an interaction term with stadiumtype $\in \{$Open, Closed, Retractable$\}$ it allows to estimate three distinct average marginal effects, i.e. $\hat{\beta}_{open},\hat{\beta}_{closed} \wedge \hat{\beta}_{retractable}$. Given the hypothesis, $\hat{\beta}_{open}$ is supposed to significantly differ from zero, if it were a causal relationship between PM10 and the respective $Y$, as no direct mitigation is possible. W.r.t. $\hat{\beta}_{closed} \wedge \hat{\beta}_{retractable}$ several effects are ex ante conceivable. In a closed stadium, both a non-significant as well as a positive, but less nuanced, effect would align with theory. The former aligns with parts of the literature suggesting a immediately (short-term)  observable effect, whereas the latter corresponds to theory implying an effect resulting from prolonged exposure. In a correct specified model, the effect should, however, never be positive, i.e. increasing performance. In the context of a retractable stadium, a dynamic interplay between closure and PM10 exposure could even lead to positive effect, when the closure is a mitigation response to high PM10 concentrations. Given this reasoning, it appears plausible that the latter $\hat{\beta}$ demonstrates orthogonality with the error term. Hence, the identification emphasis tilts more decisively towards analyzing $\hat{\beta}_{open} \wedge \hat{\beta}_{closed}$.
+Proceeding to investigate the marginal effect of interest, denoted as $\hat{\beta}$, it is therefore appropriate to frame this analysis a causal one.  Incorporating it as an interaction term with stadiumtype $l \in \{$Open, Closed, Retractable$\}$ allows to estimate three distinct average marginal effects, i.e. $\hat{\beta}_{open},\hat{\beta}_{closed} \wedge \hat{\beta}_{retractable}$. Given the hypothesis, $\hat{\beta}_{open}$ is supposed to significantly differ from zero, if it were a causal relationship between PM10 and the respective $Y$, as no direct mitigation is possible. W.r.t. $\hat{\beta}_{closed} \wedge \hat{\beta}_{retractable}$ several effects are ex ante conceivable. In a closed stadium, both a non-significant as well as a positive, but less nuanced, effect would align with theory. The former aligns with parts of the literature suggesting a immediately (short-term)  observable effect, whereas the latter corresponds to theory implying an effect resulting from prolonged exposure. In a correct specified model, the effect should, however, never be positive, i.e. increasing performance. In the context of a retractable stadium, a dynamic interplay between closure and PM10 exposure could even lead to positive effect, when the closure is a mitigation response to high PM10 concentrations. Given this reasoning, it appears plausible that the latter $\hat{\beta}$ demonstrates orthogonality with the error term. Hence, the identification emphasis tilts more decisively towards analyzing $\hat{\beta}_{open} \wedge \hat{\beta}_{closed}$.
 
 The dependent performance measure is..
 
 \section{Results and Discussion}
+\begin{table}[!htbp] \centering 
+  \caption{Effect of PM10 on Quarterbacks' Performance (Attempts, Yards, Interceptions)} 
+  \label{T2} 
+\begin{tabular}{@{\extracolsep{5pt}}lccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent Variable:}} \\ \cline{2-4} \\ [-1.8ex]
+ & Attempts & Yards & Interceptions \\ 
+  & (1) & (2) & (3)\\ \hline \\[-1.8ex] 
+ \underline{\textit{Average Marginal Effect PM10}}\\[0.4cm]
+  $\hat{\beta}_{closed}$& 0.0008 & -0.0776 & -0.0028 \\ 
+  & (0.0236)  & (0.2033)& (0.0025) \\[0.4cm]
+  $\hat{\beta}_{open}$& -0.0281$^{**}$ & -0.1679 & -0.0026$^{*}$\\ 
+  & (0.0137) & (0.1127) & (0.0014) \\[0.4cm]
+  $\hat{\beta}_{retractable}$& -0.0053 & 0.0900 & -0.0014 \\ 
+  & (0.0124) & (0.0994) & (0.0013)\\ [0.4cm]
+  \underline{\textit{Controls}} \\[0.4cm]
+  Offense $\times$ Season Fixed Effect & $\surd$ & $\surd$ & $\surd$ \\[0.4cm]
+   Defense $\times$ Season Fixed Effect & $\surd$ & $\surd$  & $\surd$ \\[0.4cm]
+    Quarterback Individual Effect & $\surd$ & $\surd$ & $\surd$  \\[0.4cm]
+    Weather $\times $ Stadiumtype & $\surd$ & $\surd$ & $\surd$ \\[0.4cm]
+    Away Performance & $\surd$ & $\surd$ & $\surd$\\
+\hline \\[-1.8ex] 
+Observations & 7,095 & 7,095 & 7,095 \\ 
+R$^{2}$ & 0.3661 &  0.3981 & 0.1829\\ 
+RMSE & 8.9059 & 73.817 & 0.9076\\ \hline 
+\hline \\[-1.8ex] 
+\multicolumn{4}{l}{\footnotesize \textit{Note:} The significance levels equal {$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01}.  Furthermore, robust} \\ \multicolumn{4}{l}{\footnotesize standard errors (HC1) are displayed. Values are rounded to four decimal places.}
+  \end{tabular}
+\end{table} 
 \clearpage
+\begin{table}[!htbp] \centering 
+  \caption{Effect of PM10 on Quarterbacks' Performance (Completion Rate, Interception Rate \& Rating)} 
+  \label{T1} 
+\begin{tabular}{@{\extracolsep{5pt}}lccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent Variable:}} \\ \cline{2-4} \\ [-1.8ex]
+ & Success Rate & Interception Rate & Rating \\ 
+  & (4) & (5) & (6)\\ \hline \\[-1.8ex] 
+ \underline{\textit{Average Marginal Effect PM10}}\\[0.4cm]
+  $\hat{\beta}_{closed}$& 0.0130 & -0.0052 & 0.0642 \\ 
+  & (0.0277)  & (0.0080)& (0.0657) \\[0.4cm]
+  $\hat{\beta}_{open}$&  0.0156 & -0.0063 & 0.0480\\ 
+  & (0.0148) & (0.0049) & (0.0382) \\[0.4cm]
+  $\hat{\beta}_{retractable}$& 0.0348 & -0.0039 & 0.0782$^{**}$\\ 
+  & (0.0122) & (0.0042) & (0.0364)\\ [0.4cm]
+  \underline{\textit{Controls}} \\[0.4cm]
+  Offense $\times$ Season Fixed Effect & $\surd$ & $\surd$ & $\surd$ \\[0.4cm]
+   Defense $\times$ Season Fixed Effect & $\surd$ & $\surd$  & $\surd$ \\[0.4cm]
+    Quarterback Individual Effect & $\surd$ & $\surd$ & $\surd$  \\[0.4cm]
+    Weather $\times $ Stadiumtype & $\surd$ & $\surd$ & $\surd$ \\
+\hline \\[-1.8ex] 
+Observations & 7,095 & 7,095 & 7,095 \\ 
+R$^{2}$ & 0.3525 & 0.2338   &  0.3055 \\ 
+RMSE & 9.5531 & 3.1676  & 25.1200 \\ \hline 
+\hline \\[-1.8ex] 
+\multicolumn{4}{l}{\footnotesize \textit{Note:} The significance levels equal {$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01}.  Furthermore, robust  standard} \\ \multicolumn{4}{l}{\footnotesize errors (HC1) are displayed. Values are rounded to four decimal places.}
+  \end{tabular}
+\end{table} 
 \section{Summary and Concluding Remarks}
 \clearpage
 

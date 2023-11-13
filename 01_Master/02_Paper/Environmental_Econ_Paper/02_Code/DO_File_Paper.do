@@ -370,11 +370,12 @@ graph box PM10, by(, title(`"PM10 Concentration per Location"')) by(Place, iscal
 graph box Percipitation, by(, title(`"Percipitation per Location"')) by(Place, iscale(*0.8))
 graph box Temperature, by(, title(`"Temperature per Location"')) by(Place, iscale(*0.8))
 
-
+sum Rating Attempts Completions Completion_Percentage Yds TDs INTs TD_Percentage INT_Percentage
 
 
 
 * 6 Regressions
+*Pre Tests
 reg INTs c.PM10#i.Stadiontype_N i.Season i.Player_N i.Opponent_N##Season,vce(robust)
 reg INTs c.PM10#i.Stadiontype_N i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
 reg INTs c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
@@ -386,5 +387,49 @@ reg Rating c.PM10#i.Stadiontype_N Attempts Temperature Percipitation i.Player_N 
 reg TDs c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
 reg Passing_Sucess_Rate c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
 
+*C1
+reg Attempts c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season,vce(robust)
 
-reg Attempts c.PM10#i.Stadiontype_N i.Stadiontype_N#Temperature i.Stadiontype#Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
+*C2
+reg Yds c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season,vce(robust)
+
+*C3
+reg INTs c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season,vce(robust)
+
+*C4 Success Rate 
+reg Passing_Sucess_Rate c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season,vce(robust)
+
+*(Completion_Percentage)
+reg Completion_Percentage c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season,vce(robust)
+
+*C5
+reg INT_Percentage c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season,vce(robust)
+
+*C6
+reg Rating c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season,vce(robust)
+
+*C7 neg, non sg. not yet displayed
+reg TDs c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season,vce(robust)
+
+
+reg YA c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season,vce(robust)
+
+
