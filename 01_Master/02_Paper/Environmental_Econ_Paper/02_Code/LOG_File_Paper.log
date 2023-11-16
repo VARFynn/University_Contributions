@@ -33498,3 +33498,287 @@ r; t=0.00 18:04:42
         Away |      7,095    .5004933     .500035          0          1
 r; t=0.00 18:06:52
 
+. tab Player_N
+
+            Player |      Freq.     Percent        Cum.
+-------------------+-----------------------------------
+       A.J. Feeley |          4        0.06        0.06
+      A.J. McCaron |          7        0.10        0.16
+     Aaron Rodgers |        188        2.65        2.80
+        Alex Smith |        129        1.82        4.62
+       Alex Tanney |          1        0.01        4.64
+       Andrew Luck |         85        1.20        5.84
+       Andy Dalton |        163        2.30        8.13
+     Anthony Brown |          2        0.03        8.16
+      Austin Davis |         12        0.17        8.33
+      Bailey Zappe |          4        0.06        8.39
+    Baker Mayfield |         72        1.01        9.40
+       Ben DiNucci |          1        0.01        9.42
+Ben Roethlisberger |        161        2.27       11.68
+    Blaine Gabbert |         54        0.76       12.45
+     Blake Bortles |         70        0.99       13.43
+       Brady Quinn |          8        0.11       13.54
+     Brandon Allen |          9        0.13       13.67
+    Brandon Weeden |         30        0.42       14.09
+       Brett Favre |         12        0.17       14.26
+     Brett Hundley |         11        0.16       14.42
+      Brett Rypien |          6        0.08       14.50
+       Brian Brohm |          1        0.01       14.52
+       Brian Hoyer |         46        0.65       15.17
+  Brian St. Pierre |          1        0.01       15.18
+    Brock Osweiler |         35        0.49       15.67
+       Brock Purdy |          7        0.10       15.77
+     Brodie Croyle |          1        0.01       15.79
+  Bruce Gradkowski |          9        0.13       15.91
+     Bryce Perkins |          2        0.03       15.94
+       Bryce Petty |          8        0.11       16.05
+    Byron Leftwich |          3        0.04       16.10
+     C.J. Beathard |         17        0.24       16.34
+       Caleb Hanie |          4        0.06       16.39
+        Cam Newton |        145        2.04       18.44
+     Cardase Jones |          1        0.01       18.45
+     Carson Palmer |         99        1.40       19.84
+      Carson Wentz |         92        1.30       21.14
+       Case Keenum |         69        0.97       22.11
+        Chad Henne |         46        0.65       22.76
+     Charlie Batch |          6        0.08       22.85
+Charlie Whitehurst |         19        0.27       23.11
+      Chase Daniel |         11        0.16       23.27
+      Chris Redman |          4        0.06       23.33
+   Chris Streveler |          3        0.04       23.37
+  Christian Ponder |         37        0.52       23.89
+      Cody Kessler |         14        0.20       24.09
+  Colin Kaepernick |         59        0.83       24.92
+        Colt McCoy |         41        0.58       25.50
+       Connor Cook |          1        0.01       25.51
+       Connor Shaw |          1        0.01       25.53
+       Cooper Rush |          8        0.11       25.64
+    Curtis Painter |         10        0.14       25.78
+      Dak Prescott |         97        1.37       27.15
+      Dan Orlovsky |         10        0.14       27.29
+      Daniel Jones |         53        0.75       28.03
+      David Blough |          8        0.11       28.15
+        David Carr |          1        0.01       28.16
+       David Fales |          2        0.03       28.19
+     David Garrard |         14        0.20       28.39
+       Davis Mills |         28        0.39       28.78
+        Davis Webb |          1        0.01       28.79
+     DeShone Kizer |         16        0.23       29.02
+   Denvernis Dixon |          2        0.03       29.05
+    Derek Anderson |         22        0.31       29.36
+        Derek Carr |        137        1.93       31.29
+    Deshaun Watson |         59        0.83       32.12
+    Desmond Ridder |          4        0.06       32.18
+     Devlin Hodges |          8        0.11       32.29
+   Dominique Davis |          1        0.01       32.30
+    Donovan McNabb |         19        0.27       32.57
+        Drew Brees |        164        2.31       34.88
+         Drew Lock |         24        0.34       35.22
+      Drew Stanton |         20        0.28       35.50
+    Dwayne Haskins |         16        0.23       35.73
+         EJ Manuel |         17        0.24       35.97
+       Eli Manning |        147        2.07       38.04
+Gardner Minshew II |         26        0.37       38.41
+   Garrett Gilbert |          2        0.03       38.44
+        Geno Smith |         55        0.78       39.21
+      Greg McElroy |          2        0.03       39.24
+          Ian Book |          1        0.01       39.25
+       J.P. Losman |          1        0.01       39.27
+       Jacob Eason |          2        0.03       39.30
+   Jacoby Brissett |         50        0.70       40.00
+     Jake Delhomme |          6        0.08       40.08
+        Jake Fromm |          3        0.04       40.13
+       Jake Locker |         27        0.38       40.51
+        Jake Luton |          3        0.04       40.55
+       Jake Rudock |          1        0.01       40.56
+       Jalen Hurts |         35        0.49       41.06
+    Jameis Winston |         82        1.16       42.21
+        Jared Goff |        100        1.41       43.62
+   Jarrett Stidham |          7        0.10       43.72
+    Jason Campbell |         33        0.47       44.19
+        Jay Cutler |         97        1.37       45.55
+      Jeff Driskel |         12        0.17       45.72
+         Jeff Tuel |          2        0.03       45.75
+     Jimmy Clausen |         18        0.25       46.00
+   Jimmy Garoppolo |         58        0.82       46.82
+        Joe Burrow |         42        0.59       47.41
+      Joe Callahan |          1        0.01       47.43
+        Joe Flacco |        147        2.07       49.50
+          Joe Webb |          8        0.11       49.61
+         John Beck |          3        0.04       49.65
+      John Skelton |         20        0.28       49.94
+      John Wolford |          3        0.04       49.98
+    Johnny Manziel |         12        0.17       50.15
+         Jon Kitna |         11        0.16       50.30
+       Jordan Love |          5        0.07       50.37
+        Josh Allen |         77        1.09       51.46
+      Josh Freeman |         51        0.72       52.18
+      Josh Johnson |          8        0.11       52.29
+       Josh McCown |         50        0.70       53.00
+        Josh Rosen |         19        0.27       53.26
+      Joshua Dobbs |          4        0.06       53.32
+     Justin Fields |         26        0.37       53.69
+    Justin Herbert |         49        0.69       54.38
+    Kellen Clemens |         14        0.20       54.57
+      Kellen Moore |          3        0.04       54.62
+    Kendall Hinton |          1        0.01       54.63
+     Kenny Pickett |         12        0.17       54.80
+     Kerry Collins |         13        0.18       54.98
+       Kevin Hogan |          5        0.07       55.05
+        Kevin Kolb |         20        0.28       55.33
+      Kirk Cousins |        139        1.96       57.29
+        Kyle Allen |         21        0.30       57.59
+       Kyle Boller |          2        0.03       57.62
+     Kyle Lauletta |          1        0.01       57.63
+        Kyle Orton |         35        0.49       58.13
+        Kyle Trask |          1        0.01       58.14
+      Kyler Murray |         56        0.79       58.93
+     Lamar Jackson |         60        0.85       59.77
+      Landry Jones |          6        0.08       59.86
+      Logan Thomas |          1        0.01       59.87
+         Luke Falk |          3        0.04       59.92
+       Luke McCown |          5        0.07       59.99
+         Mac Jones |         30        0.42       60.41
+      Malik Willis |          3        0.04       60.45
+    Marcus Mariota |         76        1.07       61.52
+      Mark Brunell |          1        0.01       61.54
+      Mark Sanchez |         61        0.86       62.40
+     Mason Rudolph |         13        0.18       62.58
+      Matt Barkley |         14        0.20       62.78
+       Matt Cassel |         58        0.82       63.59
+        Matt Flynn |         12        0.17       63.76
+   Matt Hasselbeck |         47        0.66       64.43
+      Matt Leinart |          2        0.03       64.45
+      Matt McGloin |          9        0.13       64.58
+        Matt Moore |         32        0.45       65.03
+         Matt Ryan |        201        2.83       67.86
+       Matt Schaub |         59        0.83       68.70
+        Matt Simms |          4        0.06       68.75
+  Matthew Stafford |        178        2.51       71.26
+          Max Hall |          4        0.06       71.32
+      Michael Vick |         50        0.70       72.02
+      Mike Glennon |         38        0.54       72.56
+        Mike Kafka |          2        0.03       72.59
+        Mike White |          8        0.11       72.70
+ Mitchell Trubisky |         57        0.80       73.50
+      Nate Sudfeld |          2        0.03       73.53
+   Nathan Peterman |         10        0.14       73.67
+        Nick Foles |         63        0.89       74.56
+      Nick Mullens |         21        0.30       74.86
+       P.J. Walker |         12        0.17       75.02
+   Patrick Mahomes |         78        1.10       76.12
+      Paxton Lynch |          5        0.07       76.19
+    Peyton Manning |         74        1.04       77.24
+     Philip Rivers |        175        2.47       79.70
+      Rex Grossman |         17        0.24       79.94
+    Richard Bartel |          3        0.04       79.99
+Robert Griffin III |         44        0.62       80.61
+    Russell Wilson |        170        2.40       83.00
+       Rusty Smith |          3        0.04       83.04
+       Ryan Finley |          6        0.08       83.13
+  Ryan Fitzpatrick |        133        1.87       85.00
+      Ryan Lindley |         10        0.14       85.14
+      Ryan Mallett |         10        0.14       85.29
+       Ryan Nassib |          2        0.03       85.31
+    Ryan Tannehill |        142        2.00       87.32
+      Sam Bradford |         82        1.16       88.47
+       Sam Darnold |         56        0.79       89.26
+      Sam Ehlinger |          4        0.06       89.32
+        Sam Howell |          1        0.01       89.33
+     Scott Tolzien |          5        0.07       89.40
+      Sean Mannion |          5        0.07       89.47
+      Sean Renfree |          1        0.01       89.49
+    Seneca Wallace |          9        0.13       89.61
+        Shaun Hill |         22        0.31       89.92
+   Skylar Thompson |          5        0.07       89.99
+     Stephen McGee |          3        0.04       90.04
+        T.J. Yates |         14        0.20       90.23
+  Tarvaris Jackson |         19        0.27       90.50
+   Taylor Heinicke |         27        0.38       90.88
+       Taysom Hill |          9        0.13       91.01
+ Teddy Bridgewater |         68        0.96       91.97
+    Terrelle Pryor |         13        0.18       92.15
+    Thaddeus Lewis |          6        0.08       92.23
+         Tim Boyle |          4        0.06       92.29
+         Tim Tebow |         15        0.21       92.50
+       Todd Bouman |          1        0.01       92.52
+      Todd Collins |          2        0.03       92.54
+         Tom Brady |        203        2.86       95.41
+        Tom Savage |         11        0.16       95.56
+         Tony Pike |          1        0.01       95.57
+         Tony Romo |         70        0.99       96.56
+    Trace McSorley |          4        0.06       96.62
+     Trent Edwards |          4        0.06       96.67
+    Trevone Boykin |          2        0.03       96.70
+   Trevor Lawrence |         32        0.45       97.15
+    Trevor Siemian |         33        0.47       97.62
+        Trey Lance |          4        0.06       97.67
+        Troy Smith |          5        0.07       97.74
+    Tua Tagovailoa |         33        0.47       98.21
+        Tyler Bray |          1        0.01       98.22
+     Tyler Huntley |         11        0.16       98.38
+       Tyler Palko |          5        0.07       98.45
+     Tyler Thigpen |          5        0.07       98.52
+      Tyrod Taylor |         57        0.80       99.32
+       Vince Young |         12        0.17       99.49
+        Will Grier |          2        0.03       99.52
+ Zach Mettenberger |         13        0.18       99.70
+       Zach Wilson |         21        0.30      100.00
+-------------------+-----------------------------------
+             Total |      7,095      100.00
+r; t=0.00 16:46:19
+
+. codebook Player_N
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Player_N                                                                                                                                                                                                   Player
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                  Type: Numeric (long)
+                 Label: Player_N
+
+                 Range: [1,222]                       Units: 1
+         Unique values: 222                       Missing .: 0/7,095
+
+              Examples: 37    Carson Wentz
+                        84    Jacoby Brissett
+                        137   Mac Jones
+                        171   Robert Griffin III
+r; t=0.03 16:46:26
+
+. codebook Stadiontype_N
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Stadiontype_N                                                                                                                                                                                         (unlabeled)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                  Type: Numeric (long)
+                 Label: Stadiontype_N
+
+                 Range: [1,3]                         Units: 1
+         Unique values: 3                         Missing .: 0/7,095
+
+            Tabulation: Freq.   Numeric  Label
+                        1,476         1  Fixed
+                        3,832         2  Open
+                        1,787         3  Retractable
+r; t=0.01 17:55:31
+
+. codebook Stadion
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Stadion                                                                                                                                                                                               (unlabeled)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                  Type: String (str26)
+
+         Unique values: 33                        Missing "": 0/7,095
+
+              Examples: "FedExField"
+                        "Lambeau Field"
+                        "Mercedes-Benz Stadium"
+                        "Qualcomm Stadium"
+
+               Warning: Variable has embedded blanks.
+r; t=0.01 17:55:38
+

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.24)  13 NOV 2023 18:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.24)  16 NOV 2023 17:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -578,35 +578,37 @@ been already used, duplicate ignored
 l.153 \clearpage
                  [1] [2
 
+] [3
+
 ]
 
 pdfTeX warning: pdflatex (file ../05_Figures/PM10_Concentration_per_Place.pdf):
  PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<../05_Figures/PM10_Concentration_per_Place.pdf, id=194, 258.36525pt x 187.902p
+<../05_Figures/PM10_Concentration_per_Place.pdf, id=203, 258.36525pt x 187.902p
 t>
 File: ../05_Figures/PM10_Concentration_per_Place.pdf Graphic file (type pdf)
 <use ../05_Figures/PM10_Concentration_per_Place.pdf>
 Package pdftex.def Info: ../05_Figures/PM10_Concentration_per_Place.pdf  used o
-n input line 194.
+n input line 205.
 (pdftex.def)             Requested size: 439.21904pt x 319.43202pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[3
+[4
 
-] [4 <../05_Figures/PM10_Concentration_per_Place.pdf>] [5
+] [5 <../05_Figures/PM10_Concentration_per_Place.pdf>] [6
 
-] [6] [7
+] [7] [8
 
 ]
 (20231215_Environmental_Econ_Submission.bbl [4
 
 ]) [5]
-<../05_Figures/Teams_Location.pdf, id=254, 853.1875pt x 654.445pt>
+<../05_Figures/Teams_Location.pdf, id=265, 853.1875pt x 654.445pt>
 File: ../05_Figures/Teams_Location.pdf Graphic file (type pdf)
 <use ../05_Figures/Teams_Location.pdf>
-Package pdftex.def Info: ../05_Figures/Teams_Location.pdf  used on input line 2
-99.
+Package pdftex.def Info: ../05_Figures/Teams_Location.pdf  used on input line 3
+10.
 (pdftex.def)             Requested size: 494.8491pt x 379.57837pt.
  [6
 
@@ -619,14 +621,14 @@ has not changed.
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 208 ({)
+### simple group (level 1) entered at line 219 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 14102 strings out of 476331
- 230665 string characters out of 5788237
+ 14107 strings out of 476331
+ 230714 string characters out of 5788237
  1866660 words of memory out of 5000000
- 34281 multiletter control sequences out of 15000+600000
- 522319 words of font info for 70 fonts, out of 8000000 for 9000
+ 34282 multiletter control sequences out of 15000+600000
+ 522487 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,11n,76p,2161b,697s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Fynn/AppData/Local/Programs/MiKTeX/fonts/type1/public
@@ -649,13 +651,14 @@ KTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Fynn/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Fynn/AppData/Loc
 al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Fynn/App
 Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/
-Fynn/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C
-:/Users/Fynn/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/
-msbm10.pfb>
-Output written on 20231215_Environmental_Econ_Submission.pdf (15 pages, 547791 
+Fynn/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C
+:/Users/Fynn/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt1
+2.pfb><C:/Users/Fynn/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+symbols/msbm10.pfb>
+Output written on 20231215_Environmental_Econ_Submission.pdf (16 pages, 565737 
 bytes).
 PDF statistics:
- 366 PDF objects out of 1000 (max. 8388607)
- 57 named destinations out of 1000 (max. 500000)
+ 381 PDF objects out of 1000 (max. 8388607)
+ 60 named destinations out of 1000 (max. 500000)
  109 words of extra memory for PDF output out of 10000 (max. 10000000)
 

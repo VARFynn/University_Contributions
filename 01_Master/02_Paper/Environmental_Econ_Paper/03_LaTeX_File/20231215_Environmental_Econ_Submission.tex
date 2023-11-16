@@ -161,8 +161,15 @@ is poised to grow.
 
 This paper
 \clearpage
+u
+\clearpage
+
 \section{Data and Descriptive Statistics}
-\begin{table}
+In order to tackle the research question, it is necessary to combine different data sets. These different sets of data are (i) NFL's official weekly statistics, (ii) pollution data from the United States Environmental Protection Agency (EPA) as well as (iii) the spatial climate dataset from the PRISM Climate Group. 
+
+
+
+\begin{table}[h]
   \centering
   \caption{Summary Statistics of Metric Variables}
   \label{tab:summary-stats}
@@ -187,6 +194,10 @@ This paper
     \hline \hline
   \end{tabular}
 \end{table}
+
+Initiating the exploration with the NFL's official weekly statistics, this dataset offers a comprehensive array of player-specific and game-related metrics for 7,095 individual performances of 222 different quarterbacks. To be precise, the data is initially scraped from NFL's Fantasy Football application and, afterwards, merged, cross-checked and enriched by data from Stathead\footnote{See \url{www.stathead.com}.}. This leads to a set containing every single quarterback performance from the last 12 completed seasons. Therefore, a reasonable assumption can be made that neither measurement errors nor selection biases are present. By exclusively considering players with a minimum of $\geq 5$ passes, it is ensured that the sample per game is sufficient enough and the individuals primarily orchestrating plays are captured. Thus, in this project report, the term 'quarterback' is used inclusively, referring not solely to the conventional position but also acknowledging versatile players from other positions - in football terms the ''Taysom-Hill-Like-Players''. Another restriction imposed onto the data is the exclusion of games not played on American ground, the so called  international pathway games. This exclusion ensures a more uniform and consistent dataset, aligning with the aim of identifying a causal effect of air pollution, as it can not be assumed with certainty that those games comply to the same standards as regular NFL games. Finally, every performance is manually matched to the respective place/stadium \footnote{For the sake of completeness: This project respects geographical changes of franchises like the move from San Diego to L.A. for the Charges - see \mylink{AppF:1}{Appendix}. However, the linked stadium names are not supposed to capture every name or minor location change (like a stadium next to the old one).}
+
+
 
 
 \begin{figure}[h]

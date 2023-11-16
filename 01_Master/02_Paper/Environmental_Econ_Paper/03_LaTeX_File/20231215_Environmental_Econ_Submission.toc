@@ -3,10 +3,10 @@
 \contentsline {section}{List of Figures}{iii}{Doc-Start}%
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
 \contentsline {section}{\numberline {2}Theoretical Framework}{2}{section.2}%
-\contentsline {section}{\numberline {3}Data and Descriptive Statistics}{3}{section.3}%
-\contentsline {section}{\numberline {4}Empirical Framework}{5}{section.4}%
-\contentsline {section}{\numberline {5}Results and Discussion}{6}{section.5}%
-\contentsline {section}{\numberline {6}Summary and Concluding Remarks}{7}{section.6}%
+\contentsline {section}{\numberline {3}Data and Descriptive Statistics}{4}{section.3}%
+\contentsline {section}{\numberline {4}Empirical Framework}{6}{section.4}%
+\contentsline {section}{\numberline {5}Results and Discussion}{7}{section.5}%
+\contentsline {section}{\numberline {6}Summary and Concluding Remarks}{8}{section.6}%
 \contentsline {section}{References}{iv}{section.6}%
 \contentsline {section}{\numberline {A}Further Figures}{vi}{appendix.A}%
 \contentsline {section}{\numberline {B}Further Tables}{vii}{appendix.B}%
