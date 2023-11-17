@@ -165,14 +165,14 @@ u
 \clearpage
 
 \section{Data and Descriptive Statistics}
-In order to tackle the research question, it is necessary to combine different data sets. These different sets of data are (i) NFL's official weekly statistics, (ii) pollution data from the United States Environmental Protection Agency (EPA) as well as (iii) the spatial climate dataset from the PRISM Climate Group. 
+In order to tackle the research question, it is necessary to combine different data sets. These different sets of data are (i) NFL's official weekly statistics, (ii) pollution data from the United States Environmental Protection Agency \citep{EPA} as well as (iii) the spatial climate dataset from the PRISM Climate Group. 
 
 
 
 \begin{table}[h]
   \centering
   \caption{Summary Statistics of Metric Variables}
-  \label{tab:summary-stats}
+  \label{tab:1}
   \begin{tabular}{lrrrrr}
     \hline \hline
     Variable & Obs & Mean & Std. dev. & Min. & Max. \\
@@ -180,26 +180,46 @@ In order to tackle the research question, it is necessary to combine different d
     \textit{Quarterbacks' Performance} \\
     Rating & 7,095 & 88.47 & 27.83 & 0.00 & 158.30 \\
     Attempts & 7,095 & 32.29 & 10.33 & 5.00 & 68.00 \\
-    Completion & 7,095 & 20.30 & 7.18 & 0.00 & 45.00 \\
+    Completions & 7,095 & 20.30 & 7.18 & 0.00 & 45.00 \\
     Completion Rate & 7,095 & 62.65 & 10.51 & 0.00 & 100.00 \\
     Yards & 7,095 & 231.05 & 87.84 & 0.00 & 527.00 \\
+    Yards per Attempt & 7,096 & 7.19 & 1.97 & 0.00 & 17.00 \\
     Interceptions & 7,095 & 0.80 & 0.93 & 0.00 & 6.00 \\
     Interception Rate & 7,095 & 2.57 & 3.34 & 0.00 & 37.50 \\
-    Passing Success Rate & 7,095 & 45.16 & 10.96 & 0.00 & 100.00 \\
-    Away & 7,095 & 0.50 & 0.50 & 0.00 & 1.00 \\ [0.5cm]
+    Touchdowns & 7,095 & 1.43 & 1.16 & 0.00 & 7.00 \\
+    Touchdown Rate & 7,095 & 4.52 & 3.94 & 0.00 & 40.00 \\
+    Passing Success Rate & 7,095 & 45.16 & 10.96 & 0.00 & 100.00 \\ [0.5cm]
     \textit{Pollution/Weather} \\
-    PM10 & 7,095 & 20.59 & 14.86 & 0.00 & 171.00 \\
+    PM10 (AQI value) & 7,095 & 20.59 & 14.86 & 0.00 & 171.00 \\
     Precipitation & 7,095 & 0.18 & 0.35 & 0.00 & 2.15 \\
     Temperature & 7,095 & 50.13 & 10.53 & 18.50 & 76.00 \\
     \hline \hline
   \end{tabular}
 \end{table}
 
-Initiating the exploration with the NFL's official weekly statistics, this dataset offers a comprehensive array of player-specific and game-related metrics for 7,095 individual performances of 222 different quarterbacks. To be precise, the data is initially scraped from NFL's Fantasy Football application and, afterwards, merged, cross-checked and enriched by data from Stathead\footnote{See \url{www.stathead.com}.}. This leads to a set containing every single quarterback performance from the last 12 completed seasons. Therefore, a reasonable assumption can be made that neither measurement errors nor selection biases are present. By exclusively considering players with a minimum of $\geq 5$ passes, it is ensured that the sample per game is sufficient enough and the individuals primarily orchestrating plays are captured. Thus, in this project report, the term 'quarterback' is used inclusively, referring not solely to the conventional position but also acknowledging versatile players from other positions - in football terms the ''Taysom-Hill-Like-Players''. Another restriction imposed onto the data is the exclusion of games not played on American ground, the so called  international pathway games. This exclusion ensures a more uniform and consistent dataset, aligning with the aim of identifying a causal effect of air pollution, as it can not be assumed with certainty that those games comply to the same standards as regular NFL games. Finally, every performance is manually matched to the respective place/stadium \footnote{For the sake of completeness: This project respects geographical changes of franchises like the move from San Diego to L.A. for the Charges - see \mylink{AppF:1}{Appendix}. However, the linked stadium names are not supposed to capture every name or minor location change (like a stadium next to the old one).}
+Initiating the exploration with the NFL's official weekly statistics, this dataset offers a comprehensive array of player-specific and game-related metrics for 7,095 individual performances of 222 different quarterbacks. To be precise, the data is initially scraped from NFL's Fantasy Football application and, afterwards, merged, cross-checked and enriched by data from \citet{Stathead}. This leads to a set containing every single quarterback performance from the last 12 completed seasons. Therefore, a reasonable assumption can be made that neither measurement errors nor selection biases are present. By exclusively considering players with a minimum of $\geq 5$ passes, it is ensured that the sample per game is sufficient enough and the individuals primarily orchestrating plays are captured. Thus, in this project report, the term 'quarterback' is used inclusively, referring not solely to the conventional position but also acknowledging versatile players from other positions - in football terms the ''Taysom-Hill-Like-Players''. Another restriction imposed onto the data is the exclusion of games not played on American ground, the so called  international pathway games. This exclusion ensures a more uniform and consistent dataset, aligning with the aim of identifying a causal effect of air pollution, as it can not be assumed with certainty that those games comply to the same standards as regular NFL games. Finally, every performance is manually matched to the respective place/stadium\footnote{For the sake of completeness: This project respects geographical changes of franchises like the move from San Diego to L.A. for the Charges - see \mylink{AppF:1}{Appendix}. However, the linked stadium names are not supposed to capture every name or minor location change (like a stadium next to the old one).}. 
 
+For the remaining 7,095 distinct performances, the common metric measures of performance can be seen in \mylink{tab:1}{Table 1}. While most of them are self-explanatory, a precise explanation of the calculation is still necessary - even for die-hard football fans. The quarterback rating follows the specific calculation, 
+\begin{equation}
+Rating = \dfrac{CP + Y/A + TP + IP}{6} \times 100,
+\end{equation}
+whereas the percentages have already weights included in their calculation. The used completion percentage (CP) is $ ((\textrm{Completed Passes} / \textrm{Pass Attempts}) - 0.3) \times 5$, the yards per attempt (Y/A) are $((\textrm{Passing Yards} / \textrm{Pass Attempts}) - 3) \times 0.25$, the touchdown percentage (TP) is $(\textrm{Touchdown Passes} / \textrm{Pass Attempts}) \times 20$ and the interception percentage is  $(0.095 - (\textrm{Interceptions} / \textrm{Pass Attempts})) \times 25$. Thus, every rating is $ \in [ 0.00 ,158.30 ]$, with a higher rating describing a better overall performance weighting every usual performance dimension. Further, the passing success rate is 
 
+\begin{equation}
+\textrm{Passing Success Rate} = \dfrac{\textrm{Successful Passes}}{\textrm{Attempts} + \textrm{Sacks}},
+\end{equation}
+with a pass being considered successful if it gains 40 \% of the distance on first down, 60 \% on second down and 100 \% on third or fourth down. 
 
+In order to access reliable data on PM10 concentration, the publicly available air quality data from the \citet{EPA} is used. This data set contains every measured concentration pinned down to the respective station. Despite its recognized reliability, the EPA dataset does come with two caveats: missing data for some stations and its provision of solely daily average measurements. With the exception of three particular cases, stations selected are notably in close proximity to the stadium. Prioritizing the closest station ensures primary data selection, while in instances of missing data, the highest value among the given alternative stations, which are still in reasonable close proximity, is considered. For Seattle, Green Bay and Foxborough no reasonable close station measuring PM10 exists, which is why the next city with a station is chosen.\footnote{This might be a stretch. However, w.r.t. weather data a comparability seems reasonable. See tab ''Mapping'' in Football$\_$Data$\_$ FULL.xlsx for detailed mapping.}
+In cases with persisting missing data, linear interpolation and as a robustness check an ARIMA model are applied to estimate missing values. While it results in similar final findings (w.r.t $\hat{\beta}$), it is crucial to recognize that it only serves as a ''second best approach''. The major assumption of a reasonable autocorrelation of the (missing) PM10 values is imposed. However, dropping missing values implicitly assumes the same autocorrelation as regressions only yield coefficients conditional one the inclusion condition. Hence, the coefficient is in both cases equally biased if the missing data is selectively excluding deviations from the trend. While adopting this second best approach may be the most plausible under this circumstances, it is essential to acknowledge that it rests on this fundamental assumption. Still, this method represents a compromise due to the unfeasibility of attaining complete data, which stands as the ideal but unattainable first-best solution.
 
+The EPA dataset is reporting PM10 as its Air Quality Index (AQI) value, which is normally used to compare values from different pollutants to each other. The calculation is given in the respective technical assistance document of \citet{EPA} as 
+
+\begin{equation}
+I_{PM10}= \dfrac{I_{HI}-I_{LO}}{BP_{HI}-BP_{LO}}(C_{PM10} - BP_{LO})+I_{LO}.
+\end{equation}
+I in that case is the index, C the truncated concentration (for PM10 it is truncated to an integer), 
+$BP_{HI}$ ($BP_{LO}$) the concentration breakpoint that is greater (lower) than or equal to C and $I_{HI}$ ($I_{LO}$) the AQI value corresponding to $BP_{HI}$ ($BP_{LO}$, see \mylink{}{Appendix} for a mapping of $\mu g/m^3$ on AQI). As visible in \mylink{F.1}{Figure 1} enough variation exists within and between locations.
 \begin{figure}[h]
 	\center
 	\includegraphics[scale=1.7]{../05_Figures/PM10_Concentration_per_Place.pdf}
@@ -208,7 +228,6 @@ Initiating the exploration with the NFL's official weekly statistics, this datas
 	\caption{Box Plot of PM10 Concentration per Location}
 	\label{F:1}
 \end{figure}
-\clearpage
 \section{Empirical Framework}
 To investigate a potential causal linkage between air pollution and quarterbacks' performances, this term-paper utilizes an empirical framework effectively capturing both unobserved and observed heterogeneity. As visible in the following equation,
 \begin{equation}
@@ -222,7 +241,7 @@ Proceeding to investigate the marginal effect of interest, denoted as $\hat{\bet
 
 The dependent performance measure is..
 
-\section{Results and Discussion}
+\clearpage \section{Results and Discussion}
 \begin{table}[!htbp] \centering 
   \caption{Effect of PM10 on Quarterbacks' Performance (Attempts, Yards, Interceptions)} 
   \label{T2} 

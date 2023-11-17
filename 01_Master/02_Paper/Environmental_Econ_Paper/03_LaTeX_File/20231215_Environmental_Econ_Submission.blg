@@ -5,44 +5,47 @@ Reallocating 'name_of_file' (item size: 1) to 8 items.
 The style file: apalike.bst
 Reallocating 'name_of_file' (item size: 1) to 12 items.
 Database file #1: EnvEcon.bib
-You've used 26 entries,
+Warning--empty journal in EPA
+Warning--empty journal in Stathead
+You've used 28 entries,
             1935 wiz_defined-function locations,
-            648 strings with 9044 characters,
-and the built_in function-call counts, 11416 in all, are:
-= -- 1121
-> -- 536
-< -- 12
-+ -- 188
-- -- 184
-* -- 1075
-:= -- 1993
-add.period$ -- 78
-call.type$ -- 26
-change.case$ -- 220
-chr.to.int$ -- 26
-cite$ -- 26
-duplicate$ -- 363
-empty$ -- 756
-format.name$ -- 230
-if$ -- 2171
+            657 strings with 9219 characters,
+and the built_in function-call counts, 11962 in all, are:
+= -- 1173
+> -- 550
+< -- 14
++ -- 192
+- -- 188
+* -- 1111
+:= -- 2097
+add.period$ -- 84
+call.type$ -- 28
+change.case$ -- 232
+chr.to.int$ -- 28
+cite$ -- 30
+duplicate$ -- 389
+empty$ -- 796
+format.name$ -- 236
+if$ -- 2273
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 26
-newline$ -- 133
-num.names$ -- 78
-pop$ -- 156
+missing$ -- 28
+newline$ -- 143
+num.names$ -- 84
+pop$ -- 168
 preamble$ -- 1
-purify$ -- 220
+purify$ -- 232
 quote$ -- 0
-skip$ -- 276
+skip$ -- 298
 stack$ -- 0
-substring$ -- 899
+substring$ -- 923
 swap$ -- 26
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 156
-warning$ -- 0
-while$ -- 99
+type$ -- 168
+warning$ -- 2
+while$ -- 103
 width$ -- 0
-write$ -- 340
+write$ -- 364
+(There were 2 warnings)

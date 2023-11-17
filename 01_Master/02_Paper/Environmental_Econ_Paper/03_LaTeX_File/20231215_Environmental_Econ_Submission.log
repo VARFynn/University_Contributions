@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.24)  16 NOV 2023 17:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.24)  17 NOV 2023 18:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -580,57 +580,64 @@ l.153 \clearpage
 
 ] [3
 
+] [4
+
 ]
+
+LaTeX Warning: Hyper reference `' on page 5 undefined on input line 222.
+
+
+LaTeX Warning: Hyper reference `F.1' on page 5 undefined on input line 222.
+
+
 
 pdfTeX warning: pdflatex (file ../05_Figures/PM10_Concentration_per_Place.pdf):
  PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<../05_Figures/PM10_Concentration_per_Place.pdf, id=203, 258.36525pt x 187.902p
+<../05_Figures/PM10_Concentration_per_Place.pdf, id=222, 258.36525pt x 187.902p
 t>
 File: ../05_Figures/PM10_Concentration_per_Place.pdf Graphic file (type pdf)
 <use ../05_Figures/PM10_Concentration_per_Place.pdf>
 Package pdftex.def Info: ../05_Figures/PM10_Concentration_per_Place.pdf  used o
-n input line 205.
+n input line 225.
 (pdftex.def)             Requested size: 439.21904pt x 319.43202pt.
+[5] [6 <../05_Figures/PM10_Concentration_per_Place.pdf>] [7] [8
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[4
-
-] [5 <../05_Figures/PM10_Concentration_per_Place.pdf>] [6
-
-] [7] [8
+] [9
 
 ]
 (20231215_Environmental_Econ_Submission.bbl [4
 
 ]) [5]
-<../05_Figures/Teams_Location.pdf, id=265, 853.1875pt x 654.445pt>
+<../05_Figures/Teams_Location.pdf, id=283, 853.1875pt x 654.445pt>
 File: ../05_Figures/Teams_Location.pdf Graphic file (type pdf)
 <use ../05_Figures/Teams_Location.pdf>
 Package pdftex.def Info: ../05_Figures/Teams_Location.pdf  used on input line 3
-10.
+29.
 (pdftex.def)             Requested size: 494.8491pt x 379.57837pt.
  [6
 
  <../05_Figures/Teams_Location.pdf>] [7
 
 ] (20231215_Environmental_Econ_Submission.aux)
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `20231215_Environmental_Econ_Submission.out' 
 has not changed.
 (rerunfilecheck)             Checksum: 0EC7D6686FC4E84B4CC149FF084E34CC;1540.
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 219 ({)
+### simple group (level 1) entered at line 238 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 14107 strings out of 476331
- 230714 string characters out of 5788237
- 1866660 words of memory out of 5000000
- 34282 multiletter control sequences out of 15000+600000
- 522487 words of font info for 71 fonts, out of 8000000 for 9000
+ 14120 strings out of 476331
+ 230850 string characters out of 5788237
+ 1867660 words of memory out of 5000000
+ 34290 multiletter control sequences out of 15000+600000
+ 522319 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,76p,2161b,697s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,76p,2161b,697s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Fynn/AppData/Local/Programs/MiKTeX/fonts/type1/public
 /amsfonts/cm/cmbx10.pfb><C:/Users/Fynn/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Fynn/AppData/Local/Programs/MiKTeX/fo
@@ -651,14 +658,13 @@ KTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Fynn/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Fynn/AppData/Loc
 al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Fynn/App
 Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/
-Fynn/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C
-:/Users/Fynn/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt1
-2.pfb><C:/Users/Fynn/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-symbols/msbm10.pfb>
-Output written on 20231215_Environmental_Econ_Submission.pdf (16 pages, 565737 
+Fynn/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C
+:/Users/Fynn/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/
+msbm10.pfb>
+Output written on 20231215_Environmental_Econ_Submission.pdf (17 pages, 567293 
 bytes).
 PDF statistics:
- 381 PDF objects out of 1000 (max. 8388607)
- 60 named destinations out of 1000 (max. 500000)
+ 396 PDF objects out of 1000 (max. 8388607)
+ 66 named destinations out of 1000 (max. 500000)
  109 words of extra memory for PDF output out of 10000 (max. 10000000)
 

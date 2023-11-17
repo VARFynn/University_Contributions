@@ -287,4 +287,29 @@
   publisher = {University of Chicago Press Chicago, IL},
 }
 
+@Article{zivin2012,
+  author    = {Zivin, Joshua Graff and Neidell, Matthew},
+  journal   = {American Economic Review},
+  title     = {The impact of pollution on worker productivity},
+  year      = {2012},
+  number    = {7},
+  pages     = {3652--3673},
+  volume    = {102},
+  comment   = {Productivity},
+  publisher = {American Economic Association},
+}
+
+@Article{EPA,
+  author = {EPA},
+  title  = {Air Quality Data},
+  year   = {2023},
+  note   = {\url{https://www.epa.gov/outdoor-air-quality-data}. Accessed: October 2023},
+}
+
+@Article{Stathead,
+  author = {Stathead},
+  title  = {Football Data},
+  note   = {\url{www.stathead.com}. Accessed: October 2023},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
