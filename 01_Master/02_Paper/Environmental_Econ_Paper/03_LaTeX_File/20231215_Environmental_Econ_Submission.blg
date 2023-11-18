@@ -1,51 +1,55 @@
 This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: 20231215_Environmental_Econ_Submission.aux
-Reallocating 'name_of_file' (item size: 1) to 8 items.
-The style file: apalike.bst
+Reallocating 'name_of_file' (item size: 1) to 4 items.
+The style file: apa.bst
 Reallocating 'name_of_file' (item size: 1) to 12 items.
 Database file #1: EnvEcon.bib
+Warning--empty year in EPA
 Warning--empty journal in EPA
+Warning--empty year in PRISM
+Warning--empty journal in PRISM
+Warning--empty year in Stathead
 Warning--empty journal in Stathead
-You've used 28 entries,
-            1935 wiz_defined-function locations,
-            657 strings with 9219 characters,
-and the built_in function-call counts, 11962 in all, are:
-= -- 1173
-> -- 550
-< -- 14
-+ -- 192
-- -- 188
-* -- 1111
-:= -- 2097
-add.period$ -- 84
-call.type$ -- 28
-change.case$ -- 232
-chr.to.int$ -- 28
-cite$ -- 30
-duplicate$ -- 389
-empty$ -- 796
-format.name$ -- 236
-if$ -- 2273
+You've used 38 entries,
+            1940 wiz_defined-function locations,
+            720 strings with 11301 characters,
+and the built_in function-call counts, 16355 in all, are:
+= -- 1595
+> -- 744
+< -- 17
++ -- 262
+- -- 254
+* -- 1576
+:= -- 2842
+add.period$ -- 114
+call.type$ -- 38
+change.case$ -- 315
+chr.to.int$ -- 38
+cite$ -- 44
+duplicate$ -- 528
+empty$ -- 1083
+format.name$ -- 316
+if$ -- 3087
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 28
-newline$ -- 143
-num.names$ -- 84
-pop$ -- 168
+missing$ -- 38
+newline$ -- 193
+num.names$ -- 114
+pop$ -- 237
 preamble$ -- 1
-purify$ -- 232
+purify$ -- 315
 quote$ -- 0
-skip$ -- 298
+skip$ -- 395
 stack$ -- 0
-substring$ -- 923
-swap$ -- 26
+substring$ -- 1271
+swap$ -- 73
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 168
-warning$ -- 2
-while$ -- 103
+type$ -- 228
+warning$ -- 6
+while$ -- 140
 width$ -- 0
-write$ -- 364
-(There were 2 warnings)
+write$ -- 490
+(There were 6 warnings)

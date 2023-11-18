@@ -33805,3 +33805,84 @@ r(111); t=0.00 14:08:25
 TD_Percent~e |      7,095    4.519309    3.937465          0         40
 r; t=0.00 14:08:31
 
+. graph box Percipitation, by(, title(`"Percipitation per Location"')) by(Place, iscale(*0.8))
+r; t=12.55 18:57:59
+
+. r; t=0.00 18:58:16
+r; t=4.47 18:58:21
+r; t=4.45 18:58:25
+r; t=0.00 18:58:25
+r; t=0.00 18:58:25
+r; t=0.00 18:58:25
+r; t=0.00 18:58:25
+r; t=0.00 18:58:25
+r; t=2.55 18:58:28
+r; t=0.27 18:58:28
+r; t=1.94 18:58:30
+r; t=3.56 18:58:34
+r; t=0.00 18:58:34
+r; t=2.95 18:58:37
+r; t=0.00 18:58:37
+r; t=0.00 18:58:37
+r; t=0.00 18:58:37
+r; t=0.00 18:58:37
+r; t=0.00 18:58:37
+r; t=0.00 18:58:37
+graph export "C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\05_Figures\Percipitation_per_Place.pdf", as(pdf) name("Graph")
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\05_Figures\Percipitation_per_Place.pdf saved as PDF format
+graph box Temperature, by(, title(`"Temperature per Location"')) by(Place, iscale(*0.8))
+r; t=9.45 18:59:41
+
+. r; t=0.00 18:59:51
+r; t=3.48 18:59:55
+r; t=3.30 18:59:58
+r; t=0.00 18:59:58
+r; t=0.00 18:59:58
+r; t=1.85 19:00:00
+r; t=0.00 19:00:00
+r; t=0.09 19:00:00
+r; t=0.21 19:00:00
+r; t=0.39 19:00:01
+r; t=1.34 19:00:02
+r; t=2.31 19:00:04
+r; t=0.00 19:00:04
+r; t=0.00 19:00:04
+r; t=0.00 19:00:04
+r; t=2.24 19:00:07
+r; t=0.00 19:00:07
+r; t=0.00 19:00:07
+r; t=0.00 19:00:07
+r; t=0.00 19:00:07
+r; t=0.00 19:00:07
+r; t=0.00 19:00:07
+graph export "C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\05_Figures\Temperature_per_Place.pdf", as(pdf) name("Graph")
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\05_Figures\Temperature_per_Place.pdf saved as PDF format
+graph box Percipitation, by(, title(`"Precipitation per Location"')) by(Place, iscale(*0.8))
+r; t=10.34 19:13:07
+
+. r; t=0.00 19:13:16
+r; t=3.61 19:13:19
+r; t=3.54 19:13:23
+r; t=0.00 19:13:23
+r; t=0.00 19:13:23
+r; t=0.00 19:13:23
+r; t=0.00 19:13:23
+r; t=0.00 19:13:23
+r; t=1.86 19:13:25
+r; t=0.00 19:13:25
+r; t=0.00 19:13:25
+r; t=2.73 19:13:28
+r; t=0.00 19:13:39
+r; t=0.00 19:13:39
+r; t=0.00 19:13:43
+r; t=0.00 19:13:43
+r; t=0.00 19:13:44
+r; t=0.00 19:13:44
+r; t=1.64 19:13:50
+r; t=0.00 19:13:50
+r; t=2.53 19:13:52
+r; t=0.00 19:13:52
+r; t=0.00 19:13:52
+r; t=0.00 19:13:52
+graph export "C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\05_Figures\Percipitation_per_Place.pdf", as(pdf) name("Graph") replace
+file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\05_Figures\Percipitation_per_Place.pdf saved as PDF format

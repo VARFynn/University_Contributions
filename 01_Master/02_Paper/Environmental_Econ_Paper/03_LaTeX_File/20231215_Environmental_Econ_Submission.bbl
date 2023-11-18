@@ -1,25 +1,25 @@
 \begin{thebibliography}{}
 
-\bibitem[Archsmith et~al., 2018]{archsmith2018}
+\bibitem[\protect\astroncite{Archsmith et~al.}{2018}]{archsmith2018}
 Archsmith, J., Heyes, A., and Saberian, S. (2018).
 \newblock Air quality and error quantity: Pollution and performance in a
   high-skilled, quality-focused occupation.
 \newblock {\em Journal of the Association of Environmental and Resource
   Economists}, 5(4):827--863.
 
-\bibitem[Bauernschuster et~al., 2017]{bauernschuster2017}
+\bibitem[\protect\astroncite{Bauernschuster et~al.}{2017}]{bauernschuster2017}
 Bauernschuster, S., Hener, T., and Rainer, H. (2017).
 \newblock When labor disputes bring cities to a standstill: The impact of
   public transit strikes on traffic, accidents, air pollution, and health.
 \newblock {\em American Economic Journal: Economic Policy}, 9(1):1--37.
 
-\bibitem[Beatty and Shimshack, 2014]{beatty2014}
+\bibitem[\protect\astroncite{Beatty and Shimshack}{2014}]{beatty2014}
 Beatty, T.~K. and Shimshack, J.~P. (2014).
 \newblock Air pollution and children's respiratory health: A cohort analysis.
 \newblock {\em Journal of Environmental Economics and Management},
   67(1):39--57.
 
-\bibitem[Beelen et~al., 2014]{beelen2014}
+\bibitem[\protect\astroncite{Beelen et~al.}{2014}]{beelen2014}
 Beelen, R., Raaschou-Nielsen, O., Stafoggia, M., Andersen, Z.~J., Weinmayr, G.,
   Hoffmann, B., Wolf, K., Samoli, E., Fischer, P., Nieuwenhuijsen, M., et~al.
   (2014).
@@ -28,142 +28,202 @@ Beelen, R., Raaschou-Nielsen, O., Stafoggia, M., Andersen, Z.~J., Weinmayr, G.,
   project.
 \newblock {\em The Lancet}, 383(9919):785--795.
 
-\bibitem[Chay and Greenstone, 2003]{chay2003}
+\bibitem[\protect\astroncite{Chay and Greenstone}{2003}]{chay2003}
 Chay, K.~Y. and Greenstone, M. (2003).
 \newblock The impact of air pollution on infant mortality: evidence from
   geographic variation in pollution shocks induced by a recession.
 \newblock {\em The Quarterly Journal of Economics}, 118(3):1121--1167.
 
-\bibitem[Chen and Chen, 2021]{chen2021}
+\bibitem[\protect\astroncite{Chen and Chen}{2021}]{chen2021}
 Chen, F. and Chen, Z. (2021).
 \newblock Cost of economic growth: Air pollution and health expenditure.
 \newblock {\em Science of the Total Environment}, 755:142543.
 
-\bibitem[Costa et~al., 2017]{costa2017}
+\bibitem[\protect\astroncite{Chiarini et~al.}{2020}]{chiarini2020}
+Chiarini, B., D'Agostino, A., Marzano, E., and Regoli, A. (2020).
+\newblock The perception of air pollution and noise in urban environments: A
+  subjective indicator across european countries.
+\newblock {\em Journal of Environmental Management}, 263:110272.
+
+\bibitem[\protect\astroncite{Claeson et~al.}{2013}]{claeson2013}
+Claeson, A.-S., Lid{\'e}n, E., Nordin, M., and Nordin, S. (2013).
+\newblock The role of perceived pollution and health risk perception in
+  annoyance and health symptoms: a population-based study of odorous air
+  pollution.
+\newblock {\em International archives of occupational and environmental
+  health}, 86:367--374.
+
+\bibitem[\protect\astroncite{Costa et~al.}{2017}]{costa2017}
 Costa, L.~G., Cole, T.~B., Coburn, J., Chang, Y.-C., Dao, K., and Roqu{\'e},
   P.~J. (2017).
 \newblock Neurotoxicity of traffic-related air pollution.
 \newblock {\em Neurotoxicology}, 59:133--139.
 
-\bibitem[EPA, 2023]{EPA}
-EPA (2023).
+\bibitem[\protect\astroncite{Deschenes et~al.}{2017}]{deschenes2017}
+Deschenes, O., Greenstone, M., and Shapiro, J.~S. (2017).
+\newblock Defensive investments and the demand for air quality: Evidence from
+  the nox budget program.
+\newblock {\em American Economic Review}, 107(10):2958--2989.
+
+\bibitem[\protect\astroncite{EPA}{}]{EPA}
+EPA.
 \newblock Air quality data.
 \newblock \url{https://www.epa.gov/outdoor-air-quality-data}. Accessed: October
   2023.
 
-\bibitem[Hansen and Selte, 2000]{hansen2000}
+\bibitem[\protect\astroncite{Gong et~al.}{2020}]{gong2020}
+Gong, S., Lu, J.~G., Schaubroeck, J.~M., Li, Q., Zhou, Q., and Qian, X. (2020).
+\newblock Polluted psyche: Is the effect of air pollution on unethical behavior
+  more physiological or psychological?
+\newblock {\em Psychological Science}, 31(8):1040--1047.
+
+\bibitem[\protect\astroncite{Hansen and Selte}{2000}]{hansen2000}
 Hansen, A.~C. and Selte, H.~K. (2000).
 \newblock Air pollution and sick-leaves.
 \newblock {\em Environmental and Resource Economics}, 16:31--50.
 
-\bibitem[Heintz et~al., 2022]{heintz2022}
+\bibitem[\protect\astroncite{Heintz et~al.}{2022}]{heintz2022}
 Heintz, E.~C., Scott, D.~P., Simms, K.~R., and Foreman, J.~J. (2022).
 \newblock Air quality is predictive of mistakes in professional baseball and
   american football.
 \newblock {\em International Journal of Environmental Research and Public
   Health}, 20(1):542.
 
-\bibitem[Jans et~al., 2018]{jans2018}
+\bibitem[\protect\astroncite{Jans et~al.}{2018}]{jans2018}
 Jans, J., Johansson, P., and Nilsson, J.~P. (2018).
 \newblock Economic status, air quality, and child health: Evidence from
   inversion episodes.
 \newblock {\em Journal of Health Economics}, 61:220--232.
 
-\bibitem[Kampa and Castanas, 2008]{kampa2008}
+\bibitem[\protect\astroncite{Kampa and Castanas}{2008}]{kampa2008}
 Kampa, M. and Castanas, E. (2008).
 \newblock Human health effects of air pollution.
 \newblock {\em Environmental Pollution}, 151(2):362--367.
 
-\bibitem[Kinney et~al., 2000]{kinney2000}
+\bibitem[\protect\astroncite{Kinney et~al.}{2000}]{kinney2000}
 Kinney, P.~L., Aggarwal, M., Northridge, M.~E., Janssen, N.~A., and Shepard, P.
   (2000).
 \newblock Airborne concentrations of pm (2.5) and diesel exhaust particles on
   harlem sidewalks: a community-based pilot study.
 \newblock {\em Environmental Health Perspectives}, 108(3):213--218.
 
-\bibitem[Lena et~al., 2002]{lena2002}
+\bibitem[\protect\astroncite{Lena et~al.}{2002}]{lena2002}
 Lena, T.~S., Ochieng, V., Carter, M., Holgu{\'\i}n-Veras, J., and Kinney, P.~L.
   (2002).
 \newblock Elemental carbon and pm (2.5) levels in an urban community heavily
   impacted by truck traffic.
 \newblock {\em Environmental Health Perspectives}, 110(10):1009--1015.
 
-\bibitem[MacKerron and Mourato, 2009]{mackerron2009}
+\bibitem[\protect\astroncite{Lichter et~al.}{2017}]{lichter2017}
+Lichter, A., Pestel, N., and Sommer, E. (2017).
+\newblock Productivity effects of air pollution: Evidence from professional
+  soccer.
+\newblock {\em Labour Economics}, 48:54--66.
+
+\bibitem[\protect\astroncite{Lin et~al.}{2013}]{lin2013}
+Lin, L.-Y., Chuang, H.-C., Liu, I.-J., Chen, H.-W., and Chuang, K.-J. (2013).
+\newblock Reducing indoor air pollution by air conditioning is associated with
+  improvements in cardiovascular health among the general population.
+\newblock {\em Science of the Total Environment}, 463:176--181.
+
+\bibitem[\protect\astroncite{MacKerron and Mourato}{2009}]{mackerron2009}
 MacKerron, G. and Mourato, S. (2009).
 \newblock Life satisfaction and air quality in london.
 \newblock {\em Ecological Economics}, 68(5):1441--1453.
 
-\bibitem[Pedersen et~al., 2004]{pedersen2004}
+\bibitem[\protect\astroncite{Marr and Ely}{2010}]{marr2010}
+Marr, L.~C. and Ely, M.~R. (2010).
+\newblock Effect of air pollution on marathon running performance.
+\newblock {\em Medicine and Science in Sports and Exercise}, 42(3):585--591.
+
+\bibitem[\protect\astroncite{Pedersen et~al.}{2004}]{pedersen2004}
 Pedersen, C.~B., Raaschou-Nielsen, O., Hertel, O., and Mortensen, P.~B. (2004).
 \newblock Air pollution from traffic and schizophrenia risk.
 \newblock {\em Schizophrenia Research}, 66(1):83--85.
 
-\bibitem[Peled, 2011]{peled2011}
+\bibitem[\protect\astroncite{Peled}{2011}]{peled2011}
 Peled, R. (2011).
 \newblock Air pollution exposure: Who is at high risk?
 \newblock {\em Atmospheric Environment}, 45(10):1781--1785.
 
-\bibitem[Ranft et~al., 2009]{ranft2009}
+\bibitem[\protect\astroncite{{PRISM Climate Group}}{}]{PRISM}
+{PRISM Climate Group}.
+\newblock Climate data.
+\newblock \url{ https://prism.oregonstate.edu}. Accessed: October 2023.
+
+\bibitem[\protect\astroncite{Qin et~al.}{2022}]{qin2022}
+Qin, Y., Wu, J., and Zhang, R. (2022).
+\newblock Can professional football players adapt to air pollution? evidence
+  from china.
+\newblock {\em Journal of Sports Economics}, 23(3):277--300.
+
+\bibitem[\protect\astroncite{Ranft et~al.}{2009}]{ranft2009}
 Ranft, U., Schikowski, T., Sugiri, D., Krutmann, J., and Kr{\"a}mer, U. (2009).
 \newblock Long-term exposure to traffic-related particulate matter impairs
   cognitive function in the elderly.
 \newblock {\em Environmental Research}, 109(8):1004--1011.
 
-\bibitem[Rehdanz and Maddison, 2008]{rehdanz2008}
+\bibitem[\protect\astroncite{Rehdanz and Maddison}{2008}]{rehdanz2008}
 Rehdanz, K. and Maddison, D. (2008).
 \newblock Local environmental quality and life-satisfaction in germany.
 \newblock {\em Ecological Economics}, 64(4):787--797.
 
-\bibitem[Schikowski et~al., 2015]{schikowski2015}
+\bibitem[\protect\astroncite{Schikowski et~al.}{2015}]{schikowski2015}
 Schikowski, T., Vossoughi, M., Vierk{\"o}tter, A., Schulte, T., Teichert, T.,
   Sugiri, D., Fehsel, K., Tzivian, L., Bae, I.-s., Ranft, U., et~al. (2015).
 \newblock Association of air pollution with cognitive functions and its
   modification by apoe gene variants in elderly women.
 \newblock {\em Environmental Research}, 142:10--16.
 
-\bibitem[Schlenker and Walker, 2016]{schlenker2016}
+\bibitem[\protect\astroncite{Schlenker and Walker}{2016}]{schlenker2016}
 Schlenker, W. and Walker, W.~R. (2016).
 \newblock Airports, air pollution, and contemporaneous health.
 \newblock {\em The Review of Economic Studies}, 83(2):768--809.
 
-\bibitem[Stathead, 2023]{Stathead}
-Stathead (2023).
+\bibitem[\protect\astroncite{Schumacher and Zou}{2008}]{schumacher2008}
+Schumacher, I. and Zou, B. (2008).
+\newblock Pollution perception: A challenge for intergenerational equity.
+\newblock {\em Journal of Environmental Economics and Management},
+  55(3):296--309.
+
+\bibitem[\protect\astroncite{Stathead}{}]{Stathead}
+Stathead.
 \newblock Football data.
 \newblock \url{www.stathead.com}. Accessed: October 2023.
 
-\bibitem[Szyszkowicz, 2007]{szyszkowicz2007}
+\bibitem[\protect\astroncite{Szyszkowicz}{2007}]{szyszkowicz2007}
 Szyszkowicz, M. (2007).
 \newblock Air pollution and emergency department visits for depression in
   edmonton, canada.
 \newblock {\em International Journal of Occupational Medicine \& Environmental
   Health}, 20(3).
 
-\bibitem[Thorpe and Harrison, 2008]{thorpe2008}
+\bibitem[\protect\astroncite{Thorpe and Harrison}{2008}]{thorpe2008}
 Thorpe, A. and Harrison, R.~M. (2008).
 \newblock Sources and properties of non-exhaust particulate matter from road
   traffic: a review.
 \newblock {\em Science of the Total Environment}, 400(1-3):270--282.
 
-\bibitem[Tonne et~al., 2014]{tonne2014}
+\bibitem[\protect\astroncite{Tonne et~al.}{2014}]{tonne2014}
 Tonne, C., Elbaz, A., Beevers, S., and Singh-Manoux, A. (2014).
 \newblock Traffic-related air pollution in relation to cognitive function in
   older adults.
-\newblock {\em Epidemiology (Cambridge, Mass.)}, 25(5):674.
+\newblock {\em Epidemiology}, 25(5):674.
 
-\bibitem[Zhang et~al., 2017]{zhang2017}
+\bibitem[\protect\astroncite{Zhang et~al.}{2017}]{zhang2017}
 Zhang, X., Zhang, X., and Chen, X. (2017).
 \newblock Happiness in the air: How does a dirty sky affect mental health and
   subjective well-being?
 \newblock {\em Journal of Environmental Economics and Management}, 85:81--94.
 
-\bibitem[Zhong et~al., 2017]{zhong2017}
+\bibitem[\protect\astroncite{Zhong et~al.}{2017}]{zhong2017}
 Zhong, N., Cao, J., and Wang, Y. (2017).
 \newblock Traffic congestion, ambient air pollution, and health: Evidence from
   driving restrictions in beijing.
 \newblock {\em Journal of the Association of Environmental and Resource
   Economists}, 4(3):821--856.
 
-\bibitem[Zivin and Neidell, 2012]{zivin2012}
+\bibitem[\protect\astroncite{Zivin and Neidell}{2012}]{zivin2012}
 Zivin, J.~G. and Neidell, M. (2012).
 \newblock The impact of pollution on worker productivity.
 \newblock {\em American Economic Review}, 102(7):3652--3673.
