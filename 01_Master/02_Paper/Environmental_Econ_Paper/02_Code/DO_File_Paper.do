@@ -19,6 +19,10 @@ Content:
 2 Preparation of NFL Data 
 3 Preparation of Pollution Data
 4 Merge and, hence, Creation of Final Data Set
+5 Descriptive Statistics
+6 Regressions 
+7 Robustness Checks 
+
 */
 
 * -----------------------------------------------------------------------------*	
@@ -287,7 +291,7 @@ foreach str in `string_list' {
 	tset Date																	
 	tsfill																		// fill TS with missing dates
 	count if missing(pm10)
-	ipolate pm10 Date, gen(pm10_ipol)											// linear interpolation of missings (kind of debatable; could be changed to ARIMA or similar)
+	ipolate pm10 Date, gen(pm10_ipol)											// linear interpolation of missings (kind of debatable; did it one time with ARIMA; no change)
 	drop pm10 
 	gen pm10 = round(pm10_ipol, 1)												// round to integers (not needed, also debatable, just a harmonization to AQI Index - also only an integer)
 	drop pm10_ipol
@@ -298,7 +302,7 @@ foreach str in `string_list' {
 	save "$data\PM10\PM10_`str'.dta", replace
 }
 
-* 3.2 PM2.5 Data Preparation
+* 3.2 AQI Data Preparation
 
 * 3.3 Weather Data Preparation
 local string_list "Atlanta Arlington Atlanta Baltimore Charlotte Chicago Cincinnati Cleveland Denver Detroit EastRutherford Foxborough Glendale GreenBay Houston Indianapolis Inglewood Jacksonville KansasCity Landover MiamiGardens Minneapolis Nashville NewOrleans Oakland OrchardPark Paradise Philadelphia Pittsburgh SanDiego SantaClara Seattle StLouis Tampa" 
@@ -336,7 +340,6 @@ foreach str in `string_list' {
 }
 
 
-
 * 4.3 Weather Data
 gen Percipitation = .
 gen Temperature = . 
@@ -364,28 +367,56 @@ encode Opponent, generate (Opponent_N)
 encode Stadiontype, generate (Stadiontype_N)
 
 
-
 * 5 Descriptive Statistics *
-graph box PM10, by(, title(`"PM10 Concentration per Location"')) by(Place, iscale(*0.8))
-graph box Percipitation, by(, title(`"Percipitation per Location"')) by(Place, iscale(*0.8))
-graph box Temperature, by(, title(`"Temperature per Location"')) by(Place, iscale(*0.8))
+*graph box PM10, by(, title(`"PM10 Concentration per Location"')) by(Place, iscale(*0.8))
+*graph box Percipitation, by(, title(`"Precipitation per Location"')) by(Place, iscale(*0.8))
+*graph box Temperature, by(, title(`"Temperature per Location"')) by(Place, iscale(*0.8))
+* Disabled for perfomance reasons 
 
-sum Rating Attempts Completions Completion_Percentage Yds TDs INTs TD_Percentage INT_Percentage
+sum Rating Attempts Completions Completion_Percentage Yds INTs INT_Percentage ///
+Passing_Sucess_Rate PM10 Percipitation Temperature
 
+bysort Stadiumtype: sum Rating Attempts Completions Completion_Percentage Yds ///
+INTs INT_Percentage Passing_Sucess_Rate Away PM10 Percipitation Temperature
 
-
-* 6 Regressions
+* 6 Regressions *
 *Pre Tests
 reg INTs c.PM10#i.Stadiontype_N i.Season i.Player_N i.Opponent_N##Season,vce(robust)
-reg INTs c.PM10#i.Stadiontype_N i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
-reg INTs c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
-reg INTs c.PM10#i.Stadiontype_N Attempts Temperature Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
-reg Attempts c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
-reg INT_Percentage c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
-reg Rating c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
-reg Rating c.PM10#i.Stadiontype_N Attempts Temperature Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
-reg TDs c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
-reg Passing_Sucess_Rate c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
+
+reg INTs c.PM10#i.Stadiontype_N i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season,vce(robust)
+
+reg INTs c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N ///
+i.Team_N##Season i.Opponent_N##Season,vce(robust)
+
+reg INTs c.PM10#i.Stadiontype_N Attempts Temperature Percipitation i.Player_N ///
+i.Team_N##Season i.Opponent_N##Season,vce(robust)
+
+reg Attempts c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N  ///
+i.Team_N##Season i.Opponent_N##Season,vce(robust)
+
+reg INT_Percentage c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N ///
+i.Team_N##Season i.Opponent_N##Season,vce(robust)
+
+reg Rating c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N ///
+ i.Team_N##Season i.Opponent_N##Season,vce(robust)
+
+reg Rating c.PM10#i.Stadiontype_N Attempts Temperature Percipitation ///
+i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
+
+reg TDs c.PM10#i.Stadiontype_N Temperature Percipitation i.Player_N ///
+i.Team_N##Season i.Opponent_N##Season,vce(robust)
+
+reg Passing_Sucess_Rate c.PM10#i.Stadiontype_N Temperature Percipitation ///
+i.Player_N i.Team_N##Season i.Opponent_N##Season,vce(robust)
+
+reg YA c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season,vce(robust)
+
+reg Completion_Percentage c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season,vce(robust)
 
 *C1
 reg Attempts c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
@@ -407,10 +438,6 @@ reg Passing_Sucess_Rate c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
 Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
 i.Opponent_N##Season,vce(robust)
 
-*(Completion_Percentage)
-reg Completion_Percentage c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
-Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
-i.Opponent_N##Season,vce(robust)
 
 *C5
 reg INT_Percentage c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
@@ -428,8 +455,18 @@ Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
 i.Opponent_N##Season,vce(robust)
 
 
-reg YA c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
-Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
-i.Opponent_N##Season,vce(robust)
+
+
+* 7 Robustness Checks *
+* 7.1 Without 3 Problematic Matching Cases
+
+
+* 7.2 With AQI General instead of PM10 
+
+
+* 7.3 Reproducing Results Equvialent to Jeremy Foreman  
+
+
+
 
 
