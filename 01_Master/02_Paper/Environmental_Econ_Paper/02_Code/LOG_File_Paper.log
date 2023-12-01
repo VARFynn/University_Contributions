@@ -33886,3 +33886,4 @@ r; t=0.00 19:13:52
 r; t=0.00 19:13:52
 graph export "C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\05_Figures\Percipitation_per_Place.pdf", as(pdf) name("Graph") replace
 file C:\Users\Fynn\Documents\GitHub\University_Contributions\01_Master\02_Paper\Environmental_Econ_Paper\05_Figures\Percipitation_per_Place.pdf saved as PDF format
+exit, clear
