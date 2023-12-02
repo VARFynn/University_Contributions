@@ -220,6 +220,12 @@ replace Place_2 = "Landover, Maryland" if Stadion == "FedExField"
 replace Place_2 = "St Louis, Missouri" if Stadion == "Edward Jones Dome"
 replace Place_2 = "San Diego, California" if Stadion == "Qualcomm Stadium"
 replace Place_2 = "Oakland, California" if Stadion == "O.co Coliseum"
+
+gen exclude = 1																	// needed later for problematic data cases
+replace exclude = 0 if Place_2 == "Seattle, Washington"
+replace exclude = 0 if Place_2 == "Green Bay, Wisconsin"
+replace exclude = 0 if Place_2 == "Foxborough, Massachusetts"
+
 drop Place
 rename Place_2 Place
 
@@ -304,6 +310,30 @@ foreach str in `string_list' {
 
 * 3.2 AQI Data Preparation
 
+foreach str in `string_list' {	
+	import delimited "$data\AQI\AQI_`str'.csv", clear
+	drop sitename siteid source mainpollutant									// drop unnecessary
+	rename aqivalue aqi													
+	gen Date = date(date, "MDY")
+	format Date %td 
+	drop date
+	tset Date																	
+	tsfill																		// fill TS with missing dates - for AQI nearly no missings
+	count if missing(aqi)
+	ipolate aqi Date, gen(aqi_ipol)											
+	drop aqi 
+	gen aqi = round(aqi_ipol, 1)												// round to integers (not needed, also debatable, just a harmonization to AQI Index - also only an integer)
+	drop aqi_ipol
+	generate Name = "`str'"
+	gen DateStr = string(Date)
+	gen Place_Date_Merge = Name + "_" + DateStr									// create unifier based on place + date to merge m:1 
+	drop Name DateStr Date
+	save "$data\AQI\AQI_`str'.dta", replace
+}
+
+
+
+
 * 3.3 Weather Data Preparation
 local string_list "Atlanta Arlington Atlanta Baltimore Charlotte Chicago Cincinnati Cleveland Denver Detroit EastRutherford Foxborough Glendale GreenBay Houston Indianapolis Inglewood Jacksonville KansasCity Landover MiamiGardens Minneapolis Nashville NewOrleans Oakland OrchardPark Paradise Philadelphia Pittsburgh SanDiego SantaClara Seattle StLouis Tampa" 
 
@@ -339,6 +369,18 @@ foreach str in `string_list' {
 	drop _merge pm10
 }
 
+* 4.2 AQI
+gen AQI =. 
+
+local string_list "Atlanta Arlington Atlanta Baltimore Charlotte Chicago Cincinnati Cleveland Denver Detroit EastRutherford Foxborough Glendale GreenBay Houston Indianapolis Inglewood Jacksonville KansasCity Landover MiamiGardens Minneapolis Nashville NewOrleans Oakland OrchardPark Paradise Philadelphia Pittsburgh SanDiego SantaClara Seattle StLouis Tampa" 
+
+foreach str in `string_list' {
+	merge m:1 Place_Date_Merge using "$data\AQI\AQI_`str'" 
+	replace AQI = aqi if !missing(aqi)
+	drop if _merge == 2
+	drop _merge aqi
+}
+
 
 * 4.3 Weather Data
 gen Percipitation = .
@@ -366,14 +408,20 @@ encode Team, generate (Team_N)
 encode Opponent, generate (Opponent_N)
 encode Stadiontype, generate (Stadiontype_N)
 
+replace PM10 = AQI if PM10 > AQI												// capturing overly estimated values
+gen Diff = PM10 - AQI
+
+save "$data\Full.dta", replace
+blocker 																		// to stop running the code here 
 
 * 5 Descriptive Statistics *
 *graph box PM10, by(, title(`"PM10 Concentration per Location"')) by(Place, iscale(*0.8))
 *graph box Percipitation, by(, title(`"Precipitation per Location"')) by(Place, iscale(*0.8))
 *graph box Temperature, by(, title(`"Temperature per Location"')) by(Place, iscale(*0.8))
+*graph box Diff, by(, title(`"Difference PM10 and AQI per Location"')) by(Place, iscale(*0.8))
 * Disabled for perfomance reasons 
 
-sum Rating Attempts Completions Completion_Percentage Yds INTs INT_Percentage ///
+sum Rating Attempts Completion Completion_Percentage Yds INTs INT_Percentage ///
 Passing_Sucess_Rate PM10 Percipitation Temperature
 
 bysort Stadiumtype: sum Rating Attempts Completions Completion_Percentage Yds ///
@@ -460,13 +508,66 @@ i.Opponent_N##Season,vce(robust)
 * 7 Robustness Checks *
 * 7.1 Without 3 Problematic Matching Cases
 
+*C1 still sign
+reg Attempts c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season if exclude == 1, vce(robust)
+
+*C2
+reg Yds c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season if exclude == 1 ,vce(robust)
+
+*C3
+reg INTs c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season if exclude == 1, vce(robust)
 
 * 7.2 With AQI General instead of PM10 
+
+*C1 non sg. 
+reg Attempts c.AQI#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season,vce(robust)
+
+*C2 non sg.
+reg Yds c.AQI#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season,vce(robust)
+
+*C3 for Fixed highly sq. findings. Could be, that there is some not captured 
+reg INTs c.AQI#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season,vce(robust)
+
+*C4 Success Rate 
+reg Passing_Sucess_Rate c.AQI#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season,vce(robust)
+
+
+*C5
+reg INT_Percentage c.AQI#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season,vce(robust)
+
+*C6
+reg Rating c.AQI#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season,vce(robust)
+
 
 
 * 7.3 Reproducing Results Equvialent to Jeremy Foreman  
 
+* I will skip this part - they did for yearly data for the home county
+* of some QBs a FE Regression neglecting several aspects 
 
-
+*However, they used the following code: 
+*xtset playerid year
+*xtreg intpct l.intpct nflexp gs yearcnt cum_medianaqi, robust
+*xtreg qbr l.qbr nflexp gs yearcnt cum_medianaqi, robust
+*sum intpct qbr yearcnt nflexp gs cum_medianaqi if e(sample)
+*pwcorr intpct qbr yearcnt nflexp gs cum_medianaqi if e(sample), sig
 
 

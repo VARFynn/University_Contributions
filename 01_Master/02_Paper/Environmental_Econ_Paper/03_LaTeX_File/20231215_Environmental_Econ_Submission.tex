@@ -199,7 +199,8 @@ In order to tackle the research question, it is necessary to combine different d
     Touchdown Rate & 7,095 & 4.52 & 3.94 & 0.00 & 40.00 \\
     Passing Success Rate & 7,095 & 45.16 & 10.96 & 0.00 & 100.00 \\ [0.5cm]
     \textit{Pollution/Weather} \\
-    PM10 (AQI value) & 7,095 & 20.59 & 14.86 & 0.00 & 171.00 \\
+    PM10 (AQI value) & 7,095 & 20.54 & 14.75 & 0.00 & 171.00 \\
+    AQI Index & 7,095 & 51.91 & 22.15 & 12.00 & 210.00 \\
     Precipitation (mm) & 7,095 & 0.18 & 0.35 & 0.00 & 2.15 \\
     Temperature (°F) & 7,095 & 50.13 & 10.53 & 18.50 & 76.00 \\
     \hline \hline
@@ -264,13 +265,13 @@ As the dependent performance measure is..
  & \multicolumn{3}{c}{\textit{Dependent Variable:}} \\ \cline{2-4} \\ [-1.8ex]
  & Attempts & Yards & Interceptions \\ 
   & (1) & (2) & (3)\\ \hline \\[-1.8ex] 
- \underline{\textit{Average Marginal Effect PM10}}\\[0.4cm]
-  $\hat{\beta}_{closed}$& 0.0008 & -0.0776 & -0.0028 \\ 
-  & (0.0236)  & (0.2033)& (0.0025) \\[0.4cm]
-  $\hat{\beta}_{open}$& -0.0281$^{**}$ & -0.1679 & -0.0026$^{*}$\\ 
-  & (0.0137) & (0.1127) & (0.0014) \\[0.4cm]
-  $\hat{\beta}_{retractable}$& -0.0053 & 0.0900 & -0.0014 \\ 
-  & (0.0124) & (0.0994) & (0.0013)\\ [0.4cm]
+ \underline{\textit{Effect PM10}}\\[0.4cm]
+  $\hat{\beta}_{closed}$& 0.0023 & -0.0743 & -0.0027 \\ 
+  & (0.0238)  & (0.2062)& (0.0025) \\[0.4cm]
+  $\hat{\beta}_{open}$& -0.0283$^{**}$ & -0.1740 & -0.0025$^{*}$\\ 
+  & (0.0140) & (0.1136) & (0.0014) \\[0.4cm]
+  $\hat{\beta}_{retractable}$& -0.0053 & 0.0936 & -0.0014 \\ 
+  & (0.0124) & (0.0996) & (0.0013)\\ [0.4cm]
   \underline{\textit{Controls}} \\[0.4cm]
   Offense $\times$ Season Fixed Effect & $\surd$ & $\surd$ & $\surd$ \\[0.4cm]
    Defense $\times$ Season Fixed Effect & $\surd$ & $\surd$  & $\surd$ \\[0.4cm]
@@ -279,12 +280,14 @@ As the dependent performance measure is..
     Away Performance & $\surd$ & $\surd$ & $\surd$\\
 \hline \\[-1.8ex] 
 Observations & 7,095 & 7,095 & 7,095 \\ 
-R$^{2}$ & 0.3661 &  0.3981 & 0.1829\\ 
-RMSE & 8.9059 & 73.817 & 0.9076\\ \hline 
+R$^{2}$ & 0.3661 &  0.3982 & 0.1828\\ 
+RMSE & 8.9059 & 73.816 & 0.9076\\ \hline 
 \hline \\[-1.8ex] 
 \multicolumn{4}{l}{\footnotesize \textit{Note:} The significance levels equal {$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01}.  Furthermore, robust} \\ \multicolumn{4}{l}{\footnotesize standard errors (HC1) are displayed. Values are rounded to four decimal places.}
   \end{tabular}
 \end{table} 
+
+
 \clearpage
 \begin{table}[!htbp] \centering 
   \caption{Effect of PM10 on Quarterbacks' Performance (Completion Rate, Interception Rate \& Rating)} 
@@ -295,13 +298,13 @@ RMSE & 8.9059 & 73.817 & 0.9076\\ \hline
  & \multicolumn{3}{c}{\textit{Dependent Variable:}} \\ \cline{2-4} \\ [-1.8ex]
  & Success Rate & Interception Rate & Rating \\ 
   & (4) & (5) & (6)\\ \hline \\[-1.8ex] 
- \underline{\textit{Average Marginal Effect PM10}}\\[0.4cm]
-  $\hat{\beta}_{closed}$& 0.0130 & -0.0052 & 0.0642 \\ 
-  & (0.0277)  & (0.0080)& (0.0657) \\[0.4cm]
-  $\hat{\beta}_{open}$&  0.0156 & -0.0063 & 0.0480\\ 
-  & (0.0148) & (0.0049) & (0.0382) \\[0.4cm]
-  $\hat{\beta}_{retractable}$& 0.0348 & -0.0039 & 0.0782$^{**}$\\ 
-  & (0.0122) & (0.0042) & (0.0364)\\ [0.4cm]
+ \underline{\textit{Effect PM10}}\\[0.4cm]
+  $\hat{\beta}_{closed}$& 0.0112  & -0.0051 & 0.0654 \\ 
+  & (0.0279)  & (0.0080)& (0.0663) \\[0.4cm]
+  $\hat{\beta}_{open}$&  0.0167 & -0.0060 & 0.0491\\ 
+  & (0.0150) & (0.0050) & (0.0387) \\[0.4cm]
+  $\hat{\beta}_{retractable}$& 0.0363$^{***}$ & -0.0039 & 0.0787$^{**}$\\ 
+  & (0.0122) & (0.0042) & (0.0365)\\ [0.4cm]
   \underline{\textit{Controls}} \\[0.4cm]
   Offense $\times$ Season Fixed Effect & $\surd$ & $\surd$ & $\surd$ \\[0.4cm]
    Defense $\times$ Season Fixed Effect & $\surd$ & $\surd$  & $\surd$ \\[0.4cm]
