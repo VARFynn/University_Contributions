@@ -2,7 +2,7 @@
 *** Env. Econ				***
 *** Name: Fynn Lohre		***
 *** Matr. Nr.: 202300181	***
-********************************
+*******************************
 
 /*
 
@@ -545,7 +545,6 @@ reg Passing_Sucess_Rate c.AQI#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
 Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
 i.Opponent_N##Season,vce(robust)
 
-
 *C5
 reg INT_Percentage c.AQI#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
 Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
@@ -561,7 +560,7 @@ i.Opponent_N##Season,vce(robust)
 * 7.3 Reproducing Results Equvialent to Jeremy Foreman  
 
 * I will skip this part - they did for yearly data for the home county
-* of some QBs a FE Regression neglecting several aspects 
+* of some QBs a FE Regression neglecting too many aspects 
 
 *However, they used the following code: 
 *xtset playerid year
@@ -571,3 +570,5 @@ i.Opponent_N##Season,vce(robust)
 *pwcorr intpct qbr yearcnt nflexp gs cum_medianaqi if e(sample), sig
 
 
+* Just by adding a team fixed effect, every observed effect vanishes....
+* However, Many Thanks to @Jeremy for provide the relevant code. 

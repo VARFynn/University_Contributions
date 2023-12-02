@@ -233,7 +233,7 @@ $BP_{HI}$ ($BP_{LO}$) the concentration breakpoint that is greater (lower) than 
 \begin{figure}[h]
 	\center
 	\includegraphics[scale=1.7]{../05_Figures/PM10_Concentration_per_Place.pdf}
-	\caption*{\footnotesize \textit{Source: Own Visualization based on \citeauthor{EPA} Data. Note: It is essential to underscore that the displayed distributions are solely based on occurred match days and do not resemble the general distribution of the respective location. PM10 Concentration is measured in AQI.}}
+	\caption*{\footnotesize \textit{Source: Own Visualization based on \citeauthor{EPA} Data. Note: It is essential to underscore that the displayed distributions are solely based on occurred match days and do not resemble the general distribution of the respective location. PM10 Concentration is measured in AQI value.}}
 	\addvspace{-0.6\baselineskip}
 	\caption{Box Plot of PM10 Concentration per Location}
 	\label{F:1}
@@ -372,6 +372,18 @@ RMSE & 9.5531 & 3.1676  & 25.1200 \\ \hline
 \end{figure}
 \vfill
 \clearpage
+\vfill
+\begin{figure}[h]
+	\center
+	\includegraphics[scale=1.7]{../05_Figures/Difference_per_Place.pdf}
+	\caption*{\footnotesize \textit{Source: Own Visualization based on \citeauthor{EPA} Data. Note: It is essential to underscore that the displayed distributions are solely based on occurred match days and do not resemble the general distribution of the respective location. PM10 and AQI are measured in AQI value.}}
+	\addvspace{-0.6\baselineskip}
+	\caption{Box Plot of Differences between PM10 and AQI per Location}
+	\label{AppF:4}
+\end{figure}
+
+\vfill
+\clearpage
 \section{Further Tables}
 \begin{table}[h]
  \caption{Mapping of AQI on PM10 Concentration Value} 
@@ -392,4 +404,64 @@ AQI & PM10 & Air Quality Category \\\hline
 \vspace{0.2cm}\caption*{Source: \citeauthor{EPA}}
 \end{table}
 
+\begin{table}[!htbp] \centering 
+  \caption{Effect of PM10 on Quarterbacks' Performance (Attempts, Yards, Interceptions) - without ''problematic'' cases} 
+  \label{A:T2} 
+\begin{tabular}{@{\extracolsep{5pt}}lccc} 
+\hline \\[-1.8ex] 
+& \multicolumn{3}{c}{\textit{Dependent Variable:}} \\ \cline{2-4} \\ [-1.8ex]
+& Attempts & Yards & Interceptions \\ 
+& (1b) & (2b) & (3b)\\ \hline \\[-1.8ex] 
+\underline{\textit{Effect PM10}}\\[0.4cm]
+$\hat{\beta}_{closed}$& 0.0012 & -0.0670 & -0.0026 \\ 
+& (0.0243)  & (0.2124)& (0.0026) \\[0.4cm]
+$\hat{\beta}_{open}$& -0.0352$^{**}$ & -0.2059$^{*}$ & -0.0033$^{**}$\\ 
+& (0.0148) & (0.1188) & (0.0015) \\[0.4cm]
+$\hat{\beta}_{retractable}$& -0.0088 & 0.0127 & -0.0011 \\ 
+& (0.0132) & (0.1061) & (0.0014)\\ [0.4cm]
+\underline{\textit{Controls}} \\[0.4cm]
+Offense $\times$ Season Fixed Effect & $\surd$ & $\surd$ & $\surd$ \\[0.4cm]
+Defense $\times$ Season Fixed Effect & $\surd$ & $\surd$  & $\surd$ \\[0.4cm]
+Quarterback Individual Effect & $\surd$ & $\surd$ & $\surd$  \\[0.4cm]
+Weather $\times $ Stadiumtype & $\surd$ & $\surd$ & $\surd$ \\[0.4cm]
+Away Performance & $\surd$ & $\surd$ & $\surd$\\
+\hline \\[-1.8ex] 
+Observations & 6,428 & 6,428 & 6,428 \\ 
+R$^{2}$ & 0.3729 & 0.4094 & 0.1887 \\ 
+RMSE & 8.9305 & 73.53 & 0.9145 \\ \hline 
+\hline \\[-1.8ex]  
+\multicolumn{4}{l}{\footnotesize \textit{Note:} The significance levels equal {$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01}.  Furthermore,} \\ \multicolumn{4}{l}{\footnotesize robust standard errors (HC1) are displayed. Values are rounded to four decimal} \\ \multicolumn{4}{l}{\footnotesize places. Excluded Stadiums: Packers, Seahawks, Patriots.}
+  \end{tabular}
+\end{table} 
+
+
+\begin{table}[!htbp] \centering 
+  \caption{Effect of AQI on Quarterbacks' Performance (Attempts, Yards, Interceptions)} 
+  \label{A:T3} 
+\begin{tabular}{@{\extracolsep{5pt}}lccc} 
+\hline \\[-1.8ex] 
+& \multicolumn{3}{c}{\textit{Dependent Variable:}} \\ \cline{2-4} \\ [-1.8ex]
+& Attempts & Yards & Interceptions \\ 
+& (1) & (2) & (3)\\ \hline \\[-1.8ex] 
+\underline{\textit{Effect AQI}}\\[0.4cm]
+$\hat{\beta}_{closed}$& 0.0095 & 0.0855 & -0.0036$^{**}$ \\ 
+& (0.0124)  & (0.1051)& (0.0013) \\[0.4cm]
+$\hat{\beta}_{open}$& -0.0120 & 0.0766 & -0.0008\\ 
+& (0.0078) & (0.0679) & (0.0008) \\[0.4cm]
+$\hat{\beta}_{retractable}$& -0.0084 & 0.0185 & -0.0005 \\ 
+& (0.0080) & (0.0623) & (0.0008)\\ [0.4cm]
+\underline{\textit{Controls}} \\[0.4cm]
+Offense $\times$ Season Fixed Effect & $\surd$ & $\surd$ & $\surd$ \\[0.4cm]
+Defense $\times$ Season Fixed Effect & $\surd$ & $\surd$  & $\surd$ \\[0.4cm]
+Quarterback Individual Effect & $\surd$ & $\surd$ & $\surd$  \\[0.4cm]
+Weather $\times $ Stadiumtype & $\surd$ & $\surd$ & $\surd$ \\[0.4cm]
+Away Performance & $\surd$ & $\surd$ & $\surd$\\
+\hline \\[-1.8ex] 
+Observations & 7,095 & 7,095 & 7,095 \\ 
+R$^{2}$ & 0.3661 & 0.3981 & 0.1832 \\ 
+RMSE & 8.9061 & 73.825 & 0.9074 \\ \hline 
+\hline \\[-1.8ex]  
+\multicolumn{4}{l}{\footnotesize \textit{Note:} The significance levels equal {$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01}.  Furthermore,} \\ \multicolumn{4}{l}{\footnotesize robust standard errors (HC1) are displayed. Values are rounded to four decimal} \\ \multicolumn{4}{l}{\footnotesize places. AQI displays AQI value of the highest measured pollutant.}
+  \end{tabular}
+\end{table} 
 \end{document}
