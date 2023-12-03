@@ -412,7 +412,7 @@ replace PM10 = AQI if PM10 > AQI												// capturing overly estimated values
 gen Diff = PM10 - AQI
 
 save "$data\Full.dta", replace
-blocker 																		// to stop running the code here 
+* blocker 																		// to stop running the code here 
 
 * 5 Descriptive Statistics *
 *graph box PM10, by(, title(`"PM10 Concentration per Location"')) by(Place, iscale(*0.8))
@@ -424,7 +424,7 @@ blocker 																		// to stop running the code here
 sum Rating Attempts Completion Completion_Percentage Yds INTs INT_Percentage ///
 Passing_Sucess_Rate PM10 Percipitation Temperature
 
-bysort Stadiumtype: sum Rating Attempts Completions Completion_Percentage Yds ///
+bysort Stadiontype: sum Rating Attempts Completion Completion_Percentage Yds ///
 INTs INT_Percentage Passing_Sucess_Rate Away PM10 Percipitation Temperature
 
 * 6 Regressions *
