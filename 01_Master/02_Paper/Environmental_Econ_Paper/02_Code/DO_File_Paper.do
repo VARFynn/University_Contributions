@@ -571,4 +571,49 @@ i.Opponent_N##Season,vce(robust)
 
 
 * Just by adding a team fixed effect, every observed effect vanishes....
-* However, Many Thanks to @Jeremy for provide the relevant code. 
+* However, Many Thanks to @Jeremy for providing the relevant code. 
+
+* 7.4 Feedback by Reviewer:  -> Included in Appendix Comparison Table 
+* ''Have you tried Game-Fixed Effects - to cover seasonaility and within variance?''
+
+*1c
+reg Attempts c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season i.Game,vce(robust)
+
+reg Yds c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season i.Game,vce(robust)
+
+
+* ''Try including a measure for "Starting Quarterbacks"''
+egen Player_Count = count(Player_N), by(Player_N Season)
+
+*1d
+reg Attempts c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season if Player_Count >4,vce(robust)
+
+*1e
+reg Yds c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season if Player_Count >4,vce(robust)
+
+reg Attempts c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season if Player_Count >9,vce(robust)
+
+reg Yds c.PM10#i.Stadiontype_N i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season if Player_Count >9,vce(robust)
+
+
+* ''Give also general "Beta" - not distinguishing by stadiumtype''
+*1f
+reg Attempts c.PM10 i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season,vce(robust)
+
+reg Yds c.PM10 i.Stadiontype_N#c.Temperature ///
+Away i.Stadiontype_N#c.Percipitation i.Player_N i.Team_N##Season ///
+i.Opponent_N##Season,vce(robust)
