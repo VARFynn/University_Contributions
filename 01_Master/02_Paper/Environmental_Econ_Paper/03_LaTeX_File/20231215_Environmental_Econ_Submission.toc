@@ -6,7 +6,7 @@
 \contentsline {section}{\numberline {3}Data and Descriptive Statistics}{4}{section.3}%
 \contentsline {section}{\numberline {4}Empirical Framework}{6}{section.4}%
 \contentsline {section}{\numberline {5}Results and Discussion}{8}{section.5}%
-\contentsline {section}{\numberline {6}Summary and Concluding Remarks}{9}{section.6}%
+\contentsline {section}{\numberline {6}Summary and Concluding Remarks}{10}{section.6}%
 \contentsline {section}{References}{iv}{section.6}%
 \contentsline {section}{\numberline {A}Further Figures}{vii}{appendix.A}%
 \contentsline {section}{\numberline {B}Further Tables}{xi}{appendix.B}%
