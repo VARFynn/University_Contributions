@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.24)  11 DEC 2023 17:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.24)  14 DEC 2023 13:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -718,7 +718,7 @@ Here is how much of TeX's memory you used:
  35438 multiletter control sequences out of 15000+600000
  523033 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,76p,2164b,729s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,76p,2164b,733s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Fynn\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
 c/dpi600\tcti1000.pk> <C:\Users\Fynn\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
 pen/ec/dpi600\tcrm1200.pk><C:/Users/Fynn/AppData/Local/Programs/MiKTeX/fonts/ty
@@ -744,7 +744,7 @@ s/Fynn/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
 <C:/Users/Fynn/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmt
 t12.pfb><C:/Users/Fynn/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
 s/symbols/msbm10.pfb>
-Output written on 20231215_Environmental_Econ_Submission.pdf (27 pages, 895853 
+Output written on 20231215_Environmental_Econ_Submission.pdf (27 pages, 895846 
 bytes).
 PDF statistics:
  597 PDF objects out of 1000 (max. 8388607)
