@@ -252,17 +252,14 @@ plt.show()
 
 # %%
 
+# Libraries
+
+
+#import Functions.Steady_State as steady 
+
 import numpy as np
 import sys
-from scipy.linalg import solve
 import matplotlib.pyplot as plt
-
-# Parameters
-delta = 1
-rho = 100 
-r = 1
-n = 500 
-tol = 1e-12
 
 def production_function(x, y):
     return x * y
@@ -270,98 +267,63 @@ def production_function(x, y):
 def solve_model(n, delta, rho, r, production_function, tol):
     theta = rho / (2 * (r + delta))
     
-    # Setup
     grid = np.linspace(1 / n / 2, 1 - 1 / n / 2, n)
-    l_density = np.ones(n)
+    l_density = 1 
     alphas = np.ones((n, n))
-    u_density = np.repeat(0.5, n)
-    values = np.zeros(n)
+    u_density = np.repeat(0., n)  
     
-    # Matrix setup
-    In = np.eye(n)  # Identity matrix of size n
-    Jn = np.ones((n, n))  # Square all-one matrix of size n x n
-    
-    # Compute payoffs (F matrix)
-    F = np.empty([n, n])
+    payoffs = np.empty([n, n])
     for i in range(n):
         x = grid[i]
         for j in range(n):
             y = grid[j]
-            F[i, j] = production_function(x, y)
+            payoffs[i, j] = production_function(x, y)
     
-    # Main iteration loop
-    max_diff = float('inf')
+    keep_iterating = True
     iteration = 0
-    max_iter = 1000
-
-    while max_diff > tol and iteration < max_iter:
-        old_values = values.copy()
-        old_alphas = alphas.copy()
-        old_u_density = u_density.copy()
-
-        # 1. Fixed point iteration over density
-        e = sys.float_info.max
+    max_iterations = 10000
+    
+    while keep_iterating and iteration < max_iterations:
+        alphas_old = alphas.copy()
         u_prev = u_density.copy()
+        
+        # Iterate on unemployment density
+        e = sys.float_info.max
         while e > tol:
-            u_new = delta * l_density / (delta + rho * np.sum(alphas * u_prev, axis=1) / n)
-            e = np.linalg.norm(u_prev - u_new)
-            u_prev = u_new.copy()
-        u_density = u_new
-
-        # 2. Update values using equation (6b)
-        # So this is from normal form intro matrix form converted (see my old school paper)
-        # (A diag(u) + In ∘ (n/θ Jn + Au))v = (F ∘ A)u
+            u_density = delta * l_density / (delta + rho * np.dot(alphas, u_prev) / n)
+            e = np.linalg.norm(u_prev - u_density)
+            u_prev = u_density.copy()
         
-        # Left side matrix construction
-        A_diag_u = alphas @ np.diag(u_density)
-        Au = alphas @ u_density
-        scaled_Jn = (n/theta) * Jn
-        second_term = In * (scaled_Jn + np.outer(Au, np.ones(n)))  # Hadamard product with In
-        left_matrix = A_diag_u + second_term
+        # Update alphas based on surplus comparison
+        surplus = payoffs / (r + delta)
+        alphas = (surplus > theta).astype(float)
         
-        # Right side vector construction
-        right_vector = (F * alphas) @ u_density  # Hadamard product of F and A, then multiply by u
+        # Check convergence
+        if np.all(np.abs(alphas - alphas_old) < tol):
+            keep_iterating = False
         
-        # Solve the system
-        # Without using solve(), we would need to invert the matrix manually:
-        values = solve(left_matrix, right_vector)
-
-        # 3. Now, we need to update the alpahas (matching sets)
-        new_alphas = np.zeros((n, n))
-        for i in range(n):
-            for j in range(n):
-                if F[i,j] >= values[i] + values[j]:
-                    new_alphas[i,j] = 1
-        alphas = new_alphas
-
-        # 4. And then check convergence
-        max_diff = max(
-            np.max(np.abs(values - old_values)),
-            np.max(np.abs(alphas - old_alphas)),
-            np.max(np.abs(u_density - old_u_density))
-        )
-
         iteration += 1
-        if iteration % 10 == 0:
-            print(f"Iteration {iteration}, max difference: {max_diff}")
-
-    # Plot results
-    plt.figure(figsize=(8, 8))
-    plt.imshow(alphas, origin='lower', extent=[0, 1, 0, 1], cmap='Greys')
-    plt.xlabel('x')
-    plt.ylabel('y')
-    plt.title('Equilibrium Matching Sets')
-    plt.axis('square')
-    plt.show()
-
-    return {
-        'grid': grid,
-        'values': values,
-        'alphas': alphas,
-        'u_density': u_density,
-        'converged': max_diff <= tol
-    }
+    
+    return grid, alphas, payoffs
 
 # Run the model
-results = solve_model(n, delta, rho, r, production_function, tol)
-print("Convergence achieved:", results['converged'])
+n = 500
+delta = 1
+rho = 100
+r = 1
+tol = 1e12
+
+grid, alphas, payoffs = solve_model(n, delta, rho, r, production_function, tol)
+
+# Create the plot
+plt.figure(figsize=(8, 8))
+X, Y = np.meshgrid(grid, grid)
+plt.pcolormesh(X, Y, alphas.T, cmap='Greys', shading='auto')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Equilibrium Matching Sets')
+plt.axis('square')
+plt.xlim(0, 1)
+plt.ylim(0, 1)
+plt.grid(True)
+plt.show()
