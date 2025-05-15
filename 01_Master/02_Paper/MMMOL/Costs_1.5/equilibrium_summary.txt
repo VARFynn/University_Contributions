@@ -1,0 +1,16 @@
+Version: 1.5 | Date: 2025-05-14
+
+--- Equilibrium summary ---------------------------------------
+High School Graduates         : 77296 graduates
+Total students admitted       : 66373 students
+Total capacity                : 66373 seats
+College attendance rate       : 0.859
+Capacity utilization          : 1.000
+
+--- With parameters ------------------------------------------
+T     = 54
+r     = 0.03
+alpha = 1
+beta  = 1.2
+gamma = -0.15
+length= 3

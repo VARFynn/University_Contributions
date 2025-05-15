@@ -1,0 +1,19 @@
+Version: 1.5 | Date: 2025-05-13
+
+--- Directed-search summary ---------------------------------------
+Graduates                      : 77,296
+Applications submitted        : 153,150
+Applications per Graduate      : 1.98
+Admitted students             : 53,789
+Total capacity                : 66,373
+College attendance rate       : 0.696
+
+--- With parameters ----------------------------------------------
+T        = 54
+r        = 0.03
+alpha    = 1
+beta     = 1.2
+gamma    = -0.2
+length   = 3
+omega    = 0.5
+k_base   = 0.02
